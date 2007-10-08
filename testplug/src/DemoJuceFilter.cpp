@@ -116,6 +116,18 @@ void DemoJuceFilter::releaseResources()
     // spare memory, etc.
 }
 
+void DemoJuceFilter::doStuff(const AudioSampleBuffer& buf){
+	for(int channel=0;channel<buf.getNumChannels();channel++){
+		float* d = buf.getSampleData(channel);
+		for(int i=0;i<buf.getNumSamples();i++){
+			if (i%2 == 0) {
+				*(d+i) *= -1;
+			}
+		}
+	}
+
+}
+
 void DemoJuceFilter::processBlock (const AudioSampleBuffer& input,
                                    AudioSampleBuffer& output,
                                    const bool accumulateOutput,
@@ -145,6 +157,9 @@ void DemoJuceFilter::processBlock (const AudioSampleBuffer& input,
     }
     else
     {
+	
+		doStuff(input);
+	
         // if we're not accumulating, the output buffer's contents are undefined
         // (don't assume they're zero!) and we should overwrite it.
 

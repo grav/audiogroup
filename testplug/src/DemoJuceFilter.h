@@ -53,6 +53,8 @@ public:
     void JUCE_CALLTYPE prepareToPlay (double sampleRate, int samplesPerBlock);
     void JUCE_CALLTYPE releaseResources();
 
+	void JUCE_CALLTYPE doStuff(const AudioSampleBuffer& buf);
+	
 	void JUCE_CALLTYPE processBlock (const AudioSampleBuffer& input,
                                      AudioSampleBuffer& output,
                                      const bool accumulateOutput,
