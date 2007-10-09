@@ -159,7 +159,6 @@ void DemoJuceFilter::processBlock (const AudioSampleBuffer& input,
     {
 	
 		doStuff(input);
-	
         // if we're not accumulating, the output buffer's contents are undefined
         // (don't assume they're zero!) and we should overwrite it.
 
