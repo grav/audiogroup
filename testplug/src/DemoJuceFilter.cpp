@@ -31,6 +31,7 @@
 
 #include "DemoJuceFilter.h"
 #include "DemoEditorComponent.h"
+#include <queue>
 
 
 //==============================================================================
@@ -47,6 +48,8 @@ AudioFilterBase* JUCE_CALLTYPE createPluginFilter()
 DemoJuceFilter::DemoJuceFilter()
 {
     gain = 1.0f;
+	impulseResponseLength=1;
+
     lastUIWidth = 400;
     lastUIHeight = 140;
 
@@ -61,6 +64,22 @@ DemoJuceFilter::~DemoJuceFilter()
 }
 
 //==============================================================================
+void DemoJuceFilter::fillFilter(float newValue){
+	for(int i=0;i<newValue;i++){
+		//ir[i]=.5;
+		//ir[i]=(-1*i%2)+(i+1)%2;
+		ir[i]=1/(float)newValue;
+	}
+}
+
+
+void DemoJuceFilter::fillQueue(int length){
+	for(int i=0;i<length;i++){
+		q.push(0.0f);
+	}
+}
+
+
 int DemoJuceFilter::getNumParameters()
 {
     return 1;
@@ -68,29 +87,54 @@ int DemoJuceFilter::getNumParameters()
 
 float DemoJuceFilter::getParameter (int index)
 {
-    return (index == 0) ? gain
-                        : 0.0f;
+	switch(index){
+		case 0: return impulseResponseLength;
+		case 1: return impulseResponseLength;
+		default: return 0.0f;
+	}
+
+//    return (index == 0) ? gain : 0.0f;
 }
 
 void DemoJuceFilter::setParameter (int index, float newValue)
 {
-    if (index == 0)
-    {
-        if (gain != newValue)
-        {
-            gain = newValue;
+	switch(index){
+/*		case 2:
+			if (gain != newValue)
+			{
+				gain = newValue;
 
-            // if this is changing the gain, broadcast a change message which
-            // our editor will pick up.
-            sendChangeMessage (this);
-        }
+				// if this is changing the gain, broadcast a change message which
+				// our editor will pick up.
+				sendChangeMessage (this);
+			}
+			break;
+*/
+		case 0:
+			if(impulseResponseLength != newValue){
+				fillFilter(newValue);
+				
+				// See to that the queue is aligned with the new length of the IR
+				if(newValue>impulseResponseLength){
+					fillQueue(newValue-impulseResponseLength);
+				} else {
+					for(int i=0;i<impulseResponseLength-newValue;i++){
+						q.pop();
+					}
+				}
+
+				impulseResponseLength = newValue;
+				sendChangeMessage (this);
+			}
+			break;
     }
+	
 }
 
 const String DemoJuceFilter::getParameterName (int index)
 {
     if (index == 0)
-        return T("gain");
+        return T("filter");
 
     return String::empty;
 }
@@ -107,6 +151,12 @@ const String DemoJuceFilter::getParameterText (int index)
 void DemoJuceFilter::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // do your pre-playback setup stuff here..
+
+	// Fill queue with 0's 
+	fillQueue(impulseResponseLength);
+	// Fill ir with stuff
+	fillFilter(impulseResponseLength);
+
     keyboardState.reset();
 }
 
@@ -123,6 +173,28 @@ void DemoJuceFilter::doStuff(const AudioSampleBuffer& buf){
 			if (i%2 == 0) {
 				*(d+i) *= -1;
 			}
+		}
+	}
+
+}
+
+// Convolution
+void DemoJuceFilter::conv(const AudioSampleBuffer& buf){
+	float s;
+	for(int channel=0;channel<buf.getNumChannels();channel++){
+		float* y = buf.getSampleData(channel);
+		for(int n=0;n<buf.getNumSamples();n++){
+			// add n to queue
+			s=0;
+			for(int k=0;k<impulseResponseLength;k++){
+				if(n+k<buf.getNumSamples()){
+					q.pop();
+					q.push(y[n+k]);
+				}
+				//if(ir[k]*q.front()>.) int x=1/0;
+				s+=ir[k]*q.front();
+			}
+			y[n]=s;
 		}
 	}
 
@@ -158,7 +230,7 @@ void DemoJuceFilter::processBlock (const AudioSampleBuffer& input,
     else
     {
 	
-		doStuff(input);
+		conv(input);
         // if we're not accumulating, the output buffer's contents are undefined
         // (don't assume they're zero!) and we should overwrite it.
 
@@ -266,3 +338,4 @@ void DemoJuceFilter::setStateInformation (const void* data, int sizeInBytes)
         delete xmlState;
     }
 }
+

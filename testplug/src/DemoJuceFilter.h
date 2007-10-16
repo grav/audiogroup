@@ -33,7 +33,7 @@
 #define DEMOJUCEPLUGINFILTER_H
 
 #include "../../wrapper/juce_AudioFilterBase.h"
-
+#include <queue>
 
 //==============================================================================
 /**
@@ -53,7 +53,13 @@ public:
     void JUCE_CALLTYPE prepareToPlay (double sampleRate, int samplesPerBlock);
     void JUCE_CALLTYPE releaseResources();
 
+	void JUCE_CALLTYPE fillFilter(float newValue);
+
+	void JUCE_CALLTYPE fillQueue(int length);
+
 	void JUCE_CALLTYPE doStuff(const AudioSampleBuffer& buf);
+
+	void JUCE_CALLTYPE conv(const AudioSampleBuffer& buf);
 	
 	void JUCE_CALLTYPE processBlock (const AudioSampleBuffer& input,
                                      AudioSampleBuffer& output,
@@ -107,6 +113,13 @@ private:
     // this is our gain - the UI and the host can access this by getting/setting
     // parameter 0.
     float gain;
+
+	std::queue<float> q;
+
+	int impulseResponseLength;
+
+	float ir[1000];
+
 };
 
 

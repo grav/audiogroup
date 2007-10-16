@@ -76,7 +76,7 @@ DemoEditorComponent::DemoEditorComponent (DemoJuceFilter* const ownerFilter)
     // create our gain slider..
     addAndMakeVisible (gainSlider = new Slider (T("gain")));
     gainSlider->addListener (this);
-    gainSlider->setRange (0.0, 1.0, 0.01);
+    gainSlider->setRange (1, 100, 1);
     gainSlider->setTooltip (T("changes the volume of the audio that runs through the plugin.."));
 
     // get the gain parameter from the filter and use it to set up our slider
@@ -145,7 +145,10 @@ void DemoEditorComponent::changeListenerCallback (void* source)
 
 void DemoEditorComponent::sliderValueChanged (Slider*)
 {
-    getFilter()->setParameterNotifyingHost (0, (float) gainSlider->getValue());
+	DemoJuceFilter* const filter = getFilter();
+	filter->getCallbackLock().enter();
+    filter->setParameterNotifyingHost (0, (float) gainSlider->getValue());
+    filter->getCallbackLock().exit();
 }
 
 //==============================================================================

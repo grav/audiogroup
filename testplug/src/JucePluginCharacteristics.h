@@ -126,7 +126,7 @@
 
 /** Set this value to 1 if your plugin is a synth, or 0 if it isn't.
 */
-#define JucePlugin_IsSynth                          1
+#define JucePlugin_IsSynth                          0
 
 /** Set this to 1 if your plugin needs to receive midi messages, or 0 if
     it doesn't.
