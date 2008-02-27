@@ -26,5 +26,6 @@
 #define __DCT_H__
 
 double *dct(double *m, int size);
+double *idct(double *m, int size);
 
 #endif/*__DCT_H__*/

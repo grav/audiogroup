@@ -81,16 +81,26 @@ void MainWindow::ding()
 
       double *dct_m = dct(m, size);
 
+      // quantize
+      int qx,qy;
+      for(qy=0; qy<size; qy++)
+        for(qx=0; qx<size; qx++)
+          if(qx > 1 || qy > 1) dct_m[qy * size + qx] = 0.0;
+
+      // eoq
+
+      double *idct_m = idct(dct_m, size);
+
       for(int dx = 0; dx < size; dx++) {
         for(int dy = 0; dy < size; dy++) {
             dst_img->setPixel(x + dx, y + dy,
-                              qRgb(dct_m[dy * size + dx],
-                                   dct_m[dy * size + dx],
-                                   dct_m[dy * size + dx])
+                              qRgb(idct_m[dy * size + dx],
+                                   idct_m[dy * size + dx],
+                                   idct_m[dy * size + dx])
                               );
         }
       }
-      
+      repaint();
       free(m);
       free(dct_m);
     }
