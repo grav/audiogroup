@@ -144,7 +144,7 @@ void idct(double data[8][8],
 }
 
 
-
+/*
 int main()
 {
   int x,y;
@@ -178,3 +178,4 @@ int main()
 
   return 0;
 }
+*/
