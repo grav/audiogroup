@@ -26,21 +26,30 @@
 
 #include "jpeg_viewer.h"
 
+#include "dct.h"
+
 #include <QVBoxLayout>
 #include <QImage>
+
+#include <QPushButton>
 
 MainWindow::MainWindow()
 {
   QVBoxLayout *l = new QVBoxLayout();
   setLayout(l);
 
-  QImage *img1 = new QImage("thomas.jpg");
-  QImage *img2 = new QImage("thomas.jpg");
+  QPushButton *btn = new QPushButton("ding");
+  l->addWidget(btn);
+  connect(btn, SIGNAL(clicked()), this, SLOT(ding()));
 
-  JpegViewer *v1 = new JpegViewer(this, img1);
+  src_img = new Image("thomas.jpg");
+  dst_img = new Image("thomas.jpg");
+//img1->width(), img1->height(), QImage::Format_RGB32);
+
+  JpegViewer *v1 = new JpegViewer(this, src_img);
   l->addWidget(v1);
 
-  JpegViewer *v2 = new JpegViewer(this, img2);
+  JpegViewer *v2 = new JpegViewer(this, dst_img);
   l->addWidget(v2);
 
   resize(600, 600);
@@ -49,4 +58,43 @@ MainWindow::MainWindow()
 MainWindow::~MainWindow()
 {
 
+}
+
+void MainWindow::ding()
+{
+  /*
+  for(int i = 0; i < 10000; i++) {
+    dst_img->setPixel(rand() % dst_img->width(), rand() % dst_img->height(),
+                      qRgb(rand() % 255, rand() % 255, rand() % 255));
+  }
+  repaint();
+  */
+
+  int size = 8;
+
+  src_img->setSubmatrixSize(size);
+  dst_img->setSubmatrixSize(size);
+
+  for(int x = 0; x < src_img->width(); x += size) {
+    for(int y = 0; y < src_img->height(); y += size) {
+      double *m = src_img->getYSubmatrix(x, y);
+
+      double *dct_m = dct(m, size);
+
+      for(int dx = 0; dx < size; dx++) {
+        for(int dy = 0; dy < size; dy++) {
+            dst_img->setPixel(x + dx, y + dy,
+                              qRgb(dct_m[dy * size + dx],
+                                   dct_m[dy * size + dx],
+                                   dct_m[dy * size + dx])
+                              );
+        }
+      }
+      
+      free(m);
+      free(dct_m);
+    }
+  }
+
+  repaint();
 }

@@ -30,18 +30,7 @@
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-  /*
-	if(argc < 2) {
-		fprintf(stderr, "Usage: %s [imagefile]\n", argv[0]);
-	}
 
-	QImage image(argv[1]);
-
-	printf("Printing the value of the red colour in the first pixel row of the image:\n");
-	for(int i = 0; i < image.width(); i++) {
-		printf("%3d %3d\n", i, qRed(image.pixel(i, 0)));
-	}
-  */
   MainWindow win;
   win.show();
 

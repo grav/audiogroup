@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *           image.h
+ *           dct.h
  *
  *  Tue Feb 12 14:30:50 CET 2008
  *  Copyright 2008 Bent Bisballe Nyeng
@@ -22,27 +22,9 @@
  *  along with it; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#ifndef __IMAGE_H__
-#define __IMAGE_H__
+#ifndef __DCT_H__
+#define __DCT_H__
 
-#include <QImage> 
+double *dct(double *m, int size);
 
-class Image : public QImage {
-public:
-  Image(char *filename, int size = 8);
-  ~Image();
-
-  void setSubmatrixSize(int size);
-
-  double *getYSubmatrix(int x, int y);
-  double *getCbSubmatrix(int x, int y);
-  double *getCrSubmatrix(int x, int y);
-
-private:
-  int size;
-};
-
-#endif/*__IMAGE_H__*/
-
-
-// deadline naeste onsdag d.5/3 - fremlaegger d.7/3
+#endif/*__DCT_H__*/

@@ -26,6 +26,7 @@
 #define __MAINWINDOW_H__
 
 #include <QDialog>
+#include "image.h"
 
 class MainWindow : public QDialog {
 Q_OBJECT
@@ -34,9 +35,11 @@ public:
   ~MainWindow();
 
 public slots:
+  void ding();
 
 private:
-
+  Image *src_img;
+  Image *dst_img;
 };
 
 #endif/*__MAINWINDOW_H__*/

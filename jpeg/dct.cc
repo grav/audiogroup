@@ -50,34 +50,67 @@ double a[8][8] =
 	if (v == 0) Cv = 1.0 / sqrt(2.0); else Cv = 1.0; \
 	}
 
-void dct(double data[8][8],
-	const int xpos, const int ypos)
+
+double *dct(double *m, int size)
 {
-	int u,v,x,y;
+  int u,v,x,y;
+  double *data = (double*)malloc(size * size * sizeof(double));
+
+
+  for (v=0; v<size; v++) {
+    for (u=0; u<size; u++) {
+	double Cu, Cv, z = 0.0;
 	
-	for (v=0; v<8; v++)
-	for (u=0; u<8; u++)
-	{
-		double Cu, Cv, z = 0.0;
-
-		COEFFS(Cu,Cv,u,v);
-
-		for (y=0; y<8; y++)
-		for (x=0; x<8; x++)
-		{
-			double s, q;
-
-			s = pixel(x+xpos, y+ypos);
-
-			q = s * cos((double)(2*x+1) * (double)u * PI/16.0) *
-				cos((double)(2*y+1) * (double)v * PI/16.0);
-
-			z += q;
-		}
-
-		data[v][u] = 0.25 * Cu * Cv * z;
+	COEFFS(Cu,Cv,u,v);
+	
+	for(y = 0; y < size; y++) {
+	  for(x = 0; x < size; x++) {
+	    double s, q;
+	      
+	    s = m[y * size + x];//pixel(x, y);
+	      
+	    q = s * cos((double)(2*x+1) * (double)u * PI/16.0) *
+	      cos((double)(2*y+1) * (double)v * PI/16.0);
+	      
+	    z += q;
+	  }
 	}
+	//data[v][u] = 0.25 * Cu * Cv * z;
+	data[v * size + u] = 0.25 * Cu * Cv * z;
+      }
+  }
+
+  return data;
 }
+/*
+void dct(double data[8][8])
+{
+  int u,v,x,y;
+  
+  for (v=0; v<8; v++)
+    for (u=0; u<8; u++)
+      {
+	double Cu, Cv, z = 0.0;
+	
+	COEFFS(Cu,Cv,u,v);
+	
+	for (y=0; y<8; y++)
+	  for (x=0; x<8; x++)
+	    {
+	      double s, q;
+	      
+	      s = pixel(x, y);
+	      
+	      q = s * cos((double)(2*x+1) * (double)u * PI/16.0) *
+		cos((double)(2*y+1) * (double)v * PI/16.0);
+	      
+	      z += q;
+	    }
+	
+	data[v][u] = 0.25 * Cu * Cv * z;
+      }
+}
+*/
 
 /* play with this bit */
 void quantize(double dct_buf[8][8])
