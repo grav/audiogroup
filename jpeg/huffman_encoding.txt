@@ -1,0 +1,44 @@
+# Pseudo-kode for huffman encoding of DCT coefficient matrix
+# Some normalization of coefficient matrix is missing
+
+# make array of block dimensions
+block_dim = 8
+c[block_dim^2]
+
+# set initial dc value
+prev_dc = 0
+
+for each block
+
+  # stream of dc difference values
+  dc_stream = ""
+  # stream of ac values
+  ac_stream = ""
+
+  # zig zag through matrix and fill array c with coefficients
+  ...
+
+  # encode dc value
+  dc_diff = c[0] - prev_dc
+  prev_dc = c[0]
+  size = log2(dc_diff)
+  dc_stream += size + bin(dc_diff)
+
+  # encode ac values
+  runlength = 0
+  for i = 1..block_dim^2-1
+    if c[i]==0 then
+      runlength+=1
+    else
+      size = log2(c[i])
+      ac_stream += code(runlength,size)
+      runlength=0
+    end
+    # make EOB
+    ac_stream += EOB
+  end
+
+  stream += dc_stream + ac_stream
+
+end
+
