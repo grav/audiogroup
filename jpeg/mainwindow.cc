@@ -31,6 +31,8 @@
 #include <QVBoxLayout>
 #include <QImage>
 
+#include <QApplication>
+
 #include <QPushButton>
 
 MainWindow::MainWindow()
@@ -52,6 +54,9 @@ MainWindow::MainWindow()
   JpegViewer *v2 = new JpegViewer(this, dst_img);
   l->addWidget(v2);
 
+ 
+  connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
+
   resize(600, 600);
 }
 
@@ -60,51 +65,74 @@ MainWindow::~MainWindow()
 
 }
 
+void MainWindow::timeout()
+{
+  repaint();
+  qApp->processEvents();
+}
+
+
+void quantize(double *m, int size)
+{
+  // quantize
+  int qx,qy;
+  for(qy = 0; qy < size; qy++)
+    for(qx = 0; qx < size; qx++)
+      if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+}
+
 void MainWindow::ding()
 {
-  /*
-  for(int i = 0; i < 10000; i++) {
-    dst_img->setPixel(rand() % dst_img->width(), rand() % dst_img->height(),
-                      qRgb(rand() % 255, rand() % 255, rand() % 255));
-  }
-  repaint();
-  */
+  timer.start(100);
 
-  int size = 8;
+  border_t border = ZERO;//COPY_LAST;
+  channel_t channel = Y;
+  int size = 21;
 
   src_img->setSubmatrixSize(size);
   dst_img->setSubmatrixSize(size);
 
   for(int x = 0; x < src_img->width(); x += size) {
     for(int y = 0; y < src_img->height(); y += size) {
-      double *m = src_img->getYSubmatrix(x, y);
+      double *m_Y = src_img->getSubmatrix(x, y, Y, border);
+      double *m_Cr = src_img->getSubmatrix(x, y, Cr, border);
+      double *m_Cb = src_img->getSubmatrix(x, y, Cb, border);
 
-      double *dct_m = dct(m, size);
-
-      // quantize
-      int qx,qy;
-      for(qy=0; qy<size; qy++)
-        for(qx=0; qx<size; qx++)
-          if(qx > 1 || qy > 1) dct_m[qy * size + qx] = 0.0;
-
+      double *dct_m_Y = dct(m_Y, size);
+      double *dct_m_Cr = dct(m_Cr, size);
+      double *dct_m_Cb = dct(m_Cb, size);
+      /*
+      quantize(dct_m_Y, size);
+      quantize(dct_m_Cr, size);
+      quantize(dct_m_Cb, size);
+      */
       // eoq
 
-      double *idct_m = idct(dct_m, size);
+      double *idct_m_Y = idct(dct_m_Y, size);
+      double *idct_m_Cr = idct(dct_m_Cr, size);
+      double *idct_m_Cb = idct(dct_m_Cb, size);
 
       for(int dx = 0; dx < size; dx++) {
         for(int dy = 0; dy < size; dy++) {
-            dst_img->setPixel(x + dx, y + dy,
-                              qRgb(idct_m[dy * size + dx],
-                                   idct_m[dy * size + dx],
-                                   idct_m[dy * size + dx])
-                              );
+          if((x + dx < dst_img->width()) &&
+             (y + dy < dst_img->height())) {
+            dst_img->setYUVPixel(x + dx, y + dy,
+                                 idct_m_Y[dy * size + dx],
+                                 idct_m_Cr[dy * size + dx],
+                                 idct_m_Cb[dy * size + dx]);
+          }
         }
-      }
-      repaint();
-      free(m);
-      free(dct_m);
+        qApp->processEvents();
+     }
+      free(m_Y);
+      free(m_Cb);
+      free(m_Cr);
+      free(dct_m_Y);
+      free(dct_m_Cr);
+      free(dct_m_Cb);
     }
   }
 
+  timer.stop();
   repaint();
 }

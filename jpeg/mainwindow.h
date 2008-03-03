@@ -26,6 +26,8 @@
 #define __MAINWINDOW_H__
 
 #include <QDialog>
+#include <QTimer>
+
 #include "image.h"
 
 class MainWindow : public QDialog {
@@ -36,10 +38,13 @@ public:
 
 public slots:
   void ding();
+  void timeout();
 
 private:
   Image *src_img;
   Image *dst_img;
+
+  QTimer timer;
 };
 
 #endif/*__MAINWINDOW_H__*/

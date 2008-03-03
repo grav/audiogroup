@@ -68,49 +68,85 @@ void Image::setSubmatrixSize(int sz)
   size = sz;
 }
 
+
+static inline int clip(int a) { if(a > 255) return 255; if(a < 0) return 0; return a; }
+void Image::setYUVPixel(int x, int y, double Y, double Cr, double Cb)
+{
+  /*
+    C = Y - 16
+    D = U - 128
+    E = V - 128
+
+    Using the previous coefficients and noting that clip() denotes clipping a value to the range of 0 to 255,
+    the following formulas provide the conversion from YUV to RGB:
+    
+    R = clip(( 298 * C           + 409 * E + 128) >> 8)
+    G = clip(( 298 * C - 100 * D - 208 * E + 128) >> 8)
+    B = clip(( 298 * C + 516 * D           + 128) >> 8)
+   */
+
+#if 1
+  int C = Y - 16;
+  int D = Cr - 128;
+  int E = Cb - 128;
+
+  int R = clip(( 298 * C           + 409 * E + 128) >> 8);
+  int G = clip(( 298 * C - 100 * D - 208 * E + 128) >> 8);
+  int B = clip(( 298 * C + 516 * D           + 128) >> 8);
+#else
+  int Yi = (int)Y;
+  int Cri = (int)Cr;
+  int Cbi = (int)Cb;
+
+  int R = clip(( 298.082 * Yi                 + 408.583 * Cri ) / 256 - 222.921);
+  int G = clip(( 298.082 * Yi - 100.291 * Cbi - 208.120 * Cri ) / 256 + 135.576);
+  int B = clip(( 298.082 * Yi + 516.412 * Cbi                 ) / 256 - 276.836);
+#endif
+
+  QRgb rgb = qRgb(R, G, B);
+
+  setPixel(x, y, rgb);
+}
+
+
 #define M(x, y) m[y * size + x]
-double *Image::getYSubmatrix(int x, int y)
+static inline double rgb2yuv(QRgb rgb, channel_t ch)
+{
+  switch(ch) {
+  case Y:
+    return rgb2y(rgb);
+  case Cr:
+    return rgb2cr(rgb);
+  case Cb:
+    return rgb2cb(rgb);
+  }
+}
+
+
+double *Image::getSubmatrix(int x, int y, channel_t ch, border_t border)
 {
   double *m = (double*)malloc(size * size * sizeof(double));
 
   double val;
   for(int dx = 0; dx < size; dx++) {
     for(int dy = 0; dy < size; dy++) {
-      if(x > width()) val = 0.0;
-      else val = rgb2y(pixel(dx + x, dy + y));
+      if(dx + x >= width() || dy + y >= height()) {
+        switch(border) {
+        case ZERO:
+          val = 0.0;
+          break;
+
+        case COPY_LAST:
+          int _x = dx + x;
+          int _y = dy + y;
+          if(dx + x >= width()) _x = width() - 1;
+          if(dy + y >= height()) _y = height() - 1;
+          val = rgb2yuv(pixel(_x, _y), ch);
+        }
+      } else {
+        val = rgb2yuv(pixel(dx + x, dy + y), ch);
+      }
       M(dx, dy) = val;
-    }
-  }
-
-  return m;
-}
-
-double *Image::getCrSubmatrix(int _x, int _y)
-{
-  double *m = (double*)malloc(size * size * sizeof(double));
-
-  double val;
-  for(int x = _x; x < size; x++) {
-    for(int y = _y; y < size; y++) {
-      if(x > width()) val = 0.0;
-      else val = rgb2cr(pixel(x, y));
-      M(x, y) = val;
-    }
-  }
-
-  return m;
-}
-
-double *Image::getCbSubmatrix(int _x, int _y)
-{
-  double *m = (double*)malloc(size * size * sizeof(double));
-
-  double val;
-  for(int x = _x; x < size; x++) {
-    for(int y = _y; y < size; y++) {
-      if(x > width()) val = 0.0;
-      else val = rgb2cb(pixel(x, y));
-      M(x, y) = val;
     }
   }
 

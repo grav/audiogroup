@@ -27,6 +27,17 @@
 
 #include <QImage> 
 
+typedef enum {
+  Y,
+  Cr,
+  Cb
+} channel_t;
+
+typedef enum {
+  ZERO,
+  COPY_LAST
+} border_t;
+
 class Image : public QImage {
 public:
   Image(char *filename, int size = 8);
@@ -34,9 +45,9 @@ public:
 
   void setSubmatrixSize(int size);
 
-  double *getYSubmatrix(int x, int y);
-  double *getCbSubmatrix(int x, int y);
-  double *getCrSubmatrix(int x, int y);
+  double *getSubmatrix(int x, int y, channel_t channel, border_t border = COPY_LAST);
+
+  void setYUVPixel(int x, int y, double Y, double Cr, double Cb);
 
 private:
   int size;
