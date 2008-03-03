@@ -9,5 +9,5 @@ INCLUDEPATH += .
 
 # Input
 
-HEADERS += dct.h image.h jpeg_viewer.h mainwindow.h huffman.h
+HEADERS += dct.h image.h jpeg_viewer.h mainwindow.h huffman.h huffman_tables.h
 SOURCES += dct.cc image.cc jpeg.cc jpeg_viewer.cc mainwindow.cc huffman.cc

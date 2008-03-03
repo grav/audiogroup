@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *           huffman.cc
+ *           huffman.h
  *
  *  Tue Feb 12 14:30:50 CET 2008
  *  Copyright 2008 Bent Bisballe Nyeng
@@ -22,11 +22,13 @@
  *  along with it; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#ifdef __HUFFMAN_H__
+#ifndef __HUFFMAN_H__
 #define __HUFFMAN_H__
 
 #include <string>
 
-std::string huffman(std::string input);
+std::string huffman_encode(double *m, int size)
+
+double *huffman_decode(std::string bits, int size);
 
 #endif/*__HUFFMAN_H__*/

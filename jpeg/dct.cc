@@ -61,7 +61,8 @@ double *dct(double *m, int size)
 	    z += q;
 	  }
 	}
-	data[v * size + u] = /*0.25*/(1.0 / (size / 2.0)) * Cu * Cv * z;
+	data[v * size + u] = /*0.25*/ (1.0 / (size / 2.0)) * Cu * Cv * z;
+	//if( data[v * size + u] < 0) printf("%f\n", data[v * size + u]);
       }
   }
 

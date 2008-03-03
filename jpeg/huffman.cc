@@ -23,9 +23,20 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
 #include "huffman.h"
+#include "huffman_tables.h"
 
-
-std::string huffman(std::string input)
+std::string huffman_encode(double *m, int msize)
 {
-	return "";
+  int run = 0;
+  int size = 0;
+
+  std::string res = chrom_table[run][size];
+
+	return res;
 }
+
+double *huffman_decode(std::string bits, int size)
+{
+  return NULL;
+}
+
