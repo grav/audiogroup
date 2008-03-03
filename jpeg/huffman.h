@@ -27,7 +27,7 @@
 
 #include <string>
 
-std::string huffman_encode(double *m, int size)
+std::string huffman_encode(double *m, int size);
 
 double *huffman_decode(std::string bits, int size);
 
