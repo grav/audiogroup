@@ -34,9 +34,9 @@ for each block
       ac_stream += code(runlength,size)
       runlength=0
     end
-    # make EOB
-    ac_stream += EOB
   end
+  # make EOB
+  ac_stream += EOB
 
   stream += dc_stream + ac_stream
 
