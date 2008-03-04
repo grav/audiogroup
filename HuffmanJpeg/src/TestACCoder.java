@@ -26,12 +26,7 @@ public class TestACCoder extends TestCase {
 		//           |-0/6--|--48-|0/4|-12|0/4|-10|0/4|--8|EOB|
 		assertEquals("11110001100001011110010111010101110001010",
 				lumCoder.encode(new int[]{48,12,10,8}));
-		
-		// 
-//		assertEquals("", lumCoder.encode(
-//				new int[] {48,12,10,2,8,0,6,0,0,4,15,0,7,4,5,13,14,0,3,1,6,3,11,16,33})
-//				);
-		
+				
 	}
 	
 	
