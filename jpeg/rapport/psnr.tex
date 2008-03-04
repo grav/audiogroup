@@ -1,0 +1,15 @@
+For at måle forskellen på det oprindelige og det kvantiserede billede, benyttes PSNR, Peak signal-to-noise ratio. Først beregnes mean squared error, MSE:
+
+MSE = 1/m*n*3 * Sum(i=0..m-1) Sum(j=0..n-1) ( || I_r(i,j) - K_r(i,j) ||^2 + || I_g(i,j) - K_g(i,j) ||^2 + || I_b(i,j) - K_b(i,j) ||^2 ),
+
+hvor I_r er R-kanalen i det oprindelige billede, K_r er R-kanalen i det komprimerede billede osv.
+
+Herefter beregnes PSNR:
+
+PSNR = 10 * log10( (MAX_i^2)/MSE ),
+
+hvor MAX_i er den maksimale pixel-værdi for en enkelt kanal, i vores tilfælde 255 (8 bit).
+
+Vores PSNR er generelt lav, hvilket formodentligt skyldes, at vores konvertering mellem RGB og YCrCb ikke er invers med konverteringen mellem YCrCb. Derved optræder der fejl i hvert eneste pixel, selvom vi helt undlader at kvantisere.
+
+
