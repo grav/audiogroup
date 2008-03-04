@@ -42,3 +42,32 @@ for each block
 
 end
 
+
+func codeword(runlength, size)
+
+  MAX_RUN=16
+  for (int i = 0; i < runlengt / MAX_RUN; i++)
+    codeword(15,0)
+  end
+  
+  codeword(runlength % MAX_RUN,size)
+end
+
+func codeword(runlength, size)
+
+  testsize = size
+
+  code = ""
+  while code==""
+    if runlength = 0 and testsize = 1 code = "00"
+    .
+    .
+    .
+    else:
+      testsize-=1
+  end
+  return ones(size-testsize) + code
+
+end
+
+
