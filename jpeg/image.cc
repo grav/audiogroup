@@ -120,6 +120,7 @@ static inline double rgb2yuv(QRgb rgb, channel_t ch)
   case Cb:
     return rgb2cb(rgb);
   }
+  return -1;
 }
 
 
