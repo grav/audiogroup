@@ -1,0 +1,15 @@
+\section{Kvatisering}
+Kvantisering af vores DCT matrix er den vigtigste del i selve komprimeringen af JPEG, eller dvs. det sted hvor de fleste informationer fjernes fra billedmaterialet.\\
+I vores program benyttes to forskellige måder at kvantisere på.
+\begin{itemtize}
+\item Fjern alle værdier udenfor et bestemt areal.
+\item Fjern alle værdier mindre end et tilsvarende tal i en tabel.
+\end{itemize}
+
+Den sidste metode er den som benyttes i den officielle JPEG standart og vi har da også hentet tabellerne fra denne.\\
+
+Tabellerne kan ses i filen \texttt{quantize.h}.\\
+
+Resultatet af denne kvanitsering oberstiger klart den første metode i kvalitet, men den kan devsærre ikke skaleres i forhold til matrix størrelsen.\\
+
+Vi så os derfor nødsaget til at lave endnu en kvantisering som vi kunne bruge når vi legede med aparte matrix størrelse (andre en 8x8), og valget faldt på metoden hvor vi ganske enkelt fjerner alle værdier udenfor en hvis radius.

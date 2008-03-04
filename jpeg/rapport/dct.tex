@@ -1,0 +1,19 @@
+\section{DCT}
+DCT er \textit{Discrete Cosine Transform} og er en anden måde at lave frekvensanalyse på, på lignende vis som det kendes fra Fourier transformationen.\\
+DCT findes i en lang række forskellige implementationer, hver med deres styrker og svagheder.\\
+Vi implementrede DCT-II og DCT-III som hhv. dct og idct.\\
+DCT-II er defineret som:
+\begin{displaymath}
+X_k =
+ \sum_{n=0}^{N-1} x_n \cos \left[\frac{\pi}{N} \left(n+\frac{1}{2}\right) k \right] \quad \quad k = 0, \dots, N-1.
+\end{displaymath}
+
+DCT-III er defineret som:
+\begin{displaymath}
+X_k = \frac{1}{2} x_0 +
+ \sum_{n=1}^{N-1} x_n \cos \left[\frac{\pi}{N} n \left(k+\frac{1}{2}\right) \right] \quad \quad k = 0, \dots, N-1.
+\end{displaymath}
+
+DCT-II er den inverse til DCT-III og vice versa, hvilket gør at vi kunne bruge dem til dct og idct.\\
+
+Vores DCT implementationer kan ses i filen \texttt{dct.cc}

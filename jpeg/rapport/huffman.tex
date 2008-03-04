@@ -6,7 +6,7 @@ Vi har undladt at implementere DC encoding, og i stedet AC encoder vi alle indga
 
 Frem for at generere en Huffman tabel til et specifikt billede, benytter vi de anbefalede tabeller fra JPEG standard-specifikationen, en for luminans-kanalen, og en for de to krominsanskanaler.
 
-Tabellerne er hardcoded i filen huffman_tables.h. 
+Tabellerne er hardcoded i filen huffman\_tables.h. 
 
 Ved encoding beregnes et (runlength, size) par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parrent slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
 
