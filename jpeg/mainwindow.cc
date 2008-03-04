@@ -269,7 +269,10 @@ void MainWindow::ding()
   */
   
   char buf[512];
-  sprintf(buf, "Working...done. Reduced image from %d bytes to %d bytes (%f%% compression)", width() * height() * 3, out.length() / 8, (out.length() / 8.0) / (width() * height() * 3.0) * 100);
+  sprintf(buf, "Working...done. Reduced image from %d bytes to %d bytes (%f%% compression)",
+          width() * height() * 3,
+          out.length() / 8,
+          (out.length() / 8.0) / (width() * height() * 3.0) * 100);
   status->setText(buf);
   go_btn->setEnabled(true);
 }
