@@ -27,7 +27,7 @@
 
 #include <string>
 
-std::string huffman_ac_encode(double *m, int size);
+std::string huffman_ac_encode(double *m, int size, std::string table[][16]);
 
 double *huffman_ac_decode(std::string codeStream, int blockSize);
 

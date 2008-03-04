@@ -23,7 +23,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
 #include "huffman.h"
-#include "huffman_tables.h"
 #include <math.h>
 #include <assert.h>
 #include <bitset>
@@ -71,7 +70,7 @@ int *zigzag(double *block, int size)
 	int *c = new int[N * M];
 	bool n_inc = true;
 	for (int i = 0; i < M * N; i++) {
-		c[i] = block[m * size + n];
+		c[i] = (int)block[m * size + n];
 		if (n_inc){
 			n++;
 			m--;
@@ -132,11 +131,11 @@ int bitSize(int val)
 {
 		// Values must be normalized
 		assert(val>=0);
-    return log2(val) + 1;
+    return (int)log2(val) + 1;
 }
 
 // Encode single coefficient and runlength
-std::string encodeCoeff(int val, int runlength)
+std::string encodeCoeff(int val, int runlength, std::string table[][16])
 {
 		// Find no. bits to represent number to encode
 		int size = bitSize(val);
@@ -146,15 +145,15 @@ std::string encodeCoeff(int val, int runlength)
 		std::string s = "";
 		for(int i = 0; i < runlength / maxrun; i++) {
       //			s += encode_table[maxrun][0];
-			s += lum_table[maxrun][0];
+			s += table[maxrun][0];
 		}
-		s += lum_table[runlength % maxrun][size];
+		s += table[runlength % maxrun][size];
 		s += int_to_binstring(val);
     //    printf("%d %d [%s][%s]\n", val, runlength, int_to_binstring(val).c_str(), lum_table[runlength % maxrun][size].c_str());
 		return s;
 }
 
-std::string huffman_ac_encode(double *m, int msize)
+std::string huffman_ac_encode(double *m, int msize, std::string table[][16])
 {
   int *mz = zigzag(m, msize);
 
@@ -166,13 +165,13 @@ std::string huffman_ac_encode(double *m, int msize)
 			runlength++;
 		} else {
       //      printf("mz[i] := %d, norm(mz[i]) := %d\n", mz[i], mz[i] + (i==0?DC_ADD:AC_ADD));
-			s += encodeCoeff(mz[i] + (i==0?DC_ADD:AC_ADD), runlength);
+			s += encodeCoeff(mz[i] + (i==0?DC_ADD:AC_ADD), runlength, table);
 			runlength=0;
 		}
 	}
 
   delete[] mz;
-  s += lum_table[0][0]; // End of block
+  s += table[0][0]; // End of block
 	return s;
 }
 
@@ -267,12 +266,13 @@ int[][] antiZigzag(int[] c, int M, int N){
 */
 
 #ifdef TEST_HUFFMAN
+#include "huffman_tables.h"
 
 int main()
 {
   double m[] = { 48, 12, 10, 8 };
 
-  std::string h = huffman_ac_encode(m, 2);
+  std::string h = huffman_ac_encode(m, 2, lum_table);
   printf("[%s]\n", h.c_str());
 }
 

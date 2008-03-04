@@ -28,6 +28,7 @@
 
 #include "dct.h"
 
+#include "huffman_tables.h"
 #include "huffman.h"
 
 #include "quant_tables.h"
@@ -228,9 +229,9 @@ void MainWindow::ding()
       quantize_chrom(dct_m_Cr, size, quality);
       quantize_chrom(dct_m_Cb, size, quality);
 
-      out += huffman_ac_encode(dct_m_Y, size);
-      out += huffman_ac_encode(dct_m_Cr, size);
-      out += huffman_ac_encode(dct_m_Cb, size);
+      out += huffman_ac_encode(dct_m_Y, size, lum_table);
+      out += huffman_ac_encode(dct_m_Cr, size, chrom_table);
+      out += huffman_ac_encode(dct_m_Cb, size, chrom_table);
 
       // eoq
 
