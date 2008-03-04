@@ -33,7 +33,7 @@
 class MainWindow : public QDialog {
 Q_OBJECT
 public:
-  MainWindow();
+  MainWindow(char *imagefile);
   ~MainWindow();
 
 public slots:

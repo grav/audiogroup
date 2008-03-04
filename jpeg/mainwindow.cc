@@ -28,6 +28,8 @@
 
 #include "dct.h"
 
+#include "quant_tables.h"
+#include <math.h>
 #include <QVBoxLayout>
 #include <QImage>
 
@@ -35,7 +37,7 @@
 
 #include <QPushButton>
 
-MainWindow::MainWindow()
+MainWindow::MainWindow(char *imagefile)
 {
   QVBoxLayout *l = new QVBoxLayout();
   setLayout(l);
@@ -44,8 +46,8 @@ MainWindow::MainWindow()
   l->addWidget(btn);
   connect(btn, SIGNAL(clicked()), this, SLOT(ding()));
 
-  src_img = new Image("thomas.jpg");
-  dst_img = new Image("thomas.jpg");
+  src_img = new Image(imagefile);
+  dst_img = new Image(imagefile);
 //img1->width(), img1->height(), QImage::Format_RGB32);
 
   JpegViewer *v1 = new JpegViewer(this, src_img);
@@ -72,22 +74,62 @@ void MainWindow::timeout()
 }
 
 
-void quantize(double *m, int size)
+void printfMatrix(double *m, int size)
 {
-  // quantize
-  int qx,qy;
-  for(qy = 0; qy < size; qy++)
-    for(qx = 0; qx < size; qx++)
-      if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+  for(int qx = 0; qx < size; qx++) {
+    for(int qy = 0; qy < size; qy++) {
+      printf("\t%.2f", m[qy * size + qx]);
+    }
+    printf("\n");
+  }
+}
+
+void quantize_lum(double *m, int size, int quality)
+{
+  if(size == 8) {
+    //    printf("Before:\n");
+    //printfMatrix(m, size);
+    for(int qy = 0; qy < size; qy++) {
+      for(int qx = 0; qx < size; qx++) {
+        if(fabs(m[qy * size + qx]) < quant_lum_table[qy][qx] - quality) m[qy * size + qx]  = 0;
+      }
+    }
+    // printf("After:\n");
+    //printfMatrix(m, size);
+  } else {
+    for(int qy = 0; qy < size; qy++) {
+      for(int qx = 0; qx < size; qx++) {
+        if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+      }
+    }
+  }
+}
+
+void quantize_chrom(double *m, int size, int quality)
+{
+  if(size == 8) {
+    for(int qy = 0; qy < size; qy++) {
+      for(int qx = 0; qx < size; qx++) {
+        if(fabs(m[qy * size + qx]) < quant_chrom_table[qy][qx] - quality) m[qy * size + qx]  = 0;
+      }
+    }
+  } else {
+    for(int qy = 0; qy < size; qy++) {
+      for(int qx = 0; qx < size; qx++) {
+        if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+      }
+    }
+  }
 }
 
 void MainWindow::ding()
 {
-  timer.start(100);
+  timer.start(500);
 
-  border_t border = ZERO;//COPY_LAST;
+  border_t border = COPY_LAST;
   channel_t channel = Y;
-  int size = 21;
+  int size = 8;
+  int quality = 0;
 
   src_img->setSubmatrixSize(size);
   dst_img->setSubmatrixSize(size);
@@ -101,11 +143,11 @@ void MainWindow::ding()
       double *dct_m_Y = dct(m_Y, size);
       double *dct_m_Cr = dct(m_Cr, size);
       double *dct_m_Cb = dct(m_Cb, size);
-      /*
-      quantize(dct_m_Y, size);
-      quantize(dct_m_Cr, size);
-      quantize(dct_m_Cb, size);
-      */
+
+      quantize_lum(dct_m_Y, size, quality);
+      quantize_chrom(dct_m_Cr, size, quality);
+      quantize_chrom(dct_m_Cb, size, quality);
+
       // eoq
 
       double *idct_m_Y = idct(dct_m_Y, size);

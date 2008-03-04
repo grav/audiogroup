@@ -31,7 +31,12 @@ int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
 
-  MainWindow win;
+  if(argc < 2) {
+    printf("Usage: %s image\n", argv[0]);
+    return 1;
+  }
+
+  MainWindow win(argv[1]);
   win.show();
 
 	return app.exec();
