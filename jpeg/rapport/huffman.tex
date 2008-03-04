@@ -1,16 +1,16 @@
-Efter kvantisering har vi reduceret en rÃ¦kke vÃ¦rdier i vores koefficientmatricer til 0'er, og vi kan nu udnytte dette til komprimering ved hjÃ¦lp af Huffman-kodning.
+Efter kvantisering har vi reduceret en række værdier i vores koefficientmatricer til 0'er, og vi kan nu udnytte dette til komprimering ved hjælp af Huffman-kodning.
 
-Iflg. JPEG-standarden encodes DC-differencensen samt AC-vÃ¦rdierne forskelligt. 
+Iflg. JPEG-standarden encodes DC-differencensen samt AC-værdierne forskelligt. 
 
-Vi har undladt at implementere DC encoding, og i stedet AC encoder vi alle indgange i koefficient-tabellen. Dette giver naturligvis ikke en ligesÃ¥ optimal komprimeringsfaktor.
+Vi har undladt at implementere DC encoding, og i stedet AC encoder vi alle indgange i koefficient-tabellen. Dette giver naturligvis ikke en ligeså optimal komprimeringsfaktor.
 
 Frem for at generere en Huffman tabel til et specifikt billede, benytter vi de anbefalede tabeller fra JPEG standard-specifikationen, en for luminans-kanalen, og en for de to krominsanskanaler.
 
 Tabellerne er hardcoded i filen huffman_tables.h. 
 
-Ved encoding beregnes et (runlength, size) par ud fra en koefficient (samt eventuelle fÃ¸rkommende 0-koefficienter). Parrent slÃ¥es op i den relevante tabel, hvorefter resultatet pÃ¥hÃ¦ftes vores bitstream sammen med en binÃ¦r encoding af koefficienten.
+Ved encoding beregnes et (runlength, size) par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parrent slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
 
-Ved decoding genereres et binÃ¦rt sÃ¸getrÃ¦ ud fra den relevante tabel. Vi forsÃ¸ger derpÃ¥ at slÃ¥ en delstreng af bitstreamen op, hvor delstrengen bliver en bit lÃ¦ngere, indtil sÃ¸getrÃ¦et returnerer et (runlength, size) par, hvorefter vi afkoder en koefficient (samt eventuelle 0-koefficienter) og gentager processen.
+Ved decoding genereres et binært søgetræ ud fra den relevante tabel. Vi forsøger derpå at slå en delstreng af bitstreamen op, hvor delstrengen bliver en bit længere, indtil søgetræet returnerer et (runlength, size) par, hvorefter vi afkoder en koefficient (samt eventuelle 0-koefficienter) og gentager processen.
 
-Vi har implementeret decoding men benytter ikke dette, da encoding indtil videre kun benyttes til at estimere stÃ¸rrelsen pÃ¥ det komprimerede billede, og filen altsÃ¥ ikke gemmes pÃ¥ disken.
+Vi har implementeret decoding men benytter ikke dette, da encoding indtil videre kun benyttes til at estimere størrelsen på det komprimerede billede, og filen altså ikke gemmes på disken.
 

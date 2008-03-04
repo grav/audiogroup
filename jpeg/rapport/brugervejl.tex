@@ -1,25 +1,25 @@
 Programmet startes fra kommandolinien med en billedfil som parameter, f.eks. ./jpeg thomas.jpg
 
-Med programmet fÃ¸lger to billeder, et udsnit af et fotografi i hÃ¸j kvalitet, thomas.jpg, samt en stregtegning, stregtegning.png.
+Med programmet følger to billeder, et udsnit af et fotografi i høj kvalitet, thomas.jpg, samt en stregtegning, stregtegning.png.
 
-NÃ¥r programmet startes, vises det indlÃ¦ste billede to gange.
+Når programmet startes, vises det indlæste billede to gange.
 
 I programmets vindue er tre knapper samt to sliders. 
 
 - Go to work
-Knappen Go to work transformerer billedblokke om til frekvensdomÃ¦net vha. DCT, kvantiserer blokkene og transformerer blokkene tilbage til det spatiale domÃ¦ne. Det kvantiserede billede vises nederst.
+Knappen Go to work transformerer billedblokke om til frekvensdomænet vha. DCT, kvantiserer blokkene og transformerer blokkene tilbage til det spatiale domæne. Det kvantiserede billede vises nederst.
 
-Efter endt transformation gives et estimat pÃ¥ komprimeringsgraden mellem den oprindelige, ukomprimerede billeddata og det kvantiserede, Huffman-encodede billede.
+Efter endt transformation gives et estimat på komprimeringsgraden mellem den oprindelige, ukomprimerede billeddata og det kvantiserede, Huffman-encodede billede.
 
 - Reset
 Erstatter det kvantiserede billede med det oprindelige
 
 - Diff
-FremhÃ¦ver de steder pÃ¥ billedet, som er pÃ¥virket af kvantiseringen. Samtidigt beregnes PSNR.
+Fremhæver de steder på billedet, som er påvirket af kvantiseringen. Samtidigt beregnes PSNR.
 
 - Matrix Size
-Bestemmer blokstÃ¸rrelsen ved transformering og kvantisering. Hvis stÃ¸rrelse 8 vÃ¦lges, benyttes kvantiseringstabeller. Ved andre stÃ¸rrelser skÃ¦res koefficienter vÃ¦k.
+Bestemmer blokstørrelsen ved transformering og kvantisering. Hvis størrelse 8 vælges, benyttes kvantiseringstabeller. Ved andre størrelser skæres koefficienter væk.
 
 - Quality-slider
-Denne slider bestemmer, hvor hÃ¥rdt der skal kvantiseres. Ved brug af kvantiseringstabeller (blokstÃ¸rrelse 8), definerer slideren det threshold som bestemmer hvorvidt koefficienter skal sÃ¦ttes til 0. Ellers bestemmer slideren stÃ¸rrelsen pÃ¥ det udsnit af koefficientmatricen som fjernes. Lavere Quality-vÃ¦rdi resulterer i hhv. mindre threshold og fjernelse af stÃ¸rre udsnit.
+Denne slider bestemmer, hvor hårdt der skal kvantiseres. Ved brug af kvantiseringstabeller (blokstørrelse 8), definerer slideren det threshold som bestemmer hvorvidt koefficienter skal sættes til 0. Ellers bestemmer slideren størrelsen på det udsnit af koefficientmatricen som fjernes. Lavere Quality-værdi resulterer i hhv. mindre threshold og fjernelse af større udsnit.
 
