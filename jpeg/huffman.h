@@ -27,8 +27,8 @@
 
 #include <string>
 
-std::string huffman_encode(double *m, int size);
+std::string huffman_ac_encode(double *m, int size);
 
-double *huffman_decode(std::string bits, int size);
+double *huffman_ac_decode(std::string codeStream, int blockSize);
 
 #endif/*__HUFFMAN_H__*/
