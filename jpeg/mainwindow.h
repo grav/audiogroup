@@ -27,6 +27,9 @@
 
 #include <QDialog>
 #include <QTimer>
+#include <QPushButton>
+#include <QLabel>
+
 #include "slider.h"
 
 #include "image.h"
@@ -39,6 +42,8 @@ public:
 
 public slots:
   void ding();
+  void diff();
+  void reset();
   void timeout();
 
 private:
@@ -48,6 +53,9 @@ private:
   QTimer timer;
   Slider *quality_slider;
   Slider *size_slider;
+
+  QPushButton *go_btn;
+  QLabel *status;
 };
 
 #endif/*__MAINWINDOW_H__*/

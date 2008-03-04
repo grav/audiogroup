@@ -28,6 +28,8 @@
 
 #include "dct.h"
 
+#include "huffman.h"
+
 #include "quant_tables.h"
 #include <math.h>
 #include <QVBoxLayout>
@@ -37,8 +39,6 @@
 
 #include <QApplication>
 
-#include <QPushButton>
-
 MainWindow::MainWindow(char *imagefile)
 {
   QVBoxLayout *l = new QVBoxLayout();
@@ -46,9 +46,17 @@ MainWindow::MainWindow(char *imagefile)
 
   QHBoxLayout *box = new QHBoxLayout();
 
-  QPushButton *btn = new QPushButton("ding");
-  box->addWidget(btn);
-  connect(btn, SIGNAL(clicked()), this, SLOT(ding()));
+  go_btn = new QPushButton("Go to work");
+  box->addWidget(go_btn);
+  connect(go_btn, SIGNAL(clicked()), this, SLOT(ding()));
+
+  QPushButton *reset_btn = new QPushButton("Reset");
+  box->addWidget(reset_btn);
+  connect(reset_btn, SIGNAL(clicked()), this, SLOT(reset()));
+
+  QPushButton *diff_btn = new QPushButton("Diff");
+  box->addWidget(diff_btn);
+  connect(diff_btn, SIGNAL(clicked()), this, SLOT(diff()));
   
   quality_slider = new Slider(QString("Quality"), -1000, 1000, 0);
   box->addWidget(quality_slider);
@@ -61,6 +69,10 @@ MainWindow::MainWindow(char *imagefile)
   src_img = new Image(imagefile);
   dst_img = new Image(imagefile);
 //img1->width(), img1->height(), QImage::Format_RGB32);
+
+  status = new QLabel("Status");
+  status->setFixedHeight(15);
+  l->addWidget(status);
 
   JpegViewer *v1 = new JpegViewer(this, src_img);
   l->addWidget(v1);
@@ -104,6 +116,7 @@ void quantize_lum(double *m, int size, int quality)
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(fabs(m[qy * size + qx]) < quant_lum_table[qy][qx] - quality) m[qy * size + qx]  = 0;
+        m[qy * size + qx] = (int)m[qy * size + qx];
       }
     }
     // printf("After:\n");
@@ -113,6 +126,7 @@ void quantize_lum(double *m, int size, int quality)
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(qx > q || qy > q) m[qy * size + qx] = 0.0;
+        m[qy * size + qx] = (int)m[qy * size + qx];
       }
     }
   }
@@ -124,6 +138,7 @@ void quantize_chrom(double *m, int size, int quality)
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(fabs(m[qy * size + qx]) < quant_chrom_table[qy][qx] - quality) m[qy * size + qx]  = 0;
+        m[qy * size + qx] = (int)m[qy * size + qx];
       }
     }
   } else {
@@ -131,13 +146,60 @@ void quantize_chrom(double *m, int size, int quality)
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(qx > q || qy > q) m[qy * size + qx] = 0.0;
+        m[qy * size + qx] = (int)m[qy * size + qx];
       }
     }
   }
 }
 
+void MainWindow::reset()
+{
+  status->setText("Image has been reset");
+  for(int x = 0; x < src_img->width(); x++) {
+    for(int y = 0; y < src_img->height(); y++) {
+      dst_img->setPixel(x, y, src_img->pixel(x, y));
+    }
+  }
+  repaint();
+}
+
+double sqr(double a) {return fabs(a);}
+void MainWindow::diff()
+{
+  double sum = 0.0;
+
+  for(int x = 0; x < src_img->width(); x++) {
+    for(int y = 0; y < src_img->height(); y++) {
+      int sr = qRed(src_img->pixel(x, y));
+      int dr = qRed(dst_img->pixel(x, y));
+
+      int sg = qGreen(src_img->pixel(x, y));
+      int dg = qGreen(dst_img->pixel(x, y));
+
+      int sb = qBlue(src_img->pixel(x, y));
+      int db = qBlue(dst_img->pixel(x, y));
+
+      dst_img->setPixel(x, y, qRgb(sqr(sr - dr), sqr(sg - dg), sqr(sb - db)));
+      sum += fabs(sr - dr) + fabs(sg - dg) + fabs(sb - db);
+    }
+  }
+
+  sum /= src_img->width() * src_img->height();
+
+  char buf[64];
+  sprintf(buf, "Diff value: %f", sum);
+  status->setText(buf);
+
+  repaint();
+}
+
 void MainWindow::ding()
 {
+  status->setText("Working...");
+
+  std::string out;
+
+  go_btn->setEnabled(false);
   timer.start(500);
 
   border_t border = COPY_LAST;
@@ -161,6 +223,10 @@ void MainWindow::ding()
       quantize_lum(dct_m_Y, size, quality);
       quantize_chrom(dct_m_Cr, size, quality);
       quantize_chrom(dct_m_Cb, size, quality);
+
+      out += huffman_ac_encode(dct_m_Y, size);
+      out += huffman_ac_encode(dct_m_Cr, size);
+      out += huffman_ac_encode(dct_m_Cb, size);
 
       // eoq
 
@@ -191,4 +257,14 @@ void MainWindow::ding()
 
   timer.stop();
   repaint();
+  /*
+  printf("sizeof %d bits (%d bytes)\n", out.length(), out.length() / 8);
+  FILE *fp = fopen("output.asc", "w");
+  fprintf(fp, "%s", out.c_str());
+  fclose(fp);
+  */
+  char buf[512];
+  sprintf(buf, "Working...done. Reduced image from %d bytes to %d bytes (%f%% compression)", width() * height() * 3, out.length() / 8, (out.length() / 8.0) / (width() * height() * 3.0) * 100);
+  status->setText(buf);
+  go_btn->setEnabled(true);
 }

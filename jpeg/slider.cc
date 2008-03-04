@@ -44,7 +44,7 @@ Slider::Slider(QString title, int min, int max, int val)
 
   valupdate(val);
 
-	setFixedSize(300, 55);
+	setFixedSize(220, 55);
 }
 
 int Slider::value()
