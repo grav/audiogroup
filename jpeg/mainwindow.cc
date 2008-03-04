@@ -31,6 +31,8 @@
 #include "quant_tables.h"
 #include <math.h>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+
 #include <QImage>
 
 #include <QApplication>
@@ -42,9 +44,19 @@ MainWindow::MainWindow(char *imagefile)
   QVBoxLayout *l = new QVBoxLayout();
   setLayout(l);
 
+  QHBoxLayout *box = new QHBoxLayout();
+
   QPushButton *btn = new QPushButton("ding");
-  l->addWidget(btn);
+  box->addWidget(btn);
   connect(btn, SIGNAL(clicked()), this, SLOT(ding()));
+  
+  quality_slider = new Slider(QString("Quality"), -1000, 1000, 0);
+  box->addWidget(quality_slider);
+
+  size_slider = new Slider(QString("Matrix size (8 uses quant. table)"), 1, 32, 8);
+  box->addWidget(size_slider);
+
+  l->addLayout(box);
 
   src_img = new Image(imagefile);
   dst_img = new Image(imagefile);
@@ -59,7 +71,7 @@ MainWindow::MainWindow(char *imagefile)
  
   connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
 
-  resize(600, 600);
+  resize(src_img->width() * 2 + 20, src_img->height() * 4 + 40);
 }
 
 MainWindow::~MainWindow()
@@ -97,9 +109,10 @@ void quantize_lum(double *m, int size, int quality)
     // printf("After:\n");
     //printfMatrix(m, size);
   } else {
+    int q = (int)(((double)quality + 1000.0) / 2000.0 * (double)size);
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
-        if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+        if(qx > q || qy > q) m[qy * size + qx] = 0.0;
       }
     }
   }
@@ -114,9 +127,10 @@ void quantize_chrom(double *m, int size, int quality)
       }
     }
   } else {
+    int q = (int)(((double)quality + 1000.0) / 2000.0 * (double)size);
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
-        if(qx > 1 || qy > 1) m[qy * size + qx] = 0.0;
+        if(qx > q || qy > q) m[qy * size + qx] = 0.0;
       }
     }
   }
@@ -127,9 +141,9 @@ void MainWindow::ding()
   timer.start(500);
 
   border_t border = COPY_LAST;
-  channel_t channel = Y;
-  int size = 8;
-  int quality = 0;
+  //  channel_t channel = Y;
+  int size = size_slider->value();
+  int quality = quality_slider->value();
 
   src_img->setSubmatrixSize(size);
   dst_img->setSubmatrixSize(size);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *           vessel.cc
+ *           slider.h
  *
  *  Tue Feb 12 14:30:50 CET 2008
  *  Copyright 2008 Bent Bisballe Nyeng
@@ -22,32 +22,29 @@
  *  along with it; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#ifndef __MAINWINDOW_H__
-#define __MAINWINDOW_H__
+#ifndef __SLIDER_H__
+#define __SLIDER_H__
 
-#include <QDialog>
-#include <QTimer>
-#include "slider.h"
+#include <QSlider>
+#include <QWidget>
+#include <QLabel>
+#include <QString>
 
-#include "image.h"
-
-class MainWindow : public QDialog {
+class Slider: public QWidget {
 Q_OBJECT
 public:
-  MainWindow(char *imagefile);
-  ~MainWindow();
+	Slider(QString title, int min, int max, int val);
+
+  int value();
 
 public slots:
-  void ding();
-  void timeout();
+  void valupdate(int val);
 
 private:
-  Image *src_img;
-  Image *dst_img;
-
-  QTimer timer;
-  Slider *quality_slider;
-  Slider *size_slider;
+	QSlider slider;
+  QLabel label;
+  QString title;
+  
 };
 
-#endif/*__MAINWINDOW_H__*/
+#endif/*__SLIDER_H__*/

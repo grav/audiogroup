@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *           vessel.cc
+ *           slider.cc
  *
  *  Tue Feb 12 14:30:50 CET 2008
  *  Copyright 2008 Bent Bisballe Nyeng
@@ -22,32 +22,39 @@
  *  along with it; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#ifndef __MAINWINDOW_H__
-#define __MAINWINDOW_H__
-
-#include <QDialog>
-#include <QTimer>
 #include "slider.h"
 
-#include "image.h"
+#include <QVBoxLayout>
 
-class MainWindow : public QDialog {
-Q_OBJECT
-public:
-  MainWindow(char *imagefile);
-  ~MainWindow();
+Slider::Slider(QString title, int min, int max, int val)
+	: slider(Qt::Horizontal), label(title)
+{
+	setLayout(new QVBoxLayout());
 
-public slots:
-  void ding();
-  void timeout();
+	this->title = title;
 
-private:
-  Image *src_img;
-  Image *dst_img;
+	slider.setMinimum(min);
+	slider.setMaximum(max);
+	slider.setValue(val);
 
-  QTimer timer;
-  Slider *quality_slider;
-  Slider *size_slider;
-};
+	layout()->addWidget(&label);
+	layout()->addWidget(&slider);
 
-#endif/*__MAINWINDOW_H__*/
+	connect(&slider, SIGNAL(valueChanged(int)), this, SLOT(valupdate(int)));
+
+  valupdate(val);
+
+	setFixedSize(300, 55);
+}
+
+int Slider::value()
+{
+	return slider.value();
+}
+
+void Slider::valupdate(int value)
+{
+	char val[32];
+	sprintf(val, "%d", value);
+	label.setText(title + ": " + val);
+}

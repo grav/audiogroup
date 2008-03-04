@@ -8,5 +8,5 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += dct.h huffman.h huffman_tables.h image.h jpeg_viewer.h mainwindow.h
-SOURCES += dct.cc huffman.cc image.cc jpeg.cc jpeg_viewer.cc mainwindow.cc
+HEADERS += dct.h huffman.h huffman_tables.h image.h jpeg_viewer.h mainwindow.h slider.h
+SOURCES += dct.cc huffman.cc image.cc jpeg.cc jpeg_viewer.cc mainwindow.cc slider.cc
