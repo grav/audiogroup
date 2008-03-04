@@ -43,5 +43,5 @@ void JpegViewer::paintEvent(QPaintEvent *event)
 {
   QPainter p(this);
 
-  p.drawImage(0,0,image->scaled(image->width() * 2, image->height() * 2));
+  p.drawImage(0,0,image->scaled(image->width() * 1, image->height() * 1));
 }

@@ -58,7 +58,7 @@ MainWindow::MainWindow(char *imagefile)
   box->addWidget(diff_btn);
   connect(diff_btn, SIGNAL(clicked()), this, SLOT(diff()));
   
-  quality_slider = new Slider(QString("Quality"), -1000, 1000, 0);
+  quality_slider = new Slider(QString("Quality"), -300, 300, 0);
   box->addWidget(quality_slider);
 
   size_slider = new Slider(QString("Matrix size (8 uses quant. table)"), 1, 32, 8);
@@ -83,7 +83,7 @@ MainWindow::MainWindow(char *imagefile)
  
   connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
 
-  resize(src_img->width() * 2 + 20, src_img->height() * 4 + 40);
+  resize(src_img->width() * 2 + 20, src_img->height() * 2 + 40);
 }
 
 MainWindow::~MainWindow()
@@ -122,7 +122,7 @@ void quantize_lum(double *m, int size, int quality)
     // printf("After:\n");
     //printfMatrix(m, size);
   } else {
-    int q = (int)(((double)quality + 1000.0) / 2000.0 * (double)size);
+    int q = (int)(((double)quality + 150.0) / 300.0 * (double)size);
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(qx > q || qy > q) m[qy * size + qx] = 0.0;
@@ -142,7 +142,7 @@ void quantize_chrom(double *m, int size, int quality)
       }
     }
   } else {
-    int q = (int)(((double)quality + 1000.0) / 2000.0 * (double)size);
+    int q = (int)(((double)quality + 150.0) / 300.0 * (double)size);
     for(int qy = 0; qy < size; qy++) {
       for(int qx = 0; qx < size; qx++) {
         if(qx > q || qy > q) m[qy * size + qx] = 0.0;
@@ -163,10 +163,10 @@ void MainWindow::reset()
   repaint();
 }
 
-double sqr(double a) {return fabs(a);}
+double sqr(double a) {return a * a;}
 void MainWindow::diff()
 {
-  double sum = 0.0;
+  double  mse = 0.0;
 
   for(int x = 0; x < src_img->width(); x++) {
     for(int y = 0; y < src_img->height(); y++) {
@@ -179,15 +179,19 @@ void MainWindow::diff()
       int sb = qBlue(src_img->pixel(x, y));
       int db = qBlue(dst_img->pixel(x, y));
 
-      dst_img->setPixel(x, y, qRgb(sqr(sr - dr), sqr(sg - dg), sqr(sb - db)));
-      sum += fabs(sr - dr) + fabs(sg - dg) + fabs(sb - db);
+      dst_img->setPixel(x, y, qRgb(fabs(sr - dr), fabs(sg - dg), fabs(sb - db)));
+      mse += sqr(fabs(sr - dr)) + sqr(fabs(sg - dg)) + sqr(fabs(sb - db));
     }
   }
 
-  sum /= src_img->width() * src_img->height();
+  mse /= src_img->width() * src_img->height() * 3;
+
+  int max = pow(2,8)-1;
+
+  double psnr = 10 * log10(sqr(max)/mse);
 
   char buf[64];
-  sprintf(buf, "Diff value: %f", sum);
+  sprintf(buf, "PSNR: %f dB", psnr);
   status->setText(buf);
 
   repaint();
@@ -263,6 +267,7 @@ void MainWindow::ding()
   fprintf(fp, "%s", out.c_str());
   fclose(fp);
   */
+  
   char buf[512];
   sprintf(buf, "Working...done. Reduced image from %d bytes to %d bytes (%f%% compression)", width() * height() * 3, out.length() / 8, (out.length() / 8.0) / (width() * height() * 3.0) * 100);
   status->setText(buf);
