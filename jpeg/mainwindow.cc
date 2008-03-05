@@ -59,11 +59,11 @@ MainWindow::MainWindow(char *imagefile)
   box->addWidget(diff_btn);
   connect(diff_btn, SIGNAL(clicked()), this, SLOT(diff()));
   
+  size_slider = new Slider(QString("BlockSize (8=quant.tbl)"), 1, 32, 8);
+  box->addWidget(size_slider);
+
   quality_slider = new Slider(QString("Quality"), -300, 300, 0);
   box->addWidget(quality_slider);
-
-  size_slider = new Slider(QString("Matrix size (8 uses quant. table)"), 1, 32, 8);
-  box->addWidget(size_slider);
 
   l->addLayout(box);
 
@@ -75,16 +75,19 @@ MainWindow::MainWindow(char *imagefile)
   status->setFixedHeight(15);
   l->addWidget(status);
 
+  QHBoxLayout *box2 = new QHBoxLayout();
+  l->addLayout(box2);
+
   JpegViewer *v1 = new JpegViewer(this, src_img);
-  l->addWidget(v1);
+  box2->addWidget(v1);
 
   JpegViewer *v2 = new JpegViewer(this, dst_img);
-  l->addWidget(v2);
+  box2->addWidget(v2);
 
  
   connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
 
-  resize(src_img->width() * 2 + 20, src_img->height() * 2 + 40);
+  resize(src_img->width() * 2 * 1.5 + 40, src_img->height() * 1.5 +150);
 }
 
 MainWindow::~MainWindow()

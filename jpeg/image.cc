@@ -37,19 +37,22 @@
 
 static inline double rgb2y(QRgb rgb)
 {
-  double Y = 0 + 0.299 * qRed(rgb) + 0.587 * qGreen(rgb) + 0.114 * qBlue(rgb);
+//  double Y = 0 + 0.299 * qRed(rgb) + 0.587 * qGreen(rgb) + 0.114 * qBlue(rgb);
+  double Y = 16  + 1/256.0 * (65.738  * qRed(rgb) +  129.057 * qGreen(rgb) + 25.064  * qBlue(rgb));  
   return Y;
 }
 
 static inline double rgb2cr(QRgb rgb)
 {
-  double Cb = 128 - 0.168736 * qRed(rgb) - 0.331264 * qGreen(rgb) + 0.5 * qBlue(rgb);
+//  double Cb = 128 - 0.168736 * qRed(rgb) - 0.331264 * qGreen(rgb) + 0.5 * qBlue(rgb);
+  double Cb = 128 + 1/256.0 * ( -37.945  * qRed(rgb) - 74.494  * qGreen(rgb) + 112.439  * qBlue(rgb));
   return Cb;
 }
 
 static inline double rgb2cb(QRgb rgb)
 {
-  double Cr = 128 + 0.5 * qRed(rgb) - 0.418688 * qGreen(rgb) - 0.081312 * qBlue(rgb);
+//  double Cr = 128 + 0.5 * qRed(rgb) - 0.418688 * qGreen(rgb) - 0.081312 * qBlue(rgb);
+  double Cr = 128 + 1/256.0 * (  112.439  * qRed(rgb) - 94.154  * qGreen(rgb) -  18.285  * qBlue(rgb));
   return Cr;
 }
 
