@@ -9,7 +9,7 @@ Frem for at generere en Huffman tabel til et specifikt billede, benytter vi de a
 
 Tabellerne er hardcoded i filen \texttt{huffman\_tables.h}. 
 
-Ved encoding beregnes et \textit{(runlength, size)} par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parrent slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
+Ved encoding beregnes et \textit{(runlength, size)} par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parret slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
 
 Ved decoding genereres et binært søgetræ ud fra den relevante tabel. Vi forsøger derpå at slå en delstreng af bitstreamen op, hvor delstrengen bliver en bit længere, indtil søgetræet returnerer et \textit{(runlength, size)} par, hvorefter vi afkoder en koefficient (samt eventuelle 0-koefficienter) og gentager processen.
 

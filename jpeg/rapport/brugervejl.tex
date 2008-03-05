@@ -1,4 +1,13 @@
 \section{Brugervejledning}
+Programmets kildekode kan hentes via subversion vha. flg. kommando:
+
+\texttt{svn http://svn.betafunk.dk/audiogroup/jpeg jpeg}
+
+For at kompilere programmet skal man have installeret Qt, som gratis kan
+hentes her:
+
+\texttt{http://trolltech.no/downloads}
+
 Programmet startes fra kommandolinien med en billedfil som parameter,
 f.eks. \texttt{./jpeg thomas.jpg}
 
@@ -8,20 +17,22 @@ Når programmet startes, vises det indlæste billede to gange.
 
 I programmets vindue er tre knapper samt to sliders, som beskrives nedenfor:
 
-\subsection{Go to work}
-Knappen Go to work transformerer billedblokke om til frekvensdomænet vha. DCT, kvantiserer blokkene og transformerer blokkene tilbage til det spatiale domæne. Det kvantiserede billede vises nederst.
+\subsection*{Go to work}
+Knappen Go to work transformerer billedblokke om til frekvensdomænet
+vha. DCT, kvantiserer blokkene og transformerer blokkene tilbage til
+det spatiale domæne. Det kvantiserede billede vises til højre.
 
 Efter endt transformation gives et estimat på komprimeringsgraden mellem den oprindelige, ukomprimerede billeddata og det kvantiserede, Huffman-encodede billede.
 
-\subsection{Reset}
-Erstatter det kvantiserede billede med det oprindelige
+\subsection*{Reset}
+Erstatter det kvantiserede billede med det oprindelige.
 
-\subsection{Diff}
+\subsection*{Diff}
 Fremhæver de steder på billedet, som er påvirket af kvantiseringen. Samtidigt beregnes PSNR.
 
-\subsection{Matrix Size}
+\subsection*{BlockSize}
 Slideren bestemmer blokstørrelsen ved transformering og kvantisering. Hvis størrelse 8 vælges, benyttes kvantiseringstabeller. Ved andre størrelser skæres koefficienter væk.
 
-\subsection{Quality-slider}
+\subsection*{Quality}
 Denne slider bestemmer, hvor hårdt der skal kvantiseres. Ved brug af kvantiseringstabeller (blokstørrelse 8), definerer slideren det threshold som bestemmer hvorvidt koefficienter skal sættes til 0. Ellers bestemmer slideren størrelsen på det udsnit af koefficientmatricen som fjernes. Lavere Quality-værdi resulterer i hhv. mindre threshold og fjernelse af større udsnit.
 
