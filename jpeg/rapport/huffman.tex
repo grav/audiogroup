@@ -1,3 +1,4 @@
+\section{Huffman-kodning}
 Efter kvantisering har vi reduceret en række værdier i vores koefficientmatricer til 0'er, og vi kan nu udnytte dette til komprimering ved hjælp af Huffman-kodning.
 
 Iflg. JPEG-standarden encodes DC-differencensen samt AC-værdierne forskelligt. 
@@ -6,11 +7,11 @@ Vi har undladt at implementere DC encoding, og i stedet AC encoder vi alle indga
 
 Frem for at generere en Huffman tabel til et specifikt billede, benytter vi de anbefalede tabeller fra JPEG standard-specifikationen, en for luminans-kanalen, og en for de to krominsanskanaler.
 
-Tabellerne er hardcoded i filen huffman\_tables.h. 
+Tabellerne er hardcoded i filen \texttt{huffman\_tables.h}. 
 
-Ved encoding beregnes et (runlength, size) par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parrent slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
+Ved encoding beregnes et \textit{(runlength, size)} par ud fra en koefficient (samt eventuelle førkommende 0-koefficienter). Parrent slåes op i den relevante tabel, hvorefter resultatet påhæftes vores bitstream sammen med en binær encoding af koefficienten.
 
-Ved decoding genereres et binært søgetræ ud fra den relevante tabel. Vi forsøger derpå at slå en delstreng af bitstreamen op, hvor delstrengen bliver en bit længere, indtil søgetræet returnerer et (runlength, size) par, hvorefter vi afkoder en koefficient (samt eventuelle 0-koefficienter) og gentager processen.
+Ved decoding genereres et binært søgetræ ud fra den relevante tabel. Vi forsøger derpå at slå en delstreng af bitstreamen op, hvor delstrengen bliver en bit længere, indtil søgetræet returnerer et \textit{(runlength, size)} par, hvorefter vi afkoder en koefficient (samt eventuelle 0-koefficienter) og gentager processen.
 
 Vi har implementeret decoding men benytter ikke dette, da encoding indtil videre kun benyttes til at estimere størrelsen på det komprimerede billede, og filen altså ikke gemmes på disken.
 
