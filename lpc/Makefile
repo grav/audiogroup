@@ -1,2 +1,2 @@
 all:
-	g++ main.cc lpc.cc -o lpc -lsndfile
+	g++ main.cc lpc.cc -o lpc -lsndfile -lm
