@@ -1,3 +1,6 @@
+#include "pitchdetect.h"
+#include <math.h>
+/*
 function [AMDF,min] = pitchdetect (f)
 [y,fs]=wavread(f);
 N=length(y);
@@ -23,3 +26,34 @@ end
 
 min = min(AMDF);
 
+*/
+
+#define LOW_MS   0.0025 // ms
+#define HIGH_MS  0.0195 // ms
+#define USTEMT 0.025
+
+float pitchdetect(SAMPLE *x, int size)
+{
+  int fs = 44100;
+  SAMPLE min = 1000000;
+  int minkey = 0;
+
+  for(int p = (int)(LOW_MS * fs); p < (int)(HIGH_MS * fs); p++) {
+    SAMPLE sum = 0;
+    for(int i = p; i < size; i++) {
+      sum += fabs(x[i] - x[i-p]) / size;
+    }
+    //    sum /= size;
+    if(sum < min) {
+      min = sum;
+      minkey = p;
+    }
+  }
+  //  return fs / (minkey * 3);
+
+  if(min > USTEMT) return 0;
+
+  while(minkey > 500) minkey /= 2;
+
+  return minkey;
+}

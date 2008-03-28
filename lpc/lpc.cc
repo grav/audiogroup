@@ -17,7 +17,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <limits.h>
-
+#include "pitchdetect.h"
 
 
 
@@ -106,10 +106,9 @@ SAMPLE glot_pop_data[] = {
     -5.0f,2.0f,4.0f,6.0f,6.0f,6.0f,5.0f,0.0f,
     0.0f,
     0
-}; int glot_pop_size = 521;
+};
 
-
-
+int glot_pop_size = 521;
 
 //-----------------------------------------------------------------------------
 // name: lpc_create()
@@ -117,12 +116,12 @@ SAMPLE glot_pop_data[] = {
 //-----------------------------------------------------------------------------
 lpc_data lpc_create( )
 {
-    lpc_data instance = new lpc_data_;
-    memset( instance, 0, sizeof(lpc_data_) );
-    // set the default glottal pulse
-    lpc_alt( instance, glot_pop_data, glot_pop_size );
-
-    return instance;
+  lpc_data instance = new lpc_data_;
+  memset( instance, 0, sizeof(lpc_data_) );
+  // set the default glottal pulse
+  lpc_alt( instance, glot_pop_data, glot_pop_size );
+  
+  return instance;
 }
 
 
@@ -226,7 +225,9 @@ void lpc_analyze( lpc_data lpc, SAMPLE * x, int len, float * coefs, int order,
     }
 
     // find the autocorrelation of the signal, with pitch
-    *pitch = autocorrelate( x, len, lpc->corr );
+    autocorrelate( x, len, lpc->corr );
+
+    *pitch = pitchdetect(x, len);
 
     // construct the R matrix
     for( i = 1; i <= order; i++ )
