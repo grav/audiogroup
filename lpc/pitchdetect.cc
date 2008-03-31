@@ -28,32 +28,42 @@ min = min(AMDF);
 
 */
 
-#define LOW_MS   0.0025 // ms
-#define HIGH_MS  0.0195 // ms
-#define USTEMT 0.025
+extern int g_fs;
+
+#define LOW_HZ   110
+#define LOW   ((float)g_fs / (float)LOW_HZ) // ms
+
+#define HIGH_HZ  860
+#define HIGH  ((float)g_fs / (float)HIGH_HZ) // ms
+
+#define THRESHOLD 0.065
+
+#include <stdio.h>
 
 float pitchdetect(SAMPLE *x, int size)
 {
-  int fs = 44100;
   SAMPLE min = 1000000;
   int minkey = 0;
 
-  for(int p = (int)(LOW_MS * fs); p < (int)(HIGH_MS * fs); p++) {
-    SAMPLE sum = 0;
-    for(int i = p; i < size; i++) {
-      sum += fabs(x[i] - x[i-p]) / size;
+  //for(int p = LOW; p < HIGH; p++) {
+  for(int p = HIGH; p < LOW; p++) {
+    double sum = 0;
+
+    for(int i = 0; i < size - p; i++) {
+      sum += fabs(x[i] - x[i+p]) / size;
     }
     //    sum /= size;
-    if(sum < min) {
+
+    //    printf("sum: %f, min: %f, blah: %f\n", sum, min, (1.0/(float)p)*10);
+
+    if(sum < min) {// - (10.0/(float)p)) {
       min = sum;
       minkey = p;
     }
   }
   //  return fs / (minkey * 3);
 
-  if(min > USTEMT) return 0;
-
-  while(minkey > 500) minkey /= 2;
+  if(min > THRESHOLD) return 0;
 
   return minkey;
 }

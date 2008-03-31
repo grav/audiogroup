@@ -225,7 +225,7 @@ void lpc_analyze( lpc_data lpc, SAMPLE * x, int len, float * coefs, int order,
     }
 
     // find the autocorrelation of the signal, with pitch
-    autocorrelate( x, len, lpc->corr );
+    *pitch = autocorrelate( x, len, lpc->corr );
 
     *pitch = pitchdetect(x, len);
 
