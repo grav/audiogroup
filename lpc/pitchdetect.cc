@@ -31,7 +31,7 @@ min = min(AMDF);
 extern int g_fs;
 extern float g_threshold;
 
-#define LOW_HZ   110
+#define LOW_HZ   40
 #define LOW   (int)((float)g_fs / (float)LOW_HZ)
 
 #define HIGH_HZ  860
