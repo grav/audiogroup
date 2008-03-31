@@ -31,7 +31,7 @@ min = min(AMDF);
 extern int g_fs;
 extern float g_threshold;
 
-#define LOW_HZ   40
+#define LOW_HZ   110
 #define LOW   (int)((float)g_fs / (float)LOW_HZ)
 
 #define HIGH_HZ  860
@@ -67,3 +67,9 @@ float pitchdetect(SAMPLE *x, int size)
 
   return minkey;
 }
+
+
+// Hz : svingninger/second
+// Fs : samples/second
+
+// Fs / Hz : samples/second * seconds/svingning => samples/svingning
