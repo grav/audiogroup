@@ -31,11 +31,15 @@ min = min(AMDF);
 extern int g_fs;
 extern float g_threshold;
 
-#define LOW_HZ   110
-#define LOW   (int)((float)g_fs / (float)LOW_HZ)
+// Samp = s * Fs
+// Samp = Fs/Hz
+// Hz = Fs/Samp = Fs/(s*Fs) = 1/s
 
-#define HIGH_HZ  860
-#define HIGH  (int)((float)g_fs / (float)HIGH_HZ)
+#define LOW_HZ   51 
+#define LOW_SAMP   (int)((float)g_fs / (float)LOW_HZ)
+
+#define HIGH_HZ  400
+#define HIGH_SAMP  (int)((float)g_fs / (float)HIGH_HZ)
 
 #include <stdio.h>
 
@@ -44,9 +48,9 @@ float pitchdetect(SAMPLE *x, int size)
   SAMPLE min = 1000000;
   int minkey = 0;
 
-  //for(int p = LOW; p < HIGH; p++) {
-  //  for(int p = HIGH; p < LOW; p++) {
-  for(int p = LOW; p > HIGH; p--) {
+  //for(int p = LOW_SAMP; p < HIGH_SAMP; p++) {
+  //  for(int p = HIGH_SAMP; p < LOW_SAMP; p++) {
+  for(int p = LOW_SAMP; p > HIGH_SAMP; p--) {
     double sum = 0;
 
     for(int i = 0; i < size; i++) {
