@@ -6,27 +6,28 @@
 // For getopt_long and friends
 #include <getopt.h>
 
+// Default values
+#define WINDOW_SIZE 20
+#define THRESHOLD   0.065
+#define COEFS       20
+
 // Global samplerate
 int g_fs;
-float g_threshold = 0.065;
-
-//#define WINDOW_SIZE (int)(1.7 * 882) // 882 frames = 20ms
-//#define WINDOW_SIZE 882 // 882 frames = 20ms
-//#define WINDOW_SIZE 2048 // 882 frames = 20ms
-//#define WINDOW_SIZE_MS 20
-
-#define WINDOW_SIZE (int)((float)g_fs * ((float)window_size_ms / 1000.0))
+float g_threshold = THRESHOLD;
 
 static const char usage_str[] =
 "Usage: %s [options] inputfile outputfile\n"
 "Options:\n"
-"  -w  --windowsize ms   Set the window size to ms (default 20).\n"
-"  -c  --coefficients c  Set the number of coefficients to use with the lpc to c (default 12).\n"
-"  -t  --threshold t     Set the pitched/unpitched threashold to t (default 0.065).\n"
+"  -w  --windowsize ms   Set the window size to ms (default %d).\n"
+"  -c  --coefficients c  Set the number of coefficients to use with the lpc to c (default %d).\n"
+"  -t  --threshold t     Set the pitched/unpitched threashold to t (default %.3f).\n"
 "  -h, --help            Print this message and exit.\n"
 ;
 
-
+void print_usage(char *program)
+{
+	printf(usage_str, program, WINDOW_SIZE, COEFS, THRESHOLD);
+}
 
 int main(int argc, char *argv[])
 {
@@ -66,8 +67,8 @@ int main(int argc, char *argv[])
 
     case '?':
     case 'h':
-      printf(usage_str, argv[0]);
-      return 0;
+			print_usage(argv[0]);
+			return 0;
 
     default:
       break;
@@ -77,16 +78,15 @@ int main(int argc, char *argv[])
   char *ifilename = NULL;
   char *ofilename = NULL;
 
-  if (optind < argc) {
-    while (optind < argc) {
-      if(ifilename == NULL) ifilename = argv[optind++];
-      if(ofilename == NULL) ofilename = argv[optind++];
-    }
-  }
+	while (optind < argc) {
+		if(ifilename == NULL) ifilename = argv[optind++];
+		else if(ofilename == NULL) ofilename = argv[optind++];
+		else optind++;
+	}
 
   if(ifilename == NULL || ofilename == NULL) {
-      printf(usage_str, argv[0]);
-      return 1;
+		print_usage(argv[0]);
+		return 1;
   }
 
   lpc_data lpc = lpc_create();
@@ -97,21 +97,28 @@ int main(int argc, char *argv[])
 
   SndfileHandle isfh(ifilename);
   g_fs = isfh.samplerate();
+	float filesize = isfh.seek(0, SEEK_END);
+	float total = 0.0;
+	isfh.seek(0, SEEK_SET);
 
-  SAMPLE x[WINDOW_SIZE];
-  SAMPLE y[WINDOW_SIZE];
+	int window_size_samples = (int)((float)g_fs * ((float)window_size_ms / 1000.0));
 
-  printf("Running with windowsize: %dms (%d samples)\n", window_size_ms, WINDOW_SIZE);
+  SAMPLE x[window_size_samples];
+  SAMPLE y[window_size_samples];
+
+  printf("Running with windowsize: %dms (%d samples)\n", window_size_ms, window_size_samples);
   printf("Running with %d coefficients\n", num_coefs);
 
   SndfileHandle osfh(ofilename, SFM_WRITE, SF_FORMAT_WAV | SF_FORMAT_PCM_16, 1, g_fs);
 
-  while(isfh.read(x, WINDOW_SIZE) != 0) {
-    lpc_analyze(lpc, x, WINDOW_SIZE, coefs, num_coefs, &power, &pitch);
-    lpc_synthesize(lpc, y, WINDOW_SIZE, coefs, num_coefs, power, pitch);
-    printf("pitch %f\n", pitch);
-    osfh.write(y, WINDOW_SIZE);
+  while(isfh.read(x, window_size_samples) != 0) {
+    lpc_analyze(lpc, x, window_size_samples, coefs, num_coefs, &power, &pitch);
+    lpc_synthesize(lpc, y, window_size_samples, coefs, num_coefs, power, pitch);
+    printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r", pitch, power, total / filesize * 100.0); fflush(stdout);
+    osfh.write(y, window_size_samples);
+		total += window_size_samples;
   }
+	printf("\nDone\n");
   
   lpc_destroy(lpc);
 
