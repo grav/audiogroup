@@ -14,6 +14,7 @@
 // Global samplerate
 int g_fs;
 float g_threshold = THRESHOLD;
+int g_window_size_samples;
 
 static const char usage_str[] =
 "Usage: %s [options] inputfile outputfile\n"
@@ -101,22 +102,22 @@ int main(int argc, char *argv[])
 	float total = 0.0;
 	isfh.seek(0, SEEK_SET);
 
-	int window_size_samples = (int)((float)g_fs * ((float)window_size_ms / 1000.0));
+	g_window_size_samples = (int)((float)g_fs * ((float)window_size_ms / 1000.0));
 
-  SAMPLE x[window_size_samples];
-  SAMPLE y[window_size_samples];
+  SAMPLE x[g_window_size_samples];
+  SAMPLE y[g_window_size_samples];
 
-  printf("Running with windowsize: %dms (%d samples)\n", window_size_ms, window_size_samples);
+  printf("Running with windowsize: %dms (%d samples)\n", window_size_ms, g_window_size_samples);
   printf("Running with %d coefficients\n", num_coefs);
 
   SndfileHandle osfh(ofilename, SFM_WRITE, SF_FORMAT_WAV | SF_FORMAT_PCM_16, 1, g_fs);
 
-  while(isfh.read(x, window_size_samples) != 0) {
-    lpc_analyze(lpc, x, window_size_samples, coefs, num_coefs, &power, &pitch);
-    lpc_synthesize(lpc, y, window_size_samples, coefs, num_coefs, power, pitch);
+  while(isfh.read(x, g_window_size_samples) != 0) {
+    lpc_analyze(lpc, x, g_window_size_samples, coefs, num_coefs, &power, &pitch);
+    lpc_synthesize(lpc, y, g_window_size_samples, coefs, num_coefs, power, pitch);
     printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r", pitch, power, total / filesize * 100.0); fflush(stdout);
-    osfh.write(y, window_size_samples);
-		total += window_size_samples;
+    osfh.write(y, g_window_size_samples);
+		total += g_window_size_samples;
   }
 	printf("\nDone\n");
   
