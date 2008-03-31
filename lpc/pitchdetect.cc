@@ -29,14 +29,13 @@ min = min(AMDF);
 */
 
 extern int g_fs;
+extern float g_threshold;
 
 #define LOW_HZ   110
-#define LOW   ((float)g_fs / (float)LOW_HZ) // ms
+#define LOW   (int)((float)g_fs / (float)LOW_HZ) // ms
 
 #define HIGH_HZ  860
-#define HIGH  ((float)g_fs / (float)HIGH_HZ) // ms
-
-#define THRESHOLD 0.065
+#define HIGH  (int)((float)g_fs / (float)HIGH_HZ) // ms
 
 #include <stdio.h>
 
@@ -63,7 +62,7 @@ float pitchdetect(SAMPLE *x, int size)
   }
   //  return fs / (minkey * 3);
 
-  if(min > THRESHOLD) return 0;
+  if(min > g_threshold) return 0;
 
   return minkey;
 }
