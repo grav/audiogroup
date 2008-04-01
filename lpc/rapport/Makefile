@@ -1,5 +1,5 @@
 SOURCE=preamble.tex
-TARGET=jpeg_oevelse
+TARGET=lpc_oevelse
 FLAGS=
 GFXSRC=tegning
 #-c-style-errors
@@ -18,7 +18,7 @@ pdf: ps
 	ps2pdf14 $(TARGET).ps $(TARGET).pdf
 
 $(TARGET).tex:
-	cp $(SOURCE) $(TARGET).tex -s
+	ln -s $(SOURCE) $(TARGET).tex
 
 mpost: 
 	mpost $(GFXSRC).mp && latex $(GFXSRC).tex && dvips $(GFXSRC).dvi -o

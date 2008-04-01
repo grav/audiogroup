@@ -1,19 +1,6 @@
+% -*- coding: latin-1 -*-
 \section{LPC-analyse og syntese}
-Til LPC-analysen har vi benyttet RT_LPC som en blackbox. Måden hvorpå LPC-analysen foregår er beskrevet på http://wiki.cs.princeton.edu/index.php/RT_LPC.
+Til LPC-analysen har vi benyttet RT\_LPC som en blackbox. M�den hvorp� LPC-analysen foreg�r er beskrevet p� http://wiki.cs.princeton.edu/index.php/RT\_LPC.
 
-RT_LPC giver mulighed for at detektere pitch vha. autokorrelation. Vi har dog istedet implementeret average magnitude difference (AMDF) pitch detection på baggrund af [Sayood] pp. 543. Formlen for AMDF er:
-
-[formel],
-
-hvor p er perioden. For hver frame analyserer vi med værdier af p mellem 2.5 og 19.5 ms, svarende til 860 Hz ned til 110 Hz, hvor menneskelig tale normalt befinder sig. Herefter vælger vi den minimale AMDF-værdi som vores pitch.
-
-I følgende eksempel analyseres 20 ms af 'y'-lyden i 'tydeligt'. X-aksen betegner p-værdien i samples, og Y-aksen betegner AMDF-værdien.
-
-[graf]
-
-Det ses at minimum ligger ved ca 730 samples, svarende til ca 60 Hz. Et lokalt minimum ses ved den dobbelte frekvens (den halve periode), hvilket formodentligt er en overtone.
-
-Er den minimale værdi over et bestemt threshold, vælger vi at opfatte frame'n som en ustemt lyd.
-
-Ligesom ved analysedelen af LPC, benytter vi også RT_LPC til at syntetisere talen, således at vi blot giver de ved analysen fundne koefficienter samt den beregnede pitch videre. Som beskrevet på http://wiki.cs.princeton.edu/index.php/RT_LPC skifter RT_LPC mellem et pulstog og et støj-signal afhængigt af pitch'en.
+Ligesom ved analysedelen af LPC, benytter vi ogs� RT\_LPC til at syntetisere talen, s�ledes at vi blot giver de ved analysen fundne koefficienter samt den beregnede pitch videre. Som beskrevet p� http://wiki.cs.princeton.edu/index.php/RT\_LPC skifter RT\_LPC mellem et pulstog og et st�j-signal afh�ngigt af pitch'en.
 
