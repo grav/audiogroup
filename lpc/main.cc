@@ -123,30 +123,34 @@ int main(int argc, char *argv[])
   SndfileHandle osfh(ofilename, SFM_WRITE, SF_FORMAT_WAV | SF_FORMAT_PCM_16, 1, g_fs);
 
   if(overlap) {
-    /*
+
     SAMPLE zin[bufsz];
     SAMPLE zout[bufsz];
-    memset(zin, 0, bufsz);
-    memset(zout, 0, bufsz);
-    int pos = 0;
+
+    memset(zin, 0, bufsz * sizeof(SAMPLE));
+    // zin := [0][0]
 
     while(isfh.read(x, bufsz / 2) != 0) {
 
-      memcpy(zin + ((int)total%bufsz), x, bufsz / 2);
+      // zin := [x-2][x-1]
+      memcpy(zin, zin + (bufsz / 2) * sizeof(SAMPLE), (bufsz / 2) * sizeof(SAMPLE));
+      // zin := [x-1][x-1]
+      memcpy(zin + (bufsz / 2) * sizeof(SAMPLE), x, (bufsz / 2) * sizeof(SAMPLE));
+      // zin := [x-1][x0]
 
       lpc_analyze(lpc, zin, bufsz, coefs, num_coefs, &power, &pitch);
       lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power, pitch);
+
       printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
 	     pitch, power, total / filesize * 100.0); fflush(stdout);
+      
+      // y := [y-1 + ][]
+      memcpy(y, zout, (bufsz / 2) * sizeof(SAMPLE));
 
-      memcpy(zin + ((int)total%bufsz), y, bufsz / 2);
-
-      osfh.write(y, bufsz);
+      osfh.write(y, bufsz / 2);
 
       total += bufsz / 2;
     }
-    */
-    printf("GODNAT!\n");
 
   } else {
 
@@ -158,9 +162,10 @@ int main(int argc, char *argv[])
       osfh.write(y, bufsz);
       total += bufsz;
     }
-
   }
   
+  printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
+	 pitch, power, 100.0); fflush(stdout);
   printf("\nDone\n");
   
   lpc_destroy(lpc);
