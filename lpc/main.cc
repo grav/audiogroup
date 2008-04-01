@@ -90,7 +90,10 @@ int main(int argc, char *argv[])
   while (optind < argc) {
     if(ifilename == NULL) ifilename = argv[optind++];
     else if(ofilename == NULL) ofilename = argv[optind++];
-    else optind++;
+    else {
+			print_usage(argv[0]);
+			return 1;
+		}
   }
 
   if(ifilename == NULL || ofilename == NULL) {
@@ -113,6 +116,7 @@ int main(int argc, char *argv[])
   g_window_size_samples = (int)((float)g_fs * ((float)window_size_ms / 1000.0));
   if(g_window_size_samples % 2) g_window_size_samples++; // Make sure it is divisible by 2.
   int bufsz = g_window_size_samples;
+  if(overlap) bufsz *= 2;
 
   SAMPLE x[bufsz];
   SAMPLE y[bufsz];
@@ -128,25 +132,41 @@ int main(int argc, char *argv[])
     SAMPLE zout[bufsz];
 
     memset(zin, 0, bufsz * sizeof(SAMPLE));
+    memset(y, 0, bufsz * sizeof(SAMPLE));
     // zin := [0][0]
 
     while(isfh.read(x, bufsz / 2) != 0) {
 
+      // For convenience.
+#define HALF ((bufsz / 2) * sizeof(SAMPLE))
+
       // zin := [x-2][x-1]
-      memcpy(zin, zin + (bufsz / 2) * sizeof(SAMPLE), (bufsz / 2) * sizeof(SAMPLE));
+      memcpy(zin, ((char*)zin) + HALF, HALF);
       // zin := [x-1][x-1]
-      memcpy(zin + (bufsz / 2) * sizeof(SAMPLE), x, (bufsz / 2) * sizeof(SAMPLE));
+      memcpy(((char*)zin) + HALF, x, HALF);
       // zin := [x-1][x0]
 
       lpc_analyze(lpc, zin, bufsz, coefs, num_coefs, &power, &pitch);
+      //memcpy(zout, zin, HALF*2);
       lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power, pitch);
 
       printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
 	     pitch, power, total / filesize * 100.0); fflush(stdout);
-      
-      // y := [y-1 + ][]
-      memcpy(y, zout, (bufsz / 2) * sizeof(SAMPLE));
 
+      // [veryold][old]
+      memcpy(y, (char*)y + HALF, HALF);
+      // [old][old]
+
+      memcpy(((char*)y) + HALF, ((char*)zout) + HALF, HALF);
+      //      for(int i = 0; i < bufsz / 2; i++)      	y[(i + (bufsz/2))%bufsz] = zout[(i + (bufsz/2))%bufsz];
+      
+      // [old][new]
+      for(int i = 0; i < bufsz / 2; i++) {
+	y[i] += zout[i];
+	//y[i] /= 2;
+      }
+      //[added][new]
+ 
       osfh.write(y, bufsz / 2);
 
       total += bufsz / 2;
