@@ -1,2 +1,12 @@
+% -*- coding: latin-1 -*-
 \section{Konklusion}
-test 123
+I dette projekt har vi konstrueret en offline taleenkoder/dekoder vha. LPC.
+
+Vi har implementeret pitch-detection vha. AMDF, hvilket har givet meget overbevisende resultater, når man sørger for ikke at forsøge at detektere perioder længere end det data man arbejder med.
+
+Vi har implementeret 50% overlap for at lave blødere overgange mellem de forskellige frames. Dette er også lykkedes, dog med visse sideeffekter i form af introducerede undertoner (som muligvis også afhænger af vinduestørrelsen) samt en flanger-lignende effekt. Sidstnævnte kan skyldes at vi i to på hindanden-følgende frames detekterer to nærliggende pitches og derefter adderer disse frames. Således får den resulterende frame præg af to tætliggende toner, hvilket kan give den karakteristiske flanger-effekt.
+
+Vi har som sagt benyttet LPC-algoritmen som blackbox så uden at skulle gøre os kloge på præcis hvorfor, mener vi at det giver en væsentlig kvalitetsforbedring at forøge antallet af koefficienter fra 12 til 20, mens en forøgelse fra 20 til 32 ikke giver en så udpræget forbedring.
+
+Det har været sjaw!
+

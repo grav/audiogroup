@@ -1,6 +1,7 @@
 #include <sndfile.hh>
 #include "lpc.h"
 
+#include <vector>
 #include <string.h>
 #include <math.h>
 
@@ -11,6 +12,7 @@
 #define WINDOW_SIZE 20
 #define THRESHOLD   0.065
 #define COEFS       20
+#define VOLUME      1.0
 
 // Global samplerate
 int g_fs;
@@ -20,16 +22,32 @@ int g_window_size_samples = WINDOW_SIZE;
 static const char usage_str[] =
 "Usage: %s [options] inputfile outputfile\n"
 "Options:\n"
-"  -w  --windowsize ms   Set the window size to ms (default %d).\n"
-"  -c  --coefficients c  Set the number of coefficients to use with the lpc to c (default %d).\n"
-"  -t  --threshold t     Set the pitched/unpitched threashold to t (default %.3f).\n"
-"  -o  --overlap         Make windows overlap 50%.\n"
-"  -h, --help            Print this message and exit.\n"
+"  -w, --windowsize ms      Set the window size to ms (default %d).\n"
+"  -c, --coefficients c     Set the number of coefficients to use with the lpc to c (default %d).\n"
+"  -t, --threshold t        Set the pitched/unpitched threashold to t (default %.3f).\n"
+"  -v, --volume v           Set volume multiplyer to v (default %.3f).\n"
+"  -o, --overlap            Make windows overlap 50%.\n"
+"  -s, --sing note,note,... Make the fat lady sing... notes are in hz.\n"
+"                            ex. -s 131,147,165,175,196,262,196\n"
+"  -h, --help               Print this message and exit.\n"
 ;
 
 void print_usage(char *program)
 {
-  printf(usage_str, program, WINDOW_SIZE, COEFS, THRESHOLD);
+  printf(usage_str, program, WINDOW_SIZE, COEFS, THRESHOLD, VOLUME);
+}
+
+float hann(int i, int bufsz)
+{
+  /*
+    
+    from wiki
+    w(n) = 0.5 * (1 - cos( ( 2 * pi * n) ) / (N - 1) )
+
+   */
+  float w = 0.5 * (1.0 - cos( ( 2.0 * M_PI * (float)i) / ((float)bufsz - 1.0)) );
+  //  printf("Hann: %d %d %f\n", i, bufsz, w);
+  return w;
 }
 
 int main(int argc, char *argv[])
@@ -39,6 +57,9 @@ int main(int argc, char *argv[])
   int window_size_ms = 20;
   int num_coefs = 12;
   bool overlap = false;
+  float volume = VOLUME;
+  bool sing = false;
+  std::vector< int > notes;
 
   while(1) {
     int this_option_optind = optind ? optind : 1;
@@ -47,12 +68,14 @@ int main(int argc, char *argv[])
       {"coefficients", required_argument, 0, 'c'},
       {"windowsize", required_argument, 0, 'w'},
       {"threshold", required_argument, 0, 't'},
+      {"volume", required_argument, 0, 'v'},
+      {"sing", required_argument, 0, 's'},
       {"help", no_argument, 0, 'h'},
       {"version", no_argument, 0, 'v'},
       {0, 0, 0, 0}
     };
     
-    c = getopt_long (argc, argv, "hw:c:t:o", long_options, &option_index);
+    c = getopt_long (argc, argv, "hw:c:t:ov:s:", long_options, &option_index);
     
     if (c == -1)
       break;
@@ -74,10 +97,38 @@ int main(int argc, char *argv[])
       overlap = true;
       break;
 
+    case 's':
+      {
+	sing = true;
+	char *p = optarg;
+	bool stop = false;
+	while(!stop) {
+	  char buf[32];
+	  char *pos = strchr(p, ',');
+	  if(!pos) {
+	    strcpy(buf, p);
+	    stop = true;
+	  } else {
+	    memset(buf, 0, sizeof(buf));
+	    strncpy(buf, p, pos - p);
+	  }
+	  int note = 44100/atoi(buf);
+	  notes.push_back(note);
+	  p += pos - p + 1;
+	}
+
+	//	for(int i = 0; i < notes.size(); i++) printf("%d\n", notes[i]);
+      }
+      break;
+
+    case 'v':
+      volume = atof(optarg);
+      break;
+
     case '?':
     case 'h':
-			print_usage(argv[0]);
-			return 0;
+      print_usage(argv[0]);
+      return 0;
 
     default:
       break;
@@ -114,7 +165,7 @@ int main(int argc, char *argv[])
   isfh.seek(0, SEEK_SET);
 
   g_window_size_samples = (int)((float)g_fs * ((float)window_size_ms / 1000.0));
-  if(g_window_size_samples % 2) g_window_size_samples++; // Make sure it is divisible by 2.
+  //  if(g_window_size_samples % 2) g_window_size_samples++; // Make sure it is divisible by 2.
   int bufsz = g_window_size_samples;
   if(overlap) bufsz *= 2;
 
@@ -141,32 +192,46 @@ int main(int argc, char *argv[])
 #define HALF ((bufsz / 2) * sizeof(SAMPLE))
 
       // zin := [x-2][x-1]
-      memcpy(zin, ((char*)zin) + HALF, HALF);
+      for(int i = 0; i < bufsz / 2; i++) {
+	zin[i] = zin[i + (bufsz / 2)];
+      }
+      //      memcpy(zin, ((char*)zin) + HALF, HALF);
       // zin := [x-1][x-1]
-      memcpy(((char*)zin) + HALF, x, HALF);
+      for(int i = 0; i < bufsz / 2; i++) {
+	zin[i + (bufsz / 2)] = x[i];
+      }
+      //      memcpy(((char*)zin) + HALF, x, HALF);
       // zin := [x-1][x0]
 
       lpc_analyze(lpc, zin, bufsz, coefs, num_coefs, &power, &pitch);
+
+      if(sing) {
+	if(pitch) pitch = notes[(int)(total / filesize * notes.size())];
+      }
+
       //memcpy(zout, zin, HALF*2);
-      lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power, pitch);
+      lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power * volume * 2, pitch);
 
       printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
 	     pitch, power, total / filesize * 100.0); fflush(stdout);
 
-      // [veryold][old]
-      memcpy(y, (char*)y + HALF, HALF);
-      // [old][old]
-
-      memcpy(((char*)y) + HALF, ((char*)zout) + HALF, HALF);
-      //      for(int i = 0; i < bufsz / 2; i++)      	y[(i + (bufsz/2))%bufsz] = zout[(i + (bufsz/2))%bufsz];
-      
-      // [old][new]
+      // [y-2][y-1]
       for(int i = 0; i < bufsz / 2; i++) {
-	y[i] += zout[i];
-	//y[i] /= 2;
+	y[i] = y[i + (bufsz / 2)];
       }
-      //[added][new]
- 
+      //      memcpy(y, ((char*)y) + HALF, HALF);
+      // [y-1][y-1]
+      for(int i = 0; i < bufsz / 2; i++) {
+	y[i + (bufsz / 2)] = zout[i + (bufsz / 2)];
+      }
+      //      memcpy(((char*)y) + HALF, ((char*)zout) + HALF, HALF);
+      // [y-1][y0]
+      for(int i = 0; i < bufsz / 2; i++) {
+	//y[i] = zout[i];
+	y[i] = (y[i] * hann((bufsz / 2) + i, bufsz) + zout[i] * hann(i, bufsz));
+      }
+      //[y-1 + zout-1][y0]
+
       osfh.write(y, bufsz / 2);
 
       total += bufsz / 2;
@@ -176,7 +241,12 @@ int main(int argc, char *argv[])
 
     while(isfh.read(x, bufsz) != 0) {
       lpc_analyze(lpc, x, bufsz, coefs, num_coefs, &power, &pitch);
-      lpc_synthesize(lpc, y, bufsz, coefs, num_coefs, power, pitch);
+
+      if(sing) {
+	if(pitch) pitch = notes[(int)(total / filesize * notes.size())];
+      }
+
+      lpc_synthesize(lpc, y, bufsz, coefs, num_coefs, power * volume * 2, pitch);
       printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
 	     pitch, power, total / filesize * 100.0); fflush(stdout);
       osfh.write(y, bufsz);
