@@ -1,0 +1,34 @@
+% -*- coding: latin-1 -*-
+\section{Pitch-detection}
+RT\_LPC giver mulighed for at detektere pitch vha. autokorrelation. Vi har dog istedet implementeret average magnitude difference (AMDF) pitch detection på baggrund af [Sayood] pp. 543. Formlen for AMDF er:
+
+[formel],
+
+hvor p er perioden. For hver frame analyserer vi med værdier af p mellem 2.5 og 19.5 ms, svarende til 860 Hz ned til 110 Hz, hvor menneskelig tale normalt befinder sig. Herefter vælger vi den minimale AMDF-værdi som vores pitch.
+
+\subsection{Stemte lyde}
+I følgende eksempel analyseres 20 ms af 'y'-lyden i 'tydeligt'. X-aksen betegner p-værdien i samples, og Y-aksen betegner AMDF-værdien.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=120mm]{y-plot.eps}\\
+\end{center}
+\label{udstyr}
+\caption{'Y'-lyd i 'tydelig'}
+\end{figure}
+
+Det ses at minimum ligger ved ca 730 samples, svarende til ca 60 Hz. Et lokalt minimum ses ved den dobbelte frekvens (den halve periode), hvilket formodentligt er en overtone.
+
+Er den minimale værdi over et bestemt threshold, vælger vi at opfatte frame'n som en ustemt lyd.
+
+\subsection{Ustemte lyde}
+I dette ekspempel analyseres 20 ms af 't'-lyden i 'tydeligt'. Det ses at alle værdier ligger forholdsvist samme sted på y-aksen. Ingen værdi er under vores threshold og vi opfatter derfor frame'n som en ustemt lyd.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=120mm]{t-plot.eps}\\
+\end{center}
+\label{udstyr}
+\caption{'T'-lyd i 'tydelig'}
+\end{figure}
+
