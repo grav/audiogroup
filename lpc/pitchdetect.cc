@@ -11,7 +11,7 @@ extern int g_window_size_samples;
 
 #define LOW_HZ   55
 
-#define HIGH_SAMP (int)((float)(g_window_size_samples * 0.7))  // base on windo size
+#define HIGH_SAMP (int)((float)(g_window_size_samples * 0.5))  // base on windo size
 //#define HIGH_SAMP (int)((float)g_fs / (float)LOW_HZ)
 
 #define HIGH_HZ  400

@@ -210,7 +210,7 @@ int main(int argc, char *argv[])
       }
 
       //memcpy(zout, zin, HALF*2);
-      lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power * volume * 2, pitch);
+      lpc_synthesize(lpc, zout, bufsz, coefs, num_coefs, power * volume, pitch);
 
       printf("Pitch %.2f \tPower: %.8f \tDone: %.2f%\r",
 	     pitch, power, total / filesize * 100.0); fflush(stdout);
