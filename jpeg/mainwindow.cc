@@ -59,7 +59,7 @@ MainWindow::MainWindow(char *imagefile)
   box->addWidget(diff_btn);
   connect(diff_btn, SIGNAL(clicked()), this, SLOT(diff()));
   
-  size_slider = new Slider(QString("BlockSize (8=quant.tbl)"), 1, 32, 8);
+  size_slider = new Slider(QString("BlockSize (8=quant.tbl)"), 1, 128, 8);
   box->addWidget(size_slider);
 
   quality_slider = new Slider(QString("Quality"), -300, 300, 0);
@@ -232,9 +232,9 @@ void MainWindow::ding()
       quantize_chrom(dct_m_Cr, size, quality);
       quantize_chrom(dct_m_Cb, size, quality);
 
-      out += huffman_ac_encode(dct_m_Y, size, lum_table);
-      out += huffman_ac_encode(dct_m_Cr, size, chrom_table);
-      out += huffman_ac_encode(dct_m_Cb, size, chrom_table);
+      // out += huffman_ac_encode(dct_m_Y, size, lum_table);
+      // out += huffman_ac_encode(dct_m_Cr, size, chrom_table);
+      // out += huffman_ac_encode(dct_m_Cb, size, chrom_table);
 
       // eoq
 
