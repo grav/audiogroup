@@ -16,7 +16,27 @@ Beskriv fuzz
 hardware, alesis-lydkort (headphone-amp,preamps?)
 
 Bent:
-mikrofon, karakteristik (loi-rapport)
-koordinatsystem, måleafstand
-det lyddøde rum
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=12cm]{ecm8000_freqres.pdf}
+\end{center}
+\caption{Frekvensgangen på Behringer ECM8000 mikrofonen}
+\label{ecm8000}
+\end{figure}
 
+Vi har målt i 10 graders interval op til 40 grader fra on axis og i alle retninger. I alt 81 målinger.\\
+Det giver anledning til følgende grid over målingerne:
+
+Vores closerange målinger er alle lavet ved 12 cm afstand, hhv. med og uden kabinet.\\
+
+Desuden har vi foretaget målinger på 2 m. afstand i en vinkel på ca. 45 grader oppe fra. Der er her lavet målinger hvor højtaleren peger hen imod lytteren, og væk fra lytteren, for at afspejle hvad man kan kalde almindeligt brug.
+
+Alle målingerne er foretaget i et lyddødt rum, med en udefra dæmpning på -60DB. Rummet er approksimativt $60m^3$ med en nedre begrænsende frekvens på 100Hz, svarende til starten på vores sweep (100Hz - 20kHz).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=12cm]{room.jpg}
+\end{center}
+\caption{Målinger blev foretaget i et lyddødt rum.}
+\label{room}
+\end{figure}
