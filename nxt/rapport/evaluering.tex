@@ -1,13 +1,28 @@
 \section{Evaluering}
+\subsection*{Højttaleren isoleret set}
+Med NXT'en følger en række lydfiler med tale. Frekvensen af forståelig
+tale ligger mellem 300 og 3000 Hz, og filerne er i 8 kHz, så NXT'ens
+højttaler vil fint kunne frembringe dette. 'Bip-lyde' med et begrænset
+frekvensspektrum vil ligeså kunne afspilles, mens frembringelse af
+musik, hvor frekvensspektret er noget bredere, er mere
+problematisk. Specielt frekvensdykket omkring 2 kHz på ca. 10 dB vil
+påvirke musikken i nævneværdig grad.
 
-\subsection{Højttaleren isoleret set}
+Der vil dog være problemer med dybe frekvenser op til 600 Hz, så
+f.eks. mandetale vil lyde tynd. En bedre gengivelse af tale i dybe
+frekvenser ville kræve større driver, hvilket kan have påvirket LEGOs
+valg.
 
-Med NXT'en følger en række lydfiler med tale. Frekvensen af forståelig tale ligger mellem 300 og 3000 Hz, og filerne er i 8 kHz, så NXT'ens højttaler vil fint kunne frembringe dette. 'Bip-lyde' med et begrænset frekvensspektrum vil ligeså kunne afspilles, mens frembringelse af musik, hvor frekvensspektret er noget bredere, er mere problematisk. Specielt frekvensdykket omkring 2 kHz på ca. 10 dB vil påvirke musikken i nævneværdig grad.
-
-Der vil dog være problemer med dybe frekvenser op til 600 Hz, så f.eks. mandetale vil lyde tynd. En bedre gengivelse af tale i dybe frekvenser ville kræve større driver, hvilket kan have påvirket LEGOs valg.
-
-\subsection{Lydkredsløb sammenholdt med højttaler}
-Peter Vædele Clausen har i sit speciale\footnote{Se \texttt{http://www.daimi.au.dk/\~{}u991789/}} analyseret den del af NXT'ens lydkredsløb, der kommer før højttaleren. Iflg. ham har NXT'en ikke en egentlig A/D-converter, men benytter sig af Pulse Width Modulation (PWM) til at frembringe lyden. Konverteringen fra PCM til PWM bevirker at der genereres en mængde højfrekvens støj, hvilket i NXT'en fjernes med et lavpas-filter. Peter Vædele Clausen har vha. et sinus-sweep målt frekvensresponset på kredsløbet samt det analoge filter, vist i figur \ref{circuit}.
+\subsection*{Lydkredsløb sammenholdt med højttaler}
+Peter Vædele Clausen har i sit speciale\footnote{Se
+  \texttt{http://www.daimi.au.dk/\~{}u991789/}} analyseret den del af
+NXT'ens lydkredsløb, der kommer før højttaleren. Iflg. ham har NXT'en
+ikke en egentlig A/D-converter, men benytter sig af Pulse Width
+Modulation (PWM) til at frembringe lyden. Konverteringen fra PCM til
+PWM bevirker at der genereres en mængde højfrekvens støj, hvilket i
+NXT'en fjernes med et lavpas-filter. Peter Vædele Clausen har vha. et
+sinus-sweep målt frekvensresponset på kredsløbet samt det analoge
+filter, vist i figur \ref{circuit}.
 
 % kredsløb og filter
 \begin{figure}
@@ -18,14 +33,21 @@ Peter Vædele Clausen har i sit speciale\footnote{Se \texttt{http://www.daimi.au.
 \label{circuit}
 \end{figure}
 
-%
+Som det fremgår af figur \ref{circuit}, bevirker NXT'ens kredsløb
+sammen med det analoge filter et fald på 3 dB ved omkring 2 kHz, mens
+højttaleren først begynder at respondere ved 600 Hz. Som det fremgår
+af figur \ref{onaxis}, har højttaleren med kabinet endvidere et dyk
+omkring de 2 kHz. 
 
-Som det fremgår af figur \ref{circuit}, bevirker NXT'ens kredsløb sammen med det analoge filter et fald på 3 dB ved omkring 2 kHz, mens højttaleren først begynder at respondere ved 600 Hz. Som det fremgår af figur \ref{onaxis}, har højttaleren med kabinet endvidere et dyk omkring de 2 kHz. 
+Dette gør det samlede system i stand til nogenlunde lineært at
+frembringe frekvenser fra ca. 600 til 2000 Hz, hvilket er et meget
+snævert frekvensbånd, så her diskvalificeres systemet fuldstændigt til
+at spille musik, mens tale og 'bip-lyde' stadig kan frembringes med
+nogenlunde kvalitet, dog med en vis negativ påvirkning af
+forståeligheden af talen.
 
-Dette gør det samlede system i stand til nogenlunde lineært at frembringe frekvenser fra ca. 600 til 2000 Hz, hvilket er et meget snævert frekvensbånd, så her diskvalificeres systemet fuldstændigt til at spille musik, mens tale og 'bip-lyde' stadig kan frembringes med nogenlunde kvalitet, dog med en vis negativ påvirkning af forståeligheden af talen.
-
-\subsection{Korrektion}
-En digital korrektion vil kunne oprette dykket omkring 2 kHz, men den vil ikke kunne forbedre den smalle frekvensrespons, hvilket er det samlede systems største problem. Dermed vil en digital korrektion i sidste ende ikke gøre den store forskel.
-
-
- 
+\subsection*{Korrektion}
+En digital korrektion vil kunne oprette dykket omkring 2 kHz, men den
+vil ikke kunne forbedre den smalle frekvensrespons, hvilket er det
+samlede systems største problem. Dermed vil en digital korrektion i
+sidste ende ikke gøre den store forskel.
