@@ -3,8 +3,8 @@ TARGET=nxt
 FLAGS=
 GFXSRC=tegning
 #-c-style-errors
-PNGs := $(patsubst %.png,%.eps, $(wildcard *.png))
-FIGs := $(patsubst %.fig,%.eps, $(wildcard *.fig))
+#PNGs := $(patsubst %.png,%.eps, $(wildcard *.png))
+#FIGs := $(patsubst %.fig,%.eps, $(wildcard *.fig))
 .PHONY =dvi ps pdf mpost clean cleanall
 
 dvi: $(TARGET).tex $(PNGs) $(FIGs)
