@@ -1,7 +1,14 @@
 \section{Måleopstillinger}
-På hardware-siden har vi benyttet en bærbar Mac tilkoblet et Alesis IO|14 lydkort. Vi har foretaget målingerne ved hjælp af softwaren FuzzMeasure 2.
+På hardware-siden har vi benyttet en bærbar Mac tilkoblet et Alesis
+IO|14 lydkort. Vi har foretaget målingerne ved hjælp af softwaren
+FuzzMeasure 2.
 
-Ved hjælp af FuzzMeasure har vi sendt et sinus-sweep (1000 ms varighed, gående fra 100 Hz til 20000 Hz) igennem NXT-højttaleren og optaget det igen. FuzzMeasure beregner impulssvaret ved at affolde sinus-sweepet fra det optagede signal. Vi har optaget signalet ved 48000 kHz, således at vi både har taget Nyquist samt high-cut filteret på lydkortets A/D-converter i betragtning. 
+Ved hjælp af FuzzMeasure har vi sendt et sinus-sweep (1000 ms
+varighed, gående fra 100 Hz til 20 kHz) igennem NXT-højttaleren og
+optaget det igen. FuzzMeasure beregner impulssvaret ved at affolde
+sinus-sweepet fra det optagede signal. Vi har optaget signalet ved
+48 kHz, således at vi både har taget Nyquist samt high-cut filteret
+på lydkortets A/D-converter i betragtning.
 
 Til vores målinger har vi benyttet en Behringer ECM8000 målemikrofon,
 som har en nogelunde lineær frekvensgang indenfor det frekvensområde
@@ -16,8 +23,10 @@ frekvens karakteristik kan ses på figur \ref{ecm8000}.
 \label{ecm8000}
 \end{figure}
 
-Vi har målt i 10 graders intervaller op til 40 grader fra on axis og i alle retninger. I alt 81 målinger.\\
-Det giver anledning til det grid over målingerne, som kan ses på figur \ref{angles}.
+Vi har målt i 10 graders intervaller op til 40 grader fra on axis og i
+alle retninger. I alt 81 målinger.\\
+Det giver anledning til det grid over målingerne, som kan ses på figur
+\ref{angles}.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=8cm]{angles.pdf}
@@ -26,17 +35,34 @@ Det giver anledning til det grid over målingerne, som kan ses på figur \ref{angl
 \label{anlges}
 \end{figure}
 
-Vores closerange målinger er alle lavet ved 12 cm afstand, hhv. med og uden kabinet.
+For at kunne måle direkte på højttaleren har vi skilt NXTen ad og
+loddet et kabel direkte på polerne.\\
+For at kunne lave målinger af højttalerens kabinet (NXTens
+plastikkasse) har endvidere indført højttaleren på sin oprindelige
+plads i kabinettet med tilhørende gennemføring af kablet.\\
+Billeder af den afkoblede højttaler med lodninger kan ses på figur \ref{lodning} 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=6cm]{speaker_back.jpg}
+\includegraphics[width=6cm]{speaker_front.jpg}
+\end{center}
+\caption{Den sepererede højttaler med lodninger.}
+\label{lodning}
+\end{figure}
+
+
+Vores closerange målinger er alle lavet ved 12 cm afstand, hhv. med og
+uden kabinet.
 
 Desuden har vi foretaget målinger på 2 m. afstand i en vinkel på
 ca. 45 grader oppe fra. Der er her lavet målinger hvor højtaleren
 peger hen imod lytteren, og væk fra lytteren, for at afspejle hvad man
 kan kalde almindeligt brug.
 
-Alle målingerne er foretaget i et lyddødt rum (se figur \ref{room}), med en udefra dæmpning
-på -60dB. Rummet er approksimativt $60m^3$ med en nedre begrænsende
-frekvens på 100Hz, svarende til starten på vores sweep (100Hz -
-20kHz).
+Alle målingerne er foretaget i et lyddødt rum (se figur \ref{room}),
+med en udefra dæmpning på -60dB. Rummet er approksimativt $60m^3$ med
+en nedre begrænsende frekvens på 100Hz, svarende til starten på vores
+sweep (100Hz - 20kHz).
 
 \begin{figure}[h!]
 \begin{center}
