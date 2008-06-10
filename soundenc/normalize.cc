@@ -25,15 +25,22 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
 #include "normalize.h"
+#include <stdio.h>
 
 void normalize(samples_t *samples, float value)
 {
   float max = 0;
+  float min = 99999999;
   for(int i = 0; i < samples->size; i++) {
     if(samples->samples[i] > max) max = samples->samples[i];
+    if(samples->samples[i] < min) min = samples->samples[i];
   }
 
+  float norm = max;
+  if (norm < -min) norm = -min;
+
   for(int i = 0; i < samples->size; i++) {
-    samples->samples[i] /= (max / value);
+    samples->samples[i] /= (norm / value);
   }
+  //  printf("%f  %f\n",min,max);
 }

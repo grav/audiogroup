@@ -31,6 +31,7 @@ char *lin_filters[][32] = {
   "filters/fir_lin_30.wav",
   "filters/fir_lin_31.wav",
   "filters/fir_lin_32.wav",
+  ""
 };
 
 char *log_filters[][32] = {

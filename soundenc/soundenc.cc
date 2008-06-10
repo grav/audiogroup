@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
   // Load filters
   printf("Loading filters...\n");
-  char **filter = (char**)log_filters;
+  char **filter = (char**)lin_filters;
   while(strlen(*filter)) {
     printf("Filter: %s\n", *filter);
     filters[f++] = wavread(*filter);
