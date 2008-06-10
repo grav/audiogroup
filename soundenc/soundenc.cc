@@ -26,9 +26,11 @@
  */
 #include "wavread.h"
 #include "wavplay.h"
+#include "wavwrite.h"
 #include "conv.h"
 #include "samples.h"
 #include "normalize.h"
+#include "threshold.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -71,6 +73,7 @@ int main(int argc, char *argv[])
   }
   printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
 
+  float bandwidth = (20000.0-20.0)/32.0;
   // Iterate frames
   for(int b = 0; b < NUM_BANDS; b++) {
     float max = 0;
@@ -79,8 +82,9 @@ int main(int argc, char *argv[])
         float sample = bands[b]->samples[s + t];
         if(fabs(sample) > max) max = fabs(sample);
       }
-      float threshold = 0.1;
-      if(max < threshold) {
+      int freq = (int)(b * bandwidth + bandwidth/2.0);
+      float thres = threshold(freq);
+      if(max < thres) {
         for(int t = 0; t < FRAME_SIZE; t++) {
           bands[b]->samples[s + t] = 0;
         }
@@ -109,7 +113,8 @@ int main(int argc, char *argv[])
 
   // Play result
   printf("Playing result...\n");
-  wavplay(&y, xfs);
+  // wavplay(&y, xfs);
+  wavwrite("output.wav",&y, xfs);
 
   // Clean up
   delete x;

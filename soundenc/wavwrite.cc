@@ -1,8 +1,8 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *            threshold.cc
+ *            wavwrite.cc
  *
- *  Tue Jun 10 10:02:53 CEST 2008
+ *  Wed Apr 30 13:42:29 CEST 2008
  *  Copyright 2008 Bent Bisballe Nyeng
  *  deva@aasimon.org
  ****************************************************************************/
@@ -24,13 +24,25 @@
  *  along with DSPToolBox; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#include "threshold.h"
-#include <cmath>
+#include "wavwrite.h"
 
-float threshold(int freq)
+/**
+ * This code uses libsndfile
+ * Link: http://www.mega-nerd.com/libsndfile/
+ */
+#include <stdio.h>
+#include <sndfile.h>
+
+void wavwrite(const char *filename, samples_t *samples, samplerate_t samplerate)
 {
-  return 0;
-  if (freq >= 0 && freq <= 4000) return -log10(freq) * 0.2775 + 1;
-  else if ( freq > 4000 && freq <=20000 ) return 0.0000625 * freq - 0.25;
-  else return 1;
+  SF_INFO info;
+  info.format = SF_FORMAT_WAV | SF_FORMAT_FLOAT;
+  info.samplerate = samplerate;
+  info.channels = 1;
+
+  SNDFILE *handle = sf_open(filename, SFM_WRITE, &info);
+
+  sf_writef_float(handle, samples->samples, samples->size);
+
+  sf_close(handle);
 }
