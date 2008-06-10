@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
   int f = 0;
 
   // Load filters
+  printf("Loading filters...\n");
   char **filter = (char**)log_filters;
   while(strlen(*filter)) {
     printf("Filter: %s\n", *filter);
@@ -59,21 +60,32 @@ int main(int argc, char *argv[])
   samples_t *x = wavread(argv[1], &xfs);
 
   // Split bands
+  printf("Splitting bands...\n");
   samples_t *bands[NUM_BANDS];
   for(int b = 0; b < NUM_BANDS; b++) {
+    printf("\r%d of %d ", b, NUM_BANDS); fflush(stdout);
     bands[b] = conv(x, filters[b]);
   }
+  printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
 
   samples_t y(x->size);
+  // Put zeros in y.
+  for(int s = 0; s < y.size; s++) {
+    y.samples[s] = 0;
+  }
 
   // Mix bands
+  printf("Mixing bands...\n");
   for(int b = 0; b < NUM_BANDS; b++) {
+    printf("\r%d of %d ", b, NUM_BANDS); fflush(stdout);
     for(int s = 0; s < y.size; s++) {
       y.samples[s] += bands[b]->samples[s];
     }
   }
+  printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
 
   // Play result
+  printf("Playing result...\n");
   wavplay(&y, xfs);
 
   // Clean up
