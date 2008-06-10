@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
   // Mix bands
   printf("Mixing bands...\n");
   for(int b = 0; b < NUM_BANDS; b++) {
+    normalize(bands[b]);
     printf("\r%d of %d ", b, NUM_BANDS); fflush(stdout);
     for(int s = 0; s < y.size; s++) {
       y.samples[s] += bands[b]->samples[s];
