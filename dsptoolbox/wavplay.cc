@@ -61,8 +61,8 @@ void wavplay(samples_t *samples, samplerate_t srate)
 	buffer = (char*)calloc(buf_size, sizeof(char));
 	
 	for(int i = 0; i < samples->size; i++) {
-    buffer[2 * i] = (int)(samples->samples[i] * 32000) & 0xff;
-    buffer[2 * i + 1] = ((int)(samples->samples[i] * 32000) >> 8) & 0xff; 
+    buffer[2 * i] = (int)(samples->samples[i] * 32767) & 0xff;
+    buffer[2 * i + 1] = ((int)(samples->samples[i] * 32767) >> 8) & 0xff; 
 	}
 	ao_play(device, buffer, buf_size);
 	
