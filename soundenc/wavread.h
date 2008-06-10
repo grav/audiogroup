@@ -29,6 +29,6 @@
 
 #include "samples.h"
 
-samples_t *wavread(const char *filename, samplerate_t *samplerate);
+samples_t *wavread(const char *filename, samplerate_t *samplerate = NULL);
 
 #endif/*__DSPTOOLBOX_WAVREAD_H__*/

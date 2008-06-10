@@ -29,13 +29,60 @@
 #include "conv.h"
 #include "samples.h"
 
-int main()
-{
-  samplerate_t xfs;
-  samples_t *x = wavread("input.wav", &xfs);
+#include <stdio.h>
+#include <string.h>
 
-  wavplay(x, xfs);
+#include "filters.h"
+
+#define NUM_BANDS 32
+
+int main(int argc, char *argv[])
+{
+  if(argc < 2) {
+    printf("Usage %s input\n", argv[0]);
+    return 1;
+  }
+
+  samples_t *filters[NUM_BANDS];
+  int f = 0;
+
+  // Load filters
+  char **filter = (char**)log_filters;
+  while(strlen(*filter)) {
+    printf("Filter: %s\n", *filter);
+    filters[f++] = wavread(*filter);
+    filter++;
+  }
+
+  // Load input
+  samplerate_t xfs;
+  samples_t *x = wavread(argv[1], &xfs);
+
+  // Split bands
+  samples_t *bands[NUM_BANDS];
+  for(int b = 0; b < NUM_BANDS; b++) {
+    bands[b] = conv(x, filters[b]);
+  }
+
+  samples_t y(x->size);
+
+  // Mix bands
+  for(int b = 0; b < NUM_BANDS; b++) {
+    for(int s = 0; s < y.size; s++) {
+      y.samples[s] += bands[b]->samples[s];
+    }
+  }
+
+  // Play result
+  wavplay(&y, xfs);
+
+  // Clean up
   delete x;
+
+  for(int i = 0; i < NUM_BANDS; i++) {
+    delete bands[i];
+    delete filters[i];
+  }
 
   return 0;
 }
