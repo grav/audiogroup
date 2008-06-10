@@ -76,9 +76,9 @@ int main(int argc, char *argv[])
 
   float bandwidth = (20000.0-20.0)/32.0;
   // Iterate frames
-  for(int b = 0; b < NUM_BANDS; b++) {
-    float max = 0;
-    for(int s = 0; s < x->size; s += FRAME_SIZE) {
+  for(int s = 0; s < x->size; s += FRAME_SIZE) {
+    for(int b = 0; b < NUM_BANDS; b++) {
+      float max = 0;
       for(int t = 0; t < FRAME_SIZE; t++) {
         float sample = bands[b]->samples[s + t];
         if(fabs(sample) > max) max = fabs(sample);
