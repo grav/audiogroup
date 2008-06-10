@@ -9,7 +9,7 @@ opg10: klt.cc dft.cc samples.cc opg10.cc
 	g++ ${LIBS} klt.cc dft.cc samples.cc opg10.cc -o opg10
 
 filtertest: wavread.cc wavwrite.cc conv.cc samples.cc dft.cc filtertest.cc wavplay.cc
-	g++ ${LIBS} -g wavread.cc wavwrite.cc conv.cc samples.cc dft.cc filtertest.cc wavplay.cc -o filtertest
+	g++ ${LIBS} -g wavread.cc wavwrite.cc conv.cc samples.cc dft.cc filtertest.cc wavplay.cc -o filtertest normalize.cc
 
 clean:
 	rm -f dsptoolbox opg10 filtertest
