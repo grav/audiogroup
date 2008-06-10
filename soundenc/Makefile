@@ -1,5 +1,5 @@
 LIBS = -lsamplerate -lsndfile -lfftw3f -lao -L/opt/local/lib -I/opt/local/include
-SRC = wavread.cc conv.cc samples.cc wavplay.cc soundenc.cc
+SRC = wavread.cc conv.cc samples.cc wavplay.cc soundenc.cc normalize.cc
 
 all: ${SRC}
 	g++ ${LIBS} -g ${SRC} -o soundenc

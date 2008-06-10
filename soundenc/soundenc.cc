@@ -28,6 +28,7 @@
 #include "wavplay.h"
 #include "conv.h"
 #include "samples.h"
+#include "normalize.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -83,6 +84,8 @@ int main(int argc, char *argv[])
     }
   }
   printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
+
+  normalize(&y);
 
   // Play result
   printf("Playing result...\n");
