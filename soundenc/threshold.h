@@ -27,6 +27,6 @@
 #ifndef __DSPTOOLBOX_THRESHOLD_H__
 #define __DSPTOOLBOX_THRESHOLD_H__
 
-float threshold(int freq);
+float threshold(float max[], int freq);
 
 #endif/*__DSPTOOLBOX_THRESHOLD_H__*/

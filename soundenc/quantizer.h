@@ -29,6 +29,6 @@
 
 #include "samples.h"
 
-void quantize(float thres, float max, int b, int s, samples_t *band);
+void quantize(float thres, float max[], int b, int s, samples_t *band);
 
 #endif/*__DSPTOOLBOX_QUANTIZER_H__*/

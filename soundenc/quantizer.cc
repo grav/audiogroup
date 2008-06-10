@@ -30,9 +30,9 @@
 
 #define FRAME_SIZE 512
 
-void quantize(float thres, float max, int b, int s, samples_t *band)
+void quantize(float thres, float max[], int b, int s, samples_t *band)
 {
-  if(max < thres) {
+  if(max[b] < thres) {
     float quant = 1000;
     for(int t = 0; t < FRAME_SIZE; t++) {
       band->samples[s + t] = round(band->samples[s + t] * quant) / quant;

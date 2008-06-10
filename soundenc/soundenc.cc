@@ -74,17 +74,17 @@ int main(int argc, char *argv[])
   }
   printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
 
-  float bandwidth = (20000.0-20.0)/32.0;
   // Iterate frames
+  float max[32];
   for(int s = 0; s < x->size; s += FRAME_SIZE) {
     for(int b = 0; b < NUM_BANDS; b++) {
-      float max = 0;
       for(int t = 0; t < FRAME_SIZE; t++) {
         float sample = bands[b]->samples[s + t];
-        if(fabs(sample) > max) max = fabs(sample);
+        if(fabs(sample) > max[b]) max[b] = fabs(sample);
       }
-      int freq = (int)(b * bandwidth + bandwidth/2.0);
-      float thres = threshold(freq);
+    }
+    for(int b = 0; b < NUM_BANDS; b++) {
+      float thres = threshold(max, b);
       quantize(thres, max, b, s, bands[b]);
     }
   }
