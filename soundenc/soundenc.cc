@@ -31,6 +31,7 @@
 #include "samples.h"
 #include "normalize.h"
 #include "threshold.h"
+#include "quantizer.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -84,11 +85,7 @@ int main(int argc, char *argv[])
       }
       int freq = (int)(b * bandwidth + bandwidth/2.0);
       float thres = threshold(freq);
-      if(max < thres) {
-        for(int t = 0; t < FRAME_SIZE; t++) {
-          bands[b]->samples[s + t] = 0;
-        }
-      }
+      quantize(thres, max, b, s, bands[b]);
     }
   }
 
