@@ -25,23 +25,25 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
 #include "quantizer.h"
+#include "config.h"
+
 #include <stdio.h>
 
 #include <math.h>
 
 #define FRAME_SIZE 512
 
-float quant_sum = 0;
+long double quant_sum = 0;
 
 void quantize(float thres, float max[], int b, int s, samples_t *band)
 {
-  float quality = 0.0005;
+  float quant = 32767;
   if(max[b] < thres) {
-    float quant = (1-(thres-max[b])) * 32768 * quality;
+    quant *= (1-(thres-max[b])) * config::quality;
     for(int t = 0; t < FRAME_SIZE; t++) {
       band->samples[s + t] = round(band->samples[s + t] * quant) / quant;
     }
-    printf("Quant: %f\t%d\n",quant,b);
-    quant_sum += quant;
-  }
+    //    printf("Quant: %f\t%d\n",quant,b);
+  }    
+  quant_sum += quant;
 }

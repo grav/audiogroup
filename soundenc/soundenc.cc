@@ -42,7 +42,7 @@
 #define NUM_BANDS 32
 #define FRAME_SIZE 512
 
-extern float quant_sum;
+extern long double quant_sum;
 
 int main(int argc, char *argv[])
 {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
   printf("Loading filters...\n");
   char **filter = (char**)lin_filters;
   while(strlen(*filter)) {
-    printf("Filter: %s\n", *filter);
+    //    printf("Filter: %s\n", *filter);
     filters[f] = wavread(*filter);
     f++;
     filter++;
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
   wavplay(&y, xfs);
   wavwrite("output.wav",&y, xfs);
 
-  printf("Avg. quant.: %f\n",(float)(quant_sum)/((float)(x->size)/(float)(FRAME_SIZE)));
+  printf("Avg. quant.: %Lf\n",quant_sum);///((long double)(x->size / FRAME_SIZE)));
 
   // Clean up
   delete x;
