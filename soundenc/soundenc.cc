@@ -32,10 +32,12 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include "filters.h"
 
 #define NUM_BANDS 32
+#define FRAME_SIZE 512
 
 int main(int argc, char *argv[])
 {
@@ -69,6 +71,24 @@ int main(int argc, char *argv[])
   }
   printf("\r%d of %d\n", NUM_BANDS, NUM_BANDS);
 
+  // Iterate frames
+  for(int b = 0; b < NUM_BANDS; b++) {
+    float max = 0;
+    for(int s = 0; s < x->size; s += FRAME_SIZE) {
+      for(int t = 0; t < FRAME_SIZE; t++) {
+        float sample = bands[b]->samples[s + t];
+        if(fabs(sample) > max) max = fabs(sample);
+      }
+      float threshold = 0.1;
+      if(max < threshold) {
+        for(int t = 0; t < FRAME_SIZE; t++) {
+          bands[b]->samples[s + t] = 0;
+        }
+      }
+    }
+  }
+
+
   samples_t y(x->size);
   // Put zeros in y.
   for(int s = 0; s < y.size; s++) {
@@ -78,7 +98,6 @@ int main(int argc, char *argv[])
   // Mix bands
   printf("Mixing bands...\n");
   for(int b = 0; b < NUM_BANDS; b++) {
-    normalize(bands[b]);
     printf("\r%d of %d ", b, NUM_BANDS); fflush(stdout);
     for(int s = 0; s < y.size; s++) {
       y.samples[s] += bands[b]->samples[s];
