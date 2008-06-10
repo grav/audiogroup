@@ -29,7 +29,6 @@
 
 float threshold(int freq)
 {
-  return 0;
   if (freq >= 0 && freq <= 4000) return -log10(freq) * 0.2775 + 1;
   else if ( freq > 4000 && freq <=20000 ) return 0.0000625 * freq - 0.25;
   else return 1;

@@ -33,7 +33,7 @@
 void quantize(float thres, float max, int b, int s, samples_t *band)
 {
   if(max < thres) {
-    float quant = 1;
+    float quant = 1000;
     for(int t = 0; t < FRAME_SIZE; t++) {
       band->samples[s + t] = round(band->samples[s + t] * quant) / quant;
     }
