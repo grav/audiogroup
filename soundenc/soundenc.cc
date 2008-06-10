@@ -42,6 +42,8 @@
 #define NUM_BANDS 32
 #define FRAME_SIZE 512
 
+extern unsigned int quant_sum;
+
 int main(int argc, char *argv[])
 {
   if(argc < 2) {
@@ -78,6 +80,7 @@ int main(int argc, char *argv[])
   float max[32];
   for(int s = 0; s < x->size; s += FRAME_SIZE) {
     for(int b = 0; b < NUM_BANDS; b++) {
+      max[b]=0;
       for(int t = 0; t < FRAME_SIZE; t++) {
         float sample = bands[b]->samples[s + t];
         if(fabs(sample) > max[b]) max[b] = fabs(sample);
@@ -110,8 +113,10 @@ int main(int argc, char *argv[])
 
   // Play result
   printf("Playing result...\n");
-  // wavplay(&y, xfs);
+  wavplay(&y, xfs);
   wavwrite("output.wav",&y, xfs);
+
+  printf("Avg. quant.: %f\n",(float)(quant_sum)/((float)(x->size)/(float)(FRAME_SIZE)));
 
   // Clean up
   delete x;
