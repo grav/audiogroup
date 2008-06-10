@@ -42,7 +42,7 @@
 #define NUM_BANDS 32
 #define FRAME_SIZE 512
 
-extern unsigned int quant_sum;
+extern float quant_sum;
 
 int main(int argc, char *argv[])
 {
@@ -59,7 +59,8 @@ int main(int argc, char *argv[])
   char **filter = (char**)lin_filters;
   while(strlen(*filter)) {
     printf("Filter: %s\n", *filter);
-    filters[f++] = wavread(*filter);
+    filters[f] = wavread(*filter);
+    f++;
     filter++;
   }
 
