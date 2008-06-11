@@ -26,21 +26,17 @@
  */
 #include "normalize.h"
 #include <stdio.h>
+#include <math.h>
 
 void normalize(samples_t *samples, float value)
 {
   float max = 0;
-  float min = 99999999;
   for(int i = 0; i < samples->size; i++) {
-    if(samples->samples[i] > max) max = samples->samples[i];
-    if(samples->samples[i] < min) min = samples->samples[i];
+    if(fabs(samples->samples[i]) > max) max = fabs(samples->samples[i]);
   }
 
-  float norm = max;
-  if (norm < -min) norm = -min;
-
   for(int i = 0; i < samples->size; i++) {
-    samples->samples[i] /= (norm / value);
+    samples->samples[i] /= (max / value);
   }
   //  printf("%f  %f\n",min,max);
 }

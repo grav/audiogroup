@@ -27,6 +27,10 @@
 #ifndef __DSPTOOLBOX_THRESHOLD_H__
 #define __DSPTOOLBOX_THRESHOLD_H__
 
-float threshold(float max[], int freq);
+float threshold(float max[], int band);
+
+float threshold2(float max[], int band);
+
+float threshold3(float max[], int band);
 
 #endif/*__DSPTOOLBOX_THRESHOLD_H__*/

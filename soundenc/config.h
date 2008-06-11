@@ -28,7 +28,8 @@
 
 typedef enum {
   THR_LINEAR,
-  THR_BIQAUD
+  THR_BIQAUD,
+  THR_AVG
 } threshold_t;
 
 namespace config{
