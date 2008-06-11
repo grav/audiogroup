@@ -25,32 +25,92 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
 #include "biquad.h"
+
+#include <math.h>
 #include <stdio.h>
+#include <stdlib.h> 
 
-#define START 0
-#define STOP 22
-#define STEP 1
+#include "samples.h"
+#include "dft.h"
+#include "normalize.h"
 
-int main()
+#define STOP 200000
+
+static float frand()
 {
-  biquad f;
-  biquad_init(&f);
+  double r = (double)rand() / (double)((unsigned int)0xffffffff);
+  return r * 2.0 - 1.0;// * b + (b - a);
+}
 
-  bq_t fc = 20000;
-  bq_t gain = 200;
-  bq_t bw = 0.01;
-  bq_t fs = 44100;
-  eq_set_params(&f, fc, gain, bw, fs);
+static float curve(int freq){
+  // calculate from audibility threshold
+  if (freq >= 0 && freq <= 4000) return (-log10(freq) * 0.2775 + 1);
+  else if ( freq > 4000 && freq <=20000 ) return (0.0000625 * freq - 0.25);
+  else return 1;
+}
 
+static float smooth(complex_samples_t *x, int idx, int range = 100)
+{
+  float val = 0;//x->samples[idx][RE];
+  int num = 0;
+  float max = 0;
+  for(int i = idx - range; i < idx + range; i++) {
+    if(i >= 0 && i < x->size) {
+      if(max < x->samples[i][RE]) max = x->samples[i][RE];
+      val += x->samples[i][RE];
+      num++;
+    }  
+  }
+  val += max * range;
+
+  val /= (float)(num * 3); 
+
+  return val;
+}
+
+int biquadthreshold(float max[], int band))
+{
+  samples_t *x = NULL;
+  complex_samples_t *xfft = NULL;
+
+  x = new samples_t(STOP);
+  for(int i = 0; i < STOP; i++) x->samples[i] = frand();
+
+  for(int i = 0; i < 32; i++) {
+    if(i != band) {
+      biquad f;
+      biquad_init(&f);
+      bq_t fc = (20000 - 20 / 32) * i + ((20000 - 20 / 32) / 2);
+      bq_t gain = fabs(curve(i) - max[i]);
+      bq_t bw = 0.5;    // Parameters for Bandwidth (octaves)  0.0 -  4.0
+      bq_t fs = STOP;
+      eq_set_params(&f, fc, gain, bw, fs);
+      for(int i = 0; i < STOP; i++) {
+        x->samples[i] = biquad_run(&f, x->samples[i]);
+      }
+    }
+  }
+
+  if(xfft) delete xfft;
+  xfft = dft(x);
+
+  printf("inf = 1;\n");
+  /*
   printf("x = [");
-  for(bq_t x = START; x < STOP; x+=STEP) {
-    printf("%f ", x);
+  for(int i = 0; i < STOP; i++) {
+    printf("%d ", i);
   }
   printf("];\n");
+  */
+  //  normalize(x);
 
   printf("y = [");
-  for(bq_t x = START; x < STOP; x+=STEP) {
-    printf("%f ", biquad_run(&f, x));
+  for(int i = 0; i < 32; i++) {
+    float val = smooth(xfft, i * (20000/32));
+    val /= 300;
+    if(val > 3) val = 3;
+    if(val < 0.3) val = 0;
+    printf("%f ", curve(i * (20000/32)) + val);
   }  
   printf("];\n");
 

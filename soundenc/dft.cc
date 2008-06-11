@@ -1,8 +1,8 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *            threshold.cc
+ *            dft.cc
  *
- *  Tue Jun 10 10:02:53 CEST 2008
+ *  Wed Apr 30 14:14:29 CEST 2008
  *  Copyright 2008 Bent Bisballe Nyeng
  *  deva@aasimon.org
  ****************************************************************************/
@@ -24,45 +24,41 @@
  *  along with DSPToolBox; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#include "threshold.h"
-#include "config.h"
-#include <cmath>
-#include <stdio.h>
+#include "dft.h"
 
-#include "biquadthreshold.h"
+/**
+ * This code uses the fftw library.
+ * Link: http://www.fftw.org/
+ */
+#include <fftw3.h>
 
-static float curve(int band){
-  // calculate from audibility threshold
-  float thres = config::curve_offset;
-  float bandwidth = (20000.0-20.0)/32.0;
-  int freq = (int)(band * bandwidth + bandwidth/2.0);
-  if (freq >= 0 && freq <= 4000) return thres + (-log10(freq) * 0.2775 + 1);
-  else if ( freq > 4000 && freq <=20000 ) return thres + (0.0000625 * freq - 0.25);
-  else return thres + 1;
-}
-
-float threshold(float max[], int band)
+complex_samples_t *dft(samples_t *samples)
 {
-  return biquadthreshold(max, band);
+  complex_samples_t *d = new complex_samples_t(samples->size);
 
-  float thres = curve(band);
+  fftwf_plan p;
+  p = fftwf_plan_dft_r2c_1d(samples->size, samples->samples, d->samples, FFTW_ESTIMATE| FFTW_PRESERVE_INPUT);
+  fftwf_execute(p);
 
-  if (!config::mask) return thres;
+  fftwf_destroy_plan(p);
 
-  float left_diff = 0;
-  float right_diff = 0;
-
-  // look at neighbour bands
-  if (band > 0){
-    left_diff = fmaxf(0,max[band-1] - curve(band-1));
-  }
-  if (band < 31){
-    right_diff = fmaxf(0,max[band+1] - curve(band+1));
-  }
-  float max_diff = fmaxf(left_diff,right_diff);
-  thres += max_diff/.5;
-  return thres;
-
+  return d;
 }
 
+samples_t *idft(complex_samples_t *samples)
+{
+  samples_t *i = new samples_t(samples->size);
+
+  fftwf_plan p;
+  p = fftwf_plan_dft_c2r_1d(samples->size, samples->samples, i->samples, FFTW_ESTIMATE| FFTW_PRESERVE_INPUT);
+  fftwf_execute(p);
+
+  fftwf_destroy_plan(p);
+
+  for(int a = 0; a < i->size; a++) {
+    i->samples[a] /= i->size;
+  }
+
+  return i;
+}
 
