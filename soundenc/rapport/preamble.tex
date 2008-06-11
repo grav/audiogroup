@@ -1,0 +1,152 @@
+\documentclass[
+%*********************************************
+%* Paper type (letterpaper)                  *
+%*********************************************
+    a4paper,
+%   letterpaper,
+%   a5paper,
+%   b5paper,
+%   executivepaper,
+%   legalpaper,
+%
+%*********************************************
+%* Font size (10pt)                          *
+%*********************************************
+%   10pt,
+    11pt,
+%   12pt,
+%
+%*********************************************
+%* Paging (document dependent)               *
+%*********************************************
+    oneside,
+%   twoside,
+%
+%*********************************************
+%* Equation alignment (center)               *
+%*********************************************
+%   fleqn,                  %placerer fomlerne i venstre siden istedet for centreret.
+%   leqno,                  %Placerer formelnummereringen på venstre side (istedet for højre)
+%
+%*********************************************
+%* Chapter positioning (document dependent)  *
+%*********************************************
+    openany,                %openany starter chapters på næstkommende side.
+%   openright,
+%
+%*********************************************
+%* Language (none)                           *
+%*********************************************
+%    english]
+   danish]
+%
+%*********************************************
+%* Document type (none)                      *
+%*********************************************
+%   {book}
+    {article}
+%   {slides}
+%   {report}
+
+
+%*********************************************
+%* Userpackages                              *
+%*********************************************
+\usepackage[danish]{babel}
+%\usepackage{t1enc}          %Bruges til sprog oa.
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+%\usepackage[xdvi]{epsfig}
+%\usepackage{ifthen}
+%\usepackage{latexsym}
+%\usepackage{theorem}
+\usepackage[dvips]{graphicx}       %Used when including .eps (graphics) files
+%\usepackage{varioref}
+%\usepackage{epic}
+%\usepackage{eepic}
+%\usepackage{rotfloat}
+%\usepackage{multicol}
+%\usepackage{wrapfig}
+%\usepackage{syntonly}          %Use this to check for proper syntax, makes output file.
+%\syntaxonly                %Use this to check for proper syntax, makes NO output file.
+\usepackage{verbatim}          %Used when to include an unformatted ASCII file
+%\usepackage{fancyhdr}
+%\usepackage{layout}
+%\usepackage{float}
+%\usepackage{makeidx}          %Used when making an index in the document
+\usepackage{calc}              %Used if you wanna use cm, mm, ex etc. instead of pt
+
+%%
+%% For code syntax highliting
+%%
+%\usepackage{color}
+%\usepackage{alltt}
+
+\pagestyle
+%*********************************************
+%* Header / footer configuration (none)      *
+%*********************************************
+    {plain}                 %Writes page number in footer, header is empty.
+%   {headings}
+%   {empty}                 %Makes no header or footer
+%   {myheadings}
+%   {fancy}
+
+
+
+%*********************************************
+%* Extra pagelayout    (se s. 110)           *
+%*********************************************
+%\hoffset   =   -0.5cm %Venstremargin
+%\voffset   =   0pt
+%\evensidemargin=   0pt
+%\oddsidemargin =   0pt %Ekstra venstremargin til dobbeltsider
+%\topmargin =   -2cm
+%\headheight    =   0pt
+%\headsep   =   0pt
+%\textheight = 690pt
+%\textwidth =   480pt
+%\marginparsep  =   0pt
+%\marginparwidth=   0pt
+%\footskip  =   0pt
+%\marginparpush =   0pt
+%\paperwidth    =   597pt
+%\paperheight   =   845pt
+
+%\makeindex
+
+%\parskip   =   1ex
+%\parindent =   0em
+%\baselineskip  =   2ex
+
+%\underlineheadings
+
+\title{MPEG �velse}
+%
+\author{Mikkel Gravgaard - 20043246\\Bent Bisballe Nyeng - 20001467}
+
+\markboth{}{}
+%*********************************************
+%*                start of                   *
+%*              -=DOCUMENT=-                 *
+%*********************************************
+\begin{document}
+\maketitle
+\tableofcontents 
+\include{introduktion}
+\include{brugervejledning}
+\include{baandfiltrering}
+\include{threshold}
+\include{quantization}
+\include{mixing}
+\include{konklusion}
+
+%\includeonly{filename,filename,...}
+
+%Denne opgave er skrevet ved brug af \LaTeX2e
+\end{document}
+%*********************************************
+%*                 end of                    *
+%*              -=DOCUMENT=-                 *
+%*********************************************
