@@ -79,11 +79,12 @@ float biquadthreshold(float max[], int band)
   for(int i = 0; i < STOP; i++) x->samples[i] = frand();
 
   for(int i = 0; i < 32; i++) {
-    if(i != band) {
+    float c = curve(i);
+    if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
       bq_t fc = (20000 - 20 / 32) * i + ((20000 - 20 / 32) / 2);
-      bq_t gain = fabs(curve(i) - max[i]);
+      bq_t gain = fabs(c - max[i]);
       bq_t bw = 0.5;
       bq_t fs = STOP;
       eq_set_params(&f, fc, gain, bw, fs);
@@ -93,12 +94,16 @@ float biquadthreshold(float max[], int band)
     }
   }
 
-  if(xfft) delete xfft;
   xfft = dft(x);
 
   float val = smooth(xfft, band * (20000/32));
   val /= 300;
   if(val > 3) val = 3;
   if(val < 0.3) val = 0;
-  return curve(band * (20000/32)) + val;
+  val = curve(band * (20000/32)) + val;
+
+  delete xfft;
+  delete x;
+
+  return val;
 }
