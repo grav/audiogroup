@@ -25,6 +25,6 @@
  */
 
 #include "config.h"
-float config::curve_offset = -100;
+float config::curve_offset = -1;
 bool config::mask = false;
 float config::quality = 0.01;

@@ -36,6 +36,8 @@
 #include "dft.h"
 #include "normalize.h"
 
+#include "config.h"
+
 #define STOP 200000
 
 static float frand()
@@ -46,9 +48,10 @@ static float frand()
 
 static float curve(int freq){
   // calculate from audibility threshold
-  if (freq >= 0 && freq <= 4000) return (-log10(freq) * 0.2775 + 1);
-  else if ( freq > 4000 && freq <=20000 ) return (0.0000625 * freq - 0.25);
-  else return 1;
+  float thres = config::curve_offset;
+  if (freq >= 0 && freq <= 4000) return thres + (-log10(freq) * 0.2775 + 1);
+  else if ( freq > 4000 && freq <=20000 ) return thres + (0.0000625 * freq - 0.25);
+  else return thres + 1;
 }
 
 static float smooth(complex_samples_t *x, int idx, int range = 100)
@@ -70,6 +73,8 @@ static float smooth(complex_samples_t *x, int idx, int range = 100)
   return val;
 }
 
+#define FRQ(x) ((20000 - 20) / 32) * x + (((20000 - 20) / 32) / 2)
+
 float biquadthreshold(float max[], int band)
 {
   samples_t *x = NULL;
@@ -79,11 +84,11 @@ float biquadthreshold(float max[], int band)
   for(int i = 0; i < STOP; i++) x->samples[i] = frand();
 
   for(int i = 0; i < 32; i++) {
-    float c = curve(i);
+    float c = curve(FRQ(i));
     if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
-      bq_t fc = (20000 - 20 / 32) * i + ((20000 - 20 / 32) / 2);
+      bq_t fc = FRQ(i);
       bq_t gain = fabs(c - max[i]);
       bq_t bw = 0.5;
       bq_t fs = STOP;
@@ -97,13 +102,16 @@ float biquadthreshold(float max[], int band)
   xfft = dft(x);
 
   float val = smooth(xfft, band * (20000/32));
-  val /= 300;
-  if(val > 3) val = 3;
+  val /= 100;
+  if(val > 1) val = 1;
   if(val < 0.3) val = 0;
-  val = curve(band * (20000/32)) + val;
+  val = curve(FRQ(band)) + val;
 
   delete xfft;
   delete x;
+
+  if(isinf(val)) val = 1.0 + config::curve_offset;
+  printf("%f ", val); fflush(stdout);
 
   return val;
 }
