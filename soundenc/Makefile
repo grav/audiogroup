@@ -4,5 +4,8 @@ SRC = wavread.cc conv.cc samples.cc wavplay.cc soundenc.cc normalize.cc threshol
 all: ${SRC}
 	g++ ${LIBS} -g ${SRC} -o soundenc
 
+biquadtest:
+	g++ biquadtest.cc -o bqt
+
 clean:
 	rm -f *~ soundenc

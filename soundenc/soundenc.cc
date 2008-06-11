@@ -35,7 +35,9 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
+#include <cmath>
+
+#include "biquad.h"
 
 #include "filters.h"
 
@@ -117,7 +119,9 @@ int main(int argc, char *argv[])
   wavplay(&y, xfs);
   wavwrite("output.wav",&y, xfs);
 
-  printf("Avg. quant.: %Lf\n",quant_sum);///((long double)(x->size / FRAME_SIZE)));
+  long double bits_per_sec = quant_sum * (long double)FRAME_SIZE * 32 / (long double)xfs;
+
+  printf("Bitrate.: %Lf kbit/s\n", bits_per_sec/1024);
 
   // Clean up
   delete x;

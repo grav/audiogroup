@@ -1,8 +1,8 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
- *            quantizer.cc
+ *            biquadtest.cc
  *
- *  Tue Jun 10 11:48:08 CEST 2008
+ *  Wed Jun 11 09:16:33 CEST 2008
  *  Copyright 2008 Bent Bisballe Nyeng
  *  deva@aasimon.org
  ****************************************************************************/
@@ -24,26 +24,35 @@
  *  along with DSPToolBox; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#include "quantizer.h"
-#include "config.h"
-
+#include "biquad.h"
 #include <stdio.h>
 
-#include <cmath>
+#define START 0
+#define STOP 22
+#define STEP 1
 
-#define FRAME_SIZE 512
-
-long double quant_sum = 0;
-
-void quantize(float thres, float max[], int b, int s, samples_t *band)
+int main()
 {
-  float quant = 32767;
-  if(max[b] < thres) {
-    quant *= (1-(thres-max[b])) * config::quality;
-    for(int t = 0; t < FRAME_SIZE; t++) {
-      band->samples[s + t] = round(band->samples[s + t] * quant) / quant;
-    }
-    //    printf("Quant: %f\t%d\n",quant,b);
-  }    
-  quant_sum += ceil(log2(quant * 2));
+  biquad f;
+  biquad_init(&f);
+
+  bq_t fc = 20000;
+  bq_t gain = 200;
+  bq_t bw = 0.01;
+  bq_t fs = 44100;
+  eq_set_params(&f, fc, gain, bw, fs);
+
+  printf("x = [");
+  for(bq_t x = START; x < STOP; x+=STEP) {
+    printf("%f ", x);
+  }
+  printf("];\n");
+
+  printf("y = [");
+  for(bq_t x = START; x < STOP; x+=STEP) {
+    printf("%f ", biquad_run(&f, x));
+  }  
+  printf("];\n");
+
+  return 0;
 }
