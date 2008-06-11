@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-float config::curve_offset = -0.5;
+float config::curve_offset = -1;
 bool config::mask = false;
-float config::quality = 0.01;
+float config::quality = 0.09;
 threshold_t config::threshold = THR_LINEAR;
