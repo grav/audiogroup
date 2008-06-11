@@ -41,10 +41,8 @@ static float curve(int band){
   else return thres + 1;
 }
 
-float threshold(float max[], int band)
+float linthreshold(float max[], int band)
 {
-  return biquadthreshold(max, band);
-
   float thres = curve(band);
 
   if (!config::mask) return thres;
@@ -65,4 +63,12 @@ float threshold(float max[], int band)
 
 }
 
-
+float threshold(float max[], int band)
+{
+  switch(config::threshold) {
+  case THR_LINEAR:
+    return linthreshold(max, band);
+  case THR_BIQAUD:
+    return biquadthreshold(max, band);
+  }
+}

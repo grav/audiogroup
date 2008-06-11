@@ -46,12 +46,16 @@ static float frand()
   return r * 2.0 - 1.0;// * b + (b - a);
 }
 
-static float curve(int freq){
+static float _curve(int freq){
   // calculate from audibility threshold
   float thres = config::curve_offset;
   if (freq >= 0 && freq <= 4000) return thres + (-log10(freq) * 0.2775 + 1);
   else if ( freq > 4000 && freq <=20000 ) return thres + (0.0000625 * freq - 0.25);
   else return thres + 1;
+}
+
+static float curve(int freq){
+  return fmax(0, _curve(freq));
 }
 
 static float smooth(complex_samples_t *x, int idx, int range = 100)
@@ -81,7 +85,7 @@ float biquadthreshold(float max[], int band)
   complex_samples_t *xfft = NULL;
 
   x = new samples_t(STOP);
-  for(int i = 0; i < STOP; i++) x->samples[i] = frand();
+  for(int i = 0; i < STOP; i++) x->samples[i] = frand() / 32;
 
   for(int i = 0; i < 32; i++) {
     float c = curve(FRQ(i));
@@ -89,9 +93,10 @@ float biquadthreshold(float max[], int band)
       biquad f;
       biquad_init(&f);
       bq_t fc = FRQ(i);
-      bq_t gain = fabs(c - max[i]);
+      bq_t gain = fabs(c - max[i]) * 10;
       bq_t bw = 0.5;
-      bq_t fs = STOP;
+      bq_t fs = 44100;
+      //      printf("point ( %f %f %f)\n", fc, gain, bw);
       eq_set_params(&f, fc, gain, bw, fs);
       for(int i = 0; i < STOP; i++) {
         x->samples[i] = biquad_run(&f, x->samples[i]);
@@ -103,8 +108,9 @@ float biquadthreshold(float max[], int band)
 
   float val = smooth(xfft, band * (20000/32));
   val /= 100;
+  if(val < 0) val = 0;
   if(val > 1) val = 1;
-  if(val < 0.3) val = 0;
+  //  if(val < 0.3) val = 0;
   val = curve(FRQ(band)) + val;
 
   delete xfft;

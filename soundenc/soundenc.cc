@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
   printf("Iterating frames...\n"); fflush(stdout);
   float max[32];
   for(int s = 0; s < x->size; s += FRAME_SIZE) {
-    printf("\n\r%d of %d ", s / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
+    printf("\r%d of %d ", s / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
     for(int b = 0; b < NUM_BANDS; b++) {
       max[b]=0;
       for(int t = 0; t < FRAME_SIZE; t++) {

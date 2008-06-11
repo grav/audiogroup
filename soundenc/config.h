@@ -26,10 +26,16 @@
 #ifndef __DSPTOOLBOX_CONFIG_H__
 #define __DSPTOOLBOX_CONFIG_H__
 
+typedef enum {
+  THR_LINEAR,
+  THR_BIQAUD
+} threshold_t;
+
 namespace config{
   extern bool mask;
   extern float quality;
   extern float curve_offset;
+  extern threshold_t threshold;
 };
 
 #endif/*__DSPTOOLBOX_CONFIG_H__*/
