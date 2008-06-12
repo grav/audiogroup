@@ -1,3 +1,19 @@
 % -*- coding: utf-8 -*-
 \subsection*{Biquad-maskering}
-bent skriver
+De tidligere beskrevne maskeringsmetoder benytter sig kun af
+informationer fra de to omkringliggende bånd. Biquad maskering er et
+forsøg på at lave alle bånd kunne maskere hinanden, uden at de ved et
+uheld kommer til at maskere sig selv.\\
+Maskeringskurven er frembragt på gølgende vis:
+\begin{itemize}
+\item Generer en blok med hvidstøj.
+\item For hver bånd maxværdi som ligger over ath kurven, lav en parametrisk
+  equalisering af hvidstøjen, hvor gain er styret af signal-to-ath
+  ratio og båndbredden er fikseret til 1/2 oktav. Dette gøres ikke for
+  båndet selv, idet det således ville kunne overkygge sig selv.
+\item FFT signalet, så vi kommer tilbage i frekvensdomænet
+\item Smooth grafen
+\item Lav maskeingsopslaget for det givne bånd.
+\end{itemize}
+Dette gøres dynamisk for hver frame, bortset fra
+hvidstøjsgenereringen. Den laves kun een gang og genbruges derefter.
