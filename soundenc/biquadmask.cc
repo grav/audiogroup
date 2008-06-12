@@ -37,7 +37,6 @@
 #include "normalize.h"
 #include "ath.h"
 #include "config.h"
-#include "resample.h"
 
 #include <string.h>
 
