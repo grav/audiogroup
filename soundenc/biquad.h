@@ -81,8 +81,7 @@ static inline void biquad_init(biquad *f) {
 	f->y2 = 0.0f;
 }
 
-static inline void eq_set_params(biquad *f, bq_t fc, bq_t gain, bq_t bw,
-			  bq_t fs)
+static inline void eq_set_params(biquad *f, bq_t fc, bq_t gain, bq_t bw, bq_t fs)
 {
 	bq_t w = 2.0f * M_PI * LIMIT(fc, 1.0f, fs/2.0f) / fs;
 	bq_t cw = cosf(w);
@@ -98,7 +97,8 @@ static inline void eq_set_params(biquad *f, bq_t fc, bq_t gain, bq_t bw,
 	f->a2 = ((g / J) - 1.0f) * a0r;
 }
 
-static inline bq_t biquad_run(biquad *f, const bq_t x) {
+static inline bq_t biquad_run(biquad *f, const bq_t x)
+{
 	bq_t y;
 
 	y = f->b0 * x + f->b1 * f->x1 + f->b2 * f->x2

@@ -32,10 +32,13 @@
 #include "normalize.h"
 #include "threshold.h"
 #include "quantizer.h"
+#include "config.h"
 
 #include <stdio.h>
 #include <string.h>
 #include <cmath>
+
+#include <fftw3.h>
 
 #include "filters.h"
 
@@ -49,6 +52,11 @@ int main(int argc, char *argv[])
   if(argc < 2) {
     printf("Usage %s input\n", argv[0]);
     return 1;
+  }
+
+  if(config::num_threads > 1) {
+    fftwf_init_threads();
+    fftwf_plan_with_nthreads(config::num_threads);
   }
 
   samples_t *filters[NUM_BANDS];

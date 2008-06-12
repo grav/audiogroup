@@ -39,7 +39,7 @@ void quantize(float thres, float max[], int b, int s, samples_t *band)
 {
   unsigned int quant = 31 * config::quality;
   if(max[b] > thres) {
-    quant += (32767-31) * (max[b]-thres)/max[b] * config::quality;
+    quant += (unsigned int)((32767-31) * (max[b]-thres)/max[b] * config::quality);
   }
   //printf("Quantizing ... (thres: %f, max: %f)\n",thres,max[b]);
   for(int t = 0; t < FRAME_SIZE; t++) {

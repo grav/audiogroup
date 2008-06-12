@@ -37,6 +37,7 @@ namespace config{
   extern float quality;
   extern float curve_offset;
   extern threshold_t threshold;
+  extern unsigned int num_threads;
 };
 
 #endif/*__DSPTOOLBOX_CONFIG_H__*/

@@ -25,7 +25,13 @@
  */
 
 #include "config.h"
+
 float config::curve_offset = 0;
+
 bool config::mask = true;
+
 float config::quality = 1;
+
 threshold_t config::threshold = THR_LINEAR;
+
+unsigned int config::num_threads = 3;
