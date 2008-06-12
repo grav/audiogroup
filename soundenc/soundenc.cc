@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     fftwf_plan_with_nthreads(config::num_threads);
   }
 
-  samples_t *filters[32];
+  samples_t *filters[NUM_BANDS];
   int f = 0;
 
   // Load filters
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
   }    
   while(strlen(*filter)) {
     //    printf("Filter: %s\n", *filter);
-    filters[f % NUM_BANDS] = wavread(*filter);
+    filters[(int)(((float)f / 32.0) * (float)NUM_BANDS) % NUM_BANDS] = wavread(*filter);
     f++;
     filter++;
   }
