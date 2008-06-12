@@ -65,7 +65,7 @@ static float smooth(complex_samples_t *x, int idx, int range = 100)
   return val;
 }
 
-#define FRQ(x) ((20000 - 20) / 32) * x + (((20000 - 20) / 32) / 2)
+#define FRQ(x) ((20000 - 20) / NUM_BANDS) * x + (((20000 - 20) / NUM_BANDS) / 2)
 
 float biquadmask(float max[], int band)
 {
@@ -73,9 +73,9 @@ float biquadmask(float max[], int band)
   complex_samples_t *xfft = NULL;
 
   x = new samples_t(STOP);
-  for(int i = 0; i < STOP; i++) x->samples[i] = frand() / 32;
+  for(int i = 0; i < STOP; i++) x->samples[i] = frand() / NUM_BANDS;
 
-  for(int i = 0; i < 32; i++) {
+  for(int i = 0; i < NUM_BANDS; i++) {
     float c = ath(i);
     if(i != band && max[i] > c) {
       biquad f;
@@ -84,7 +84,6 @@ float biquadmask(float max[], int band)
       bq_t gain = fabs(c - max[i]) * 10;
       bq_t bw = 0.5;
       bq_t fs = 44100;
-      //      printf("point ( %f %f %f)\n", fc, gain, bw);
       eq_set_params(&f, fc, gain, bw, fs);
       for(int i = 0; i < STOP; i++) {
         x->samples[i] = biquad_run(&f, x->samples[i]);
@@ -94,7 +93,7 @@ float biquadmask(float max[], int band)
 
   xfft = dft(x);
 
-  float val = smooth(xfft, band * (20000/32));
+  float val = smooth(xfft, FRQ(band));
   val /= 100;
   if(val < 0) val = 0;
   if(val > 1) val = 1;
