@@ -1,5 +1,7 @@
 % -*- coding: utf-8 -*-
 \section{Båndopsplitning}
-Vi har i Matlab genereret en filterbank med 32 stks 512 pols FIR-filtre. I vores encoder splitter vi kildelyden op i 32 bånd ved at fourier-transformere lyd og filtre og efterfølgende gange disse sammen (svarer til foldning i tidsdomænet).
+Vi ved hjælp af Matlabs \verb|fir1|-funktion genereret en båndpas-filterbank med 32 stks 512 pols FIR-filtre. I vores encoder splitter vi kildelyden op i 32 bånd ved at fourier-transformere lyd og filtre og efterfølgende gange disse sammen (svarer til foldning i tidsdomænet).
+
+Matlab-programmet til generering af filtrene kan findes i filen \verb|makefilters.m|.
 
 Herefter kan hvert af de resulterende 32 bånd iflg. teorien om undersampling nedsamples 32 gange, men dette har vi ikke kunnet få til at fungere uden betydeligt informationstab, så vi skipper derfor undersamplingen i vores encoding, hvilket naturligvis har den konsekvens at den resulterende datamængde bliver 32 gange større.
