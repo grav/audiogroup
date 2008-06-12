@@ -37,6 +37,9 @@
 #include "normalize.h"
 #include "ath.h"
 #include "config.h"
+#include "resample.h"
+
+#include <string.h>
 
 #define STOP 200000
 
@@ -65,41 +68,52 @@ static float smooth(complex_samples_t *x, int idx, int range = 100)
   return val;
 }
 
-#define FRQ(x) ((20000 - 20) / NUM_BANDS) * x + (((20000 - 20) / NUM_BANDS) / 2)
+#define FRQ(x) (((20000 - 20) / 100) / NUM_BANDS) * x + ((((20000 - 20) / 100) / NUM_BANDS) / 2)
+
+samples_t *rands = NULL;
 
 float biquadmask(float max[], int band)
 {
   samples_t *x = NULL;
   complex_samples_t *xfft = NULL;
 
-  x = new samples_t(STOP);
-  for(int i = 0; i < STOP; i++) x->samples[i] = frand() / NUM_BANDS;
+  x = new samples_t(STOP / 100);
+  if(rands == NULL) {
+    rands = new samples_t(x->size);
+    for(int i = 0; i < STOP / 100; i++) rands->samples[i] = frand() / NUM_BANDS;
+  }
+
+  memcpy(x->samples, rands->samples, x->size * sizeof(sample_t));
 
   for(int i = 0; i < NUM_BANDS; i++) {
     float c = ath(i);
     if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
-      bq_t fc = FRQ(i);
-      bq_t gain = fabs(c - max[i]) * 10;
+      bq_t fc = FRQ(i) / 100;
+      bq_t gain = max[i] - c;
       bq_t bw = 0.5;
-      bq_t fs = 44100;
+      bq_t fs = 44100 / 100;
       eq_set_params(&f, fc, gain, bw, fs);
-      for(int i = 0; i < STOP; i++) {
+      for(int i = 0; i < STOP / 100; i++) {
         x->samples[i] = biquad_run(&f, x->samples[i]);
       }
     }
   }
 
+  //  samples_t *y = resample(x, 44100/100, 44100);
+
   xfft = dft(x);
 
   float val = smooth(xfft, FRQ(band));
-  val /= 100;
   if(val < 0) val = 0;
   if(val > 1) val = 1;
 
   delete xfft;
   delete x;
+  //  delete y;
+
   if(isinf(val) || isnan(val)) val = 0;
+
   return val;
 }

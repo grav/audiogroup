@@ -86,7 +86,7 @@ static inline void eq_set_params(biquad *f, bq_t fc, bq_t gain, bq_t bw, bq_t fs
 	bq_t w = 2.0f * M_PI * LIMIT(fc, 1.0f, fs/2.0f) / fs;
 	bq_t cw = cosf(w);
 	bq_t sw = sinf(w);
-	bq_t J = pow(10.0f, gain * 0.025f);
+	bq_t J = gain;//pow(10.0f, gain * 0.025f);
 	bq_t g = sw * sinhf(LN_2_2 * LIMIT(bw, 0.0001f, 4.0f) * w / sw);
 	bq_t a0r = 1.0f / (1.0f + (g / J));
 

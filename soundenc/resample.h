@@ -1,7 +1,8 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /***************************************************************************
+ *            resample.h
  *
- *  Tue Jun 10 10:02:53 CEST 2008
+ *  Wed Apr 30 12:22:08 CEST 2008
  *  Copyright 2008 Bent Bisballe Nyeng
  *  deva@aasimon.org
  ****************************************************************************/
@@ -23,15 +24,11 @@
  *  along with DSPToolBox; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
+#ifndef __DSPTOOLBOX_RESAMPLE_H__
+#define __DSPTOOLBOX_RESAMPLE_H__
 
-#include "config.h"
+#include "samples.h"
 
-float config::ath_weight = 1;
+samples_t *resample(samples_t *samples, samplerate_t samplerate_from, samplerate_t samplerate_to);
 
-float config::mask_weight = 1;
-
-float config::quality = 1;
-
-mask_t config::mask = MASK_BIQUAD;
-
-unsigned int config::num_threads = 1;
+#endif/*__DSPTOOLBOX_RESAMPLE_H__*/
