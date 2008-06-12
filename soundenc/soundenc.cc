@@ -56,9 +56,8 @@ int main(int argc, char *argv[])
     fftwf_plan_with_nthreads(config::num_threads);
   }
 
-  samples_t *filters[NUM_BANDS];
+  samples_t *filters[32];
   int f = 0;
-
 
   // Load filters
   char **filter;
@@ -73,7 +72,7 @@ int main(int argc, char *argv[])
   }    
   while(strlen(*filter)) {
     //    printf("Filter: %s\n", *filter);
-    filters[f] = wavread(*filter);
+    filters[f % NUM_BANDS] = wavread(*filter);
     f++;
     filter++;
   }
@@ -95,9 +94,9 @@ int main(int argc, char *argv[])
 
   // Iterate frames
   printf("Iterating frames...\n"); fflush(stdout);
-  float max[32];
-  float max_mask[32];
-  for (int i=0;i<32;i++){
+  float max[NUM_BANDS];
+  float max_mask[NUM_BANDS];
+  for (int i=0;i<NUM_BANDS;i++){
     max_mask[i]=0;
   }
   for(int s = 0; s < x->size; s += FRAME_SIZE) {
@@ -118,7 +117,7 @@ int main(int argc, char *argv[])
   }
   printf("\r%d of %d\n", x->size / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
   printf("max_mask = [");
-  for (int i=0;i<32;i++){
+  for (int i=0;i<NUM_BANDS;i++){
     printf("%f ",max_mask[i]);
   }
   printf("]\n");
