@@ -27,6 +27,7 @@
 #ifndef __DSPTOOLBOX_ATH_H__
 #define __DSPTOOLBOX_ATH_H__
 
+float band2freq(int band);
 float ath_freq(float freq);
 float ath(int band);
 

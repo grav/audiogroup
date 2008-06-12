@@ -35,12 +35,18 @@ typedef enum {
   MASK_AVG
 } mask_t;
 
+typedef enum {
+  FILTER_LIN,
+  FILTER_LOG
+} filter_t;
+
 namespace config{
   extern float mask_weight;
   extern float quality;
   extern float ath_weight;
   extern mask_t mask;
   extern unsigned int num_threads;
+  extern filter_t filter;
 };
 
 #endif/*__DSPTOOLBOX_CONFIG_H__*/

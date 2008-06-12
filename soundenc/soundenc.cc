@@ -59,9 +59,18 @@ int main(int argc, char *argv[])
   samples_t *filters[NUM_BANDS];
   int f = 0;
 
+
   // Load filters
+  char **filter;
   printf("Loading filters...\n");
-  char **filter = (char**)lin_filters;
+  switch (config::filter){
+  case FILTER_LIN:
+    filter = (char**)lin_filters;
+    break;
+  case FILTER_LOG:
+    filter = (char**)log_filters;
+    break;
+  }    
   while(strlen(*filter)) {
     //    printf("Filter: %s\n", *filter);
     filters[f] = wavread(*filter);

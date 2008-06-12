@@ -32,6 +32,8 @@ float config::mask_weight = 1;
 
 float config::quality = 1;
 
-mask_t config::mask = MASK_BIQUAD;
+mask_t config::mask = MASK_LINEAR;
 
-unsigned int config::num_threads = 1;
+filter_t config::filter = FILTER_LOG;
+
+unsigned int config::num_threads = 3;

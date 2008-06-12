@@ -43,7 +43,7 @@ void quantize(float thres, float max[], int b, int s, samples_t *band)
   for(int t = 0; t < FRAME_SIZE; t++) {
     band->samples[s + t] = round(band->samples[s + t] * quant) / (float)quant;
   }
-  quant_sum += FRAME_SIZE * ceil(log2(2*quant)) / 32;
+  quant_sum += FRAME_SIZE * ceil(log2(2*quant)) / NUM_BANDS;
   //printf("Quant: %f\t%d\n",(float)quant,b);
 }
 

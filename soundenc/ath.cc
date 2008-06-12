@@ -38,8 +38,24 @@ float ath_freq(float freq)
   return fmaxf(0, val);
 }
 
-float ath(int band)
-{
-  float bandwidth = (20000.0 - 20.0) / NUM_BANDS;
-  return ath_freq(band * bandwidth + bandwidth/2.0);
+float band2freq(int band){
+  switch(config::filter){
+  case FILTER_LIN:
+    {
+      float bandwidth = (20000.0 - 20.0) / NUM_BANDS;
+      return band * bandwidth + bandwidth/2.0;
+    }
+  case FILTER_LOG:
+    {
+      float k = powf((20000.0-20.0),(1.0/(float)NUM_BANDS));
+      float lower = 20.0 + powf(k,(float)band);
+      float upper = 20.0 + powf(k,(float)(band+1));
+      return (upper-lower)/2.0;
+    }
+  }
 }
+
+float ath(int band){
+  return ath_freq(band2freq(band));
+}
+
