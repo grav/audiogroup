@@ -1,6 +1,15 @@
 % -*- coding: utf-8 -*-
 \section{Maskering}
-
-masking in general
-noget om mask weight
+Maskering foretages ovenpå ath kurven og kan bevirke at kvaliteten
+forringes i frames som skygges af omkringliggende kraftige
+frekvensbånd.\\
+Maskeringen styres af en makseringsvægtning og kan helt fjernes ved
+at sætte denne til 0.\\
 \subsection*{maxmask og avgmask}
+Initielt har vi lavet to enkle modeller, hvor et frekvensbånd
+maskeres, hvis det naboer er tilstrækkeligt kraftige.\\
+Det ene baseres på den maksimale værdi af de to naboer og den anden på
+gennemsnittet. Begge modeller har det problem at de ikke kan se mere
+end 1 bånd væk, men dette vil blot introducere områder hvor yderligere
+optimering kunne foretages og vil derfor producere et output som
+mindre optimeret men ikke med forringet lydkvalitet.
