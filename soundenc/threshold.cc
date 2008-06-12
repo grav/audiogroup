@@ -30,33 +30,21 @@
 #include <stdio.h>
 
 #include "biquadthreshold.h"
-
-static float _curve(int band){
-  // calculate from audibility threshold
-  float bandwidth = (20000.0-20.0)/32.0;
-  int freq = (int)(band * bandwidth + bandwidth/2.0);
-  if (freq >= 0 && freq <= 4000) return (-log10(freq) * 0.2775 + 1);
-  else if ( freq > 4000 && freq <= 20000 ) return (0.0000625 * freq - 0.25);
-  else return 1;
-}
-
-static float curve(int band){
-  return fmax(0,config::curve_weight*_curve(band));
-}
+#include "ath.h"
 
 float linthreshold(float max[], int band)
 {
-  float thres = curve(band);
+  float thres = ath(band);
 
   float left_diff = 0;
   float right_diff = 0;
 
   // look at neighbour bands
   if (band > 0){
-    left_diff = fmaxf(0,max[band-1] - curve(band-1));
+    left_diff = fmaxf(0,max[band-1] - ath(band-1));
   }
   if (band < 31){
-    right_diff = fmaxf(0,max[band+1] - curve(band+1));
+    right_diff = fmaxf(0,max[band+1] - ath(band+1));
   }
   float max_diff = fmaxf(left_diff,right_diff);
 
@@ -66,17 +54,17 @@ float linthreshold(float max[], int band)
 }
 
 float avgthreshold(float max[], int band){
-  float thres = curve(band);
+  float thres = ath(band);
 
   float left_diff = 0;
   float right_diff = 0;
 
   // look at neighbour bands
   if (band > 0){
-    left_diff = fmaxf(0,max[band-1] - curve(band-1));
+    left_diff = fmaxf(0,max[band-1] - ath(band-1));
   }
   if (band < 31){
-    right_diff = fmaxf(0,max[band+1] - curve(band+1));
+    right_diff = fmaxf(0,max[band+1] - ath(band+1));
   }
   float avg_diff = fabs(left_diff-right_diff);
   thres += avg_diff * config::mask_weight;
@@ -99,5 +87,5 @@ float threshold(float max[], int band)
     mask = avgthreshold(max, band);
     break;
   }
-  return curve(band)+mask*config::mask_weight;
+  return ath(band) + mask * config::mask_weight;
 }

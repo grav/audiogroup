@@ -35,7 +35,7 @@
 #include "samples.h"
 #include "dft.h"
 #include "normalize.h"
-
+#include "ath.h"
 #include "config.h"
 
 #define STOP 200000
@@ -44,17 +44,6 @@ static float frand()
 {
   double r = (double)rand() / (double)((unsigned int)0xffffffff);
   return r * 2.0 - 1.0;// * b + (b - a);
-}
-
-static float _curve(int freq){
-  // calculate from audibility threshold
-  if (freq >= 0 && freq <= 4000) return (-log10(freq) * 0.2775 + 1);
-  else if ( freq > 4000 && freq <=20000 ) return (0.0000625 * freq - 0.25);
-  else return 1;
-}
-
-static float curve(int freq){
-  return fmax(0, _curve(freq));
 }
 
 static float smooth(complex_samples_t *x, int idx, int range = 100)
@@ -87,7 +76,7 @@ float biquadthreshold(float max[], int band)
   for(int i = 0; i < STOP; i++) x->samples[i] = frand() / 32;
 
   for(int i = 0; i < 32; i++) {
-    float c = curve(FRQ(i));
+    float c = ath_freq(FRQ(i));
     if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
@@ -110,7 +99,7 @@ float biquadthreshold(float max[], int band)
   if(val < 0) val = 0;
   if(val > 1) val = 1;
   //  if(val < 0.3) val = 0;
-  val = curve(FRQ(band)) + val;
+  val = ath_freq(FRQ(band)) + val;
 
   delete xfft;
   delete x;
