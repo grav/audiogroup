@@ -67,8 +67,6 @@ static float smooth(complex_samples_t *x, int idx, int range = 100)
   return val;
 }
 
-#define FRQ(x) (((20000 - 20) / 100) / NUM_BANDS) * x + ((((20000 - 20) / 100) / NUM_BANDS) / 2)
-
 samples_t *rands = NULL;
 
 float biquadmask(float max[], int band)
@@ -89,7 +87,7 @@ float biquadmask(float max[], int band)
     if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
-      bq_t fc = FRQ(i) / 100;
+      bq_t fc = band2freq(i) / 100;
       bq_t gain = max[i] - c;
       bq_t bw = 0.5;
       bq_t fs = 44100 / 100;
@@ -100,17 +98,14 @@ float biquadmask(float max[], int band)
     }
   }
 
-  //  samples_t *y = resample(x, 44100/100, 44100);
-
   xfft = dft(x);
 
-  float val = smooth(xfft, FRQ(band));
+  float val = smooth(xfft, (int)band2freq(band));
   if(val < 0) val = 0;
   if(val > 1) val = 1;
 
   delete xfft;
   delete x;
-  //  delete y;
 
   if(isinf(val) || isnan(val)) val = 0;
 
