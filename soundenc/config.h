@@ -30,16 +30,16 @@
 #define FRAME_SIZE 512
 
 typedef enum {
-  THR_LINEAR,
-  THR_BIQUAD,
-  THR_AVG
-} threshold_t;
+  MASK_LINEAR,
+  MASK_BIQUAD,
+  MASK_AVG
+} mask_t;
 
 namespace config{
   extern float mask_weight;
   extern float quality;
-  extern float curve_weight;
-  extern threshold_t threshold;
+  extern float ath_weight;
+  extern mask_t mask;
   extern unsigned int num_threads;
 };
 

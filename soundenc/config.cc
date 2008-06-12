@@ -26,12 +26,12 @@
 
 #include "config.h"
 
-float config::curve_weight = 1;
+float config::ath_weight = 1;
 
 float config::mask_weight = 1;
 
 float config::quality = 1;
 
-threshold_t config::threshold = THR_LINEAR;
+mask_t config::mask = MASK_LINEAR;
 
 unsigned int config::num_threads = 3;

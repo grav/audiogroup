@@ -27,6 +27,6 @@
 #ifndef __DSPTOOLBOX_BIQUADTHRESHOLD_H__
 #define __DSPTOOLBOX_BIQUADTHRESHOLD_H__
 
-float biquadthreshold(float max[], int freq);
+float biquadmask(float max[], int freq);
 
 #endif/*__DSPTOOLBOX_BIQUADTHRESHOLD_H__*/

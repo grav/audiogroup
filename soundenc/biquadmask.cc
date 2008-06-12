@@ -24,7 +24,7 @@
  *  along with DSPToolBox; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  */
-#include "biquadthreshold.h"
+#include "biquadmask.h"
 
 #include "biquad.h"
 
@@ -67,7 +67,7 @@ static float smooth(complex_samples_t *x, int idx, int range = 100)
 
 #define FRQ(x) ((20000 - 20) / 32) * x + (((20000 - 20) / 32) / 2)
 
-float biquadthreshold(float max[], int band)
+float biquadmask(float max[], int band)
 {
   samples_t *x = NULL;
   complex_samples_t *xfft = NULL;
@@ -76,7 +76,7 @@ float biquadthreshold(float max[], int band)
   for(int i = 0; i < STOP; i++) x->samples[i] = frand() / 32;
 
   for(int i = 0; i < 32; i++) {
-    float c = ath_freq(FRQ(i));
+    float c = ath(i);
     if(i != band && max[i] > c) {
       biquad f;
       biquad_init(&f);
@@ -98,14 +98,9 @@ float biquadthreshold(float max[], int band)
   val /= 100;
   if(val < 0) val = 0;
   if(val > 1) val = 1;
-  //  if(val < 0.3) val = 0;
-  val = ath_freq(FRQ(band)) + val;
 
   delete xfft;
   delete x;
-
-  if(isinf(val)) val = 1.0 * config::curve_weight;
-  //  printf("%f ", val); fflush(stdout);
-
+  if(isinf(val) || isnan(val)) val = 0;
   return val;
 }

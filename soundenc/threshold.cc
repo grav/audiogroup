@@ -29,13 +29,11 @@
 #include <cmath>
 #include <stdio.h>
 
-#include "biquadthreshold.h"
+#include "biquadmask.h"
 #include "ath.h"
 
-float linthreshold(float max[], int band)
+static float linmask(float max[], int band)
 {
-  float thres = ath(band);
-
   float left_diff = 0;
   float right_diff = 0;
 
@@ -48,14 +46,11 @@ float linthreshold(float max[], int band)
   }
   float max_diff = fmaxf(left_diff,right_diff);
 
-  thres += max_diff * config::mask_weight;
-  return thres;
-
+  return max_diff;
 }
 
-float avgthreshold(float max[], int band){
-  float thres = ath(band);
-
+static float avgmask(float max[], int band)
+{
   float left_diff = 0;
   float right_diff = 0;
 
@@ -67,25 +62,23 @@ float avgthreshold(float max[], int band){
     right_diff = fmaxf(0,max[band+1] - ath(band+1));
   }
   float avg_diff = fabs(left_diff-right_diff);
-  thres += avg_diff * config::mask_weight;
-  return thres;
-
+  return avg_diff;
 }
 
 
 float threshold(float max[], int band)
 {
   float mask = 0;
-  switch(config::threshold) {
-  case THR_LINEAR:
-    mask = linthreshold(max, band);
+  switch(config::mask) {
+  case MASK_LINEAR:
+    mask = linmask(max, band);
     break;
-  case THR_BIQUAD:
-    mask = biquadthreshold(max, band);
+  case MASK_BIQUAD:
+    mask = biquadmask(max, band);
     break;
-  case THR_AVG:
-    mask = avgthreshold(max, band);
+  case MASK_AVG:
+    mask = avgmask(max, band);
     break;
   }
-  return ath(band) + mask * config::mask_weight;
+  return (ath(band) * config::ath_weight) + (mask * config::mask_weight);
 }
