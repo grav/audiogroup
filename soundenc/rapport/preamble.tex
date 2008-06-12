@@ -1,3 +1,4 @@
+% -*- coding: utf-8 -*-
 \documentclass[
 %*********************************************
 %* Paper type (letterpaper)                  *
@@ -26,12 +27,12 @@
 %* Equation alignment (center)               *
 %*********************************************
 %   fleqn,                  %placerer fomlerne i venstre siden istedet for centreret.
-%   leqno,                  %Placerer formelnummereringen på venstre side (istedet for højre)
+%   leqno,                  %Placerer formelnummereringen pÃ¥ venstre side (istedet for hÃ¸jre)
 %
 %*********************************************
 %* Chapter positioning (document dependent)  *
 %*********************************************
-    openany,                %openany starter chapters på næstkommende side.
+    openany,                %openany starter chapters pÃ¥ nÃ¦stkommende side.
 %   openright,
 %
 %*********************************************
@@ -54,7 +55,7 @@
 %*********************************************
 \usepackage[danish]{babel}
 %\usepackage{t1enc}          %Bruges til sprog oa.
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
 %\usepackage[xdvi]{epsfig}
@@ -122,7 +123,7 @@
 
 %\underlineheadings
 
-\title{MPEG �velse}
+\title{MPEG Øvelse}
 %
 \author{Mikkel Gravgaard - 20043246\\Bent Bisballe Nyeng - 20001467}
 
@@ -137,7 +138,8 @@
 \include{introduktion}
 \include{brugervejledning}
 \include{baandfiltrering}
-\include{threshold}
+\include{ath}
+\include{masking}
 \include{biquad}
 \include{quantization}
 \include{mixing}

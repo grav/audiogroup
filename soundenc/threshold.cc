@@ -32,7 +32,7 @@
 #include "biquadmask.h"
 #include "ath.h"
 
-static float linmask(float max[], int band)
+static float maxmask(float max[], int band)
 {
   float left_diff = 0;
   float right_diff = 0;
@@ -70,8 +70,8 @@ float threshold(float max[], int band)
 {
   float mask = 0;
   switch(config::mask) {
-  case MASK_LINEAR:
-    mask = linmask(max, band);
+  case MASK_MAX:
+    mask = maxmask(max, band);
     break;
   case MASK_BIQUAD:
     mask = biquadmask(max, band);

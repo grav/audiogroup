@@ -32,7 +32,7 @@ float config::mask_weight = 1;
 
 float config::quality = 1;
 
-mask_t config::mask = MASK_LINEAR;
+mask_t config::mask = MASK_MAX;
 
 filter_t config::filter = FILTER_LOG;
 
