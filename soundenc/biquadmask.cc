@@ -75,24 +75,18 @@ float biquadmask(float max[], int band)
   x = new samples_t(STOP);
   for(int i = 0; i < STOP; i++) x->samples[i] = frand() / NUM_BANDS;
 
-  biquad f[NUM_BANDS];
-  for(int i = 0; i < NUM_BANDS; i++) biquad_init(&f[i]);
-  
   for(int i = 0; i < NUM_BANDS; i++) {
-    float c  = ath(i);
-    if(i != band && max[i] > ath(i)) {
+    float c = ath(i);
+    if(i != band && max[i] > c) {
+      biquad f;
+      biquad_init(&f);
       bq_t fc = FRQ(i);
-      bq_t gain = fabs(ath(i) - max[i]) * 10;
+      bq_t gain = fabs(c - max[i]) * 10;
       bq_t bw = 0.5;
       bq_t fs = 44100;
-      eq_set_params(&f[i], fc, gain, bw, fs);
-    }
-  }
-
-  for(int i = 0; i < STOP; i++) {
-    for(int i = 0; i < NUM_BANDS; i++) {
-      if(i != band && max[i] > ath(i)) {
-        x->samples[i] = biquad_run(&f[i], x->samples[i]);
+      eq_set_params(&f, fc, gain, bw, fs);
+      for(int i = 0; i < STOP; i++) {
+        x->samples[i] = biquad_run(&f, x->samples[i]);
       }
     }
   }
