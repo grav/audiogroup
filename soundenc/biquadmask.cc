@@ -101,6 +101,7 @@ float biquadmask(float max[], int band)
   xfft = dft(x);
 
   float val = smooth(xfft, (int)band2freq(band));
+  val *= 3;
   if(val < 0) val = 0;
   if(val > 1) val = 1;
 

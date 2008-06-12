@@ -43,8 +43,10 @@ Programmet spiller automatisk det beregnede resultat når beregningerne
 er fuldført, samt lagrer resultatet i filen \texttt{output.wav}, som en 32
 bit floatingpoint PCM fil.\\
 \\
-\textbf{Bemærk; output.wav overskrives uden varsel hvis den findes i
+\textbf{Bemærk: output.wav overskrives uden varsel hvis den findes i
   forvejen!}\\
+\\
+Efter encodningen vises en estimeret filstørrelse samt bitrate. Disse tal er ikke eksakte, men blot estimater beregnet på baggrund af bit-tildelingen (se afsnit \ref{sec.quantization}) samt ideen om subbåndsnedsampling (se afsnit \ref{sec.subband}).\\
 \\
 Koden er afhængig af flg. open source libraries for at kunne kompilere:\\
 libsndfile - \texttt{http://www.mega-nerd.com/libsndfile}\\

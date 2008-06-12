@@ -33,7 +33,7 @@ float ath_freq(float freq)
 {
   float val = 1;
   // calculate from audibility threshold
-  if (freq >= 0 && freq <= 4000) val = -log10(freq) * 0.2775 + 1;
+  if (freq >= 20 && freq <= 4000) val = -log10(freq) * 0.2775 + 1;
   else if ( freq > 4000 && freq <= 20000 ) val = 0.0000625 * freq - 0.25;
   return fmaxf(0, val);
 }

@@ -1,8 +1,8 @@
 % -*- coding: utf-8 -*-
 \section{Kvantisering}
-noget om framesize=512
+\label{sec.quantization}
+Vores kvantiseringsalgoritme opererer på de enkelte subbånd på frames af 512 samples af gangen som udgangspunkt.
 
-alt under threshold - 6 bits
-alt over - 6 til 16 bits styret af signal-to-mask ratio
+De enkelte samples kan tildeles mellem 0 og 16 bits. Hvis den maksimale signalstyrke i en frame er lavere end AHT for det givne subbånd, tildeles alle samples i framen 6 bits. Hvis signalstyrken er over AHT, afhænger tildelingen af maskeringen for det givne subbånd (se figur \ref{sec.masking}), dvs signal-to-mask ratio'en.
 
-beregning af bitrate
+Derudover påvirkes tildelingen også af quality-parameteren.

@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
 
   // Play result
   printf("Playing result...\n");
-  //wavplay(&y, xfs);
+  wavplay(&y, xfs);
   wavwrite("output.wav",&y, xfs);
 
   printf("Filstr. (kBytes): %.0Lf\n",quant_sum/(8.0*1024));
