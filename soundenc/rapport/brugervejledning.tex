@@ -2,10 +2,10 @@
 \section{Brugervejledning}
 Koden kan afvikles direkte på Mac og Linux. Den kan sandsynligvis også
 afvikles på andre platforme, men det vil nok kræve lidt tilpadsning af
-udviklingsmiljøet.
-
+udviklingsmiljøet.\\
+\\
 Programmet styres af en række parametre, som står hardcodede i
-\verb|config.cc|. Disse er flg.:
+\texttt{config.cc}. Disse er flg.:
 \begin{verbatim}
 float config::ath_weight = 1.0;
 float config::mask_weight = 1.0;
@@ -14,39 +14,39 @@ mask_t config::mask = MASK_MAX;
 filter_t config::filter = FILTER_LOG;
 unsigned int config::num_threads = 3;
 \end{verbatim}
-\verb|ath_weight| er en vægtning af ATH kurven. Denne skal have
+\texttt{ath\_weight} er en vægtning af ATH kurven. Denne skal have
 værdier mellem 0 og 1.\\
-\verb|mask_weight| er en vægtning af maskeringen, denne kan ligeledes
+\texttt{mask\_weight} er en vægtning af maskeringen, denne kan ligeledes
 have værdier mellem 0 og 1.\\
-\verb|quality| parameteren styrer bittildelings algoritmen
+\texttt{quality} parameteren styrer bittildelings algoritmen
 (quantizeren). Værdierne kan være mellem 0 og 1, hvor 1 er fuld pcm
 kvalitet og 0 er stilhed. Denne parameter kan være lidt svær at tyre,
 men kan med lidt snilde kontrollere output bitraten.\\
-\verb|mask| og \verb|filter| styrer begge hvilke algortimer der skal
-bruges internt. Der findes flg. maskeringsalgortimer: \verb|MASK_MAX|,
-\verb|MASK_BIQUAD| og \verb|MASK_AVG|, samt flg. filtrerings
-algortimer: \verb|FILTER_LIN| og \verb|FILTER_LOG|.\\
-\verb|num_threads| styrer som navnet antyder, hvor mange tråde
+\texttt{mask} og \texttt{filter} styrer begge hvilke algortimer der skal
+bruges internt. Der findes flg. maskeringsalgortimer: \texttt{MASK\_MAX},
+\texttt{MASK\_BIQUAD} og \texttt{MASK\_AVG}, samt flg. filtrerings
+algortimer: \texttt{FILTER\_LIN} og \texttt{FILTER\_LOG}.\\
+\texttt{num\_threads} styrer som navnet antyder, hvor mange tråde
 programmet skal bruge. Dette kan med fordel sættes til antalles et
-tilgængelige cpuer gange to, minus et.
-
+tilgængelige cpuer gange to, minus et.\\
+\\
 Disse parametre kan frit ændres, hvorefter programmet skal
-genkompileres. Dette gøre ganske enkelt med kommandoen \verb|make|.
-
+genkompileres. Dette gøre ganske enkelt med kommandoen \texttt{make}.\\
+\\
 Udførslen af programmet foretages med følgende kommando linie, med
-dertilhørende parametre: \verb|./soundenc inputfil|.\\
+dertilhørende parametre: \texttt{./soundenc inputfil}.\\
 Det er vigtigt at inputfilen er i et wavformat (signed/unsigned,
 8/16/32 bit, integer/float baseret), samt at filen er i mono.\\
-Overholdes dette ikke giver programmet udefinerede resultater.
-
+Overholdes dette ikke giver programmet udefinerede resultater.\\
+\\
 Programmet spiller automatisk det beregnede resultat når beregningerne
-er fuldført, samt lagrer resultatet i filen \verb|output.wav|, som en 32
+er fuldført, samt lagrer resultatet i filen \texttt{output.wav}, som en 32
 bit floatingpoint PCM fil.\\
 \\
 \textbf{Bemærk; output.wav overskrives uden varsel hvis den findes i
   forvejen!}\\
 \\
 Koden er afhængig af flg. open source libraries for at kunne kompilere:\\
-libsndfile - \verb|http://www.mega-nerd.com/libsndfile|\\
-libfftw3 - \verb|http://www.fftw.org|\\
-libao - \verb|http://www.xiph.org/ao|
+libsndfile - \texttt{http://www.mega-nerd.com/libsndfile}\\
+libfftw3 - \texttt{http://www.fftw.org}\\
+libao - \texttt{http://www.xiph.org/ao}
