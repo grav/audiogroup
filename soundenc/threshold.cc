@@ -63,7 +63,7 @@ float linthreshold(float max[], int band)
   }
   float max_diff = fmaxf(left_diff,right_diff);
 
-  thres += max_diff/0.5;
+  thres += max_diff/5;
   return thres;
 
 }
@@ -95,7 +95,7 @@ float threshold(float max[], int band)
   switch(config::threshold) {
   case THR_LINEAR:
     return linthreshold(max, band);
-  case THR_BIQAUD:
+  case THR_BIQUAD:
     return biquadthreshold(max, band);
   case THR_AVG:
     return avgthreshold(max, band);

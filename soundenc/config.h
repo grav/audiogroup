@@ -28,7 +28,7 @@
 
 typedef enum {
   THR_LINEAR,
-  THR_BIQAUD,
+  THR_BIQUAD,
   THR_AVG
 } threshold_t;
 

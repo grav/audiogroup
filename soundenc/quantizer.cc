@@ -37,16 +37,16 @@ long double quant_sum = 0;
 
 void quantize(float thres, float max[], int b, int s, samples_t *band)
 {
-  unsigned int quant = 0;
+  unsigned int quant = 31 * config::quality;
   if(max[b] > thres) {
-    //printf("Quantizing ... (thres: %f, max: %f)\n",thres,max[b]);
-    quant = 32535 * (max[b]-thres)/max[b] * config::quality;
-    for(int t = 0; t < FRAME_SIZE; t++) {
-      band->samples[s + t] = round(band->samples[s + t] * (float)quant) / (float)quant;
-    }
-    //    printf("Quant: %f\t%d\n",quant,b);
+    quant += (32767-31) * (max[b]-thres)/max[b] * config::quality;
   }
-  if (quant!=0) quant_sum += FRAME_SIZE * ceil(log2(2*quant)) / 32;
+  //printf("Quantizing ... (thres: %f, max: %f)\n",thres,max[b]);
+  for(int t = 0; t < FRAME_SIZE; t++) {
+    band->samples[s + t] = round(band->samples[s + t] * quant) / (float)quant;
+  }
+  quant_sum += FRAME_SIZE * ceil(log2(2*quant)) / 32;
+  //printf("Quant: %f\t%d\n",(float)quant,b);
 }
 
 void poolQuantize(float thres,float max[], int b, int s, samples_t *band){
