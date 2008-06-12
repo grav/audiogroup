@@ -36,9 +36,9 @@ typedef enum {
 } threshold_t;
 
 namespace config{
-  extern bool mask;
+  extern float mask_weight;
   extern float quality;
-  extern float curve_offset;
+  extern float curve_weight;
   extern threshold_t threshold;
   extern unsigned int num_threads;
 };

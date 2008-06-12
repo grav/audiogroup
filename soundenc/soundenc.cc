@@ -87,29 +87,32 @@ int main(int argc, char *argv[])
   // Iterate frames
   printf("Iterating frames...\n"); fflush(stdout);
   float max[32];
+  float max_mask[32];
+  for (int i=0;i<32;i++){
+    max_mask[i]=0;
+  }
   for(int s = 0; s < x->size; s += FRAME_SIZE) {
-    if (s/FRAME_SIZE == printFrame) printf("max%d = [",s/FRAME_SIZE);
-    else printf("\r%d of %d ", s / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
+    printf("\r%d of %d ", s / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
     for(int b = 0; b < NUM_BANDS; b++) {
       max[b]=0;
       for(int t = 0; t < FRAME_SIZE; t++) {
         float sample = bands[b]->samples[s + t];
         if(fabs(sample) > max[b]) max[b] = fabs(sample);
       }
-      if (s/FRAME_SIZE == printFrame) printf("%f ",max[b]);
     }
-    if (s/FRAME_SIZE == printFrame) printf("]\n\n");
 
-    if (s/FRAME_SIZE == printFrame) printf("mask%d = [",s/FRAME_SIZE);
     for(int b = 0; b < NUM_BANDS; b++) {
       float thres = threshold(max, b);
       quantize(thres, max, b, s, bands[b]);
-      if (s/FRAME_SIZE == printFrame) printf("%f ",thres);
+      max_mask[b] = fmax(max_mask[b],thres);
     }
-    if (s/FRAME_SIZE == printFrame) printf("]\n\n");
   }
   printf("\r%d of %d\n", x->size / FRAME_SIZE, x->size / FRAME_SIZE); fflush(stdout);
-
+  printf("max_mask = [");
+  for (int i=0;i<32;i++){
+    printf("%f ",max_mask[i]);
+  }
+  printf("]\n");
 
   samples_t y(x->size);
   // Put zeros in y.

@@ -48,10 +48,9 @@ static float frand()
 
 static float _curve(int freq){
   // calculate from audibility threshold
-  float thres = config::curve_offset;
-  if (freq >= 0 && freq <= 4000) return thres + (-log10(freq) * 0.2775 + 1);
-  else if ( freq > 4000 && freq <=20000 ) return thres + (0.0000625 * freq - 0.25);
-  else return thres + 1;
+  if (freq >= 0 && freq <= 4000) return (-log10(freq) * 0.2775 + 1);
+  else if ( freq > 4000 && freq <=20000 ) return (0.0000625 * freq - 0.25);
+  else return 1;
 }
 
 static float curve(int freq){
@@ -116,7 +115,7 @@ float biquadthreshold(float max[], int band)
   delete xfft;
   delete x;
 
-  if(isinf(val)) val = 1.0 + config::curve_offset;
+  if(isinf(val)) val = 1.0 * config::curve_weight;
   //  printf("%f ", val); fflush(stdout);
 
   return val;
