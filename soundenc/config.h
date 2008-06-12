@@ -26,7 +26,7 @@
 #ifndef __DSPTOOLBOX_CONFIG_H__
 #define __DSPTOOLBOX_CONFIG_H__
 
-#define NUM_BANDS 12
+#define NUM_BANDS 16
 //32
 #define FRAME_SIZE 512
 
