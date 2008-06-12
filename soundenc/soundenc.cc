@@ -42,9 +42,6 @@
 
 #include "filters.h"
 
-#define NUM_BANDS 32
-#define FRAME_SIZE 512
-
 extern long double quant_sum;
 
 int main(int argc, char *argv[])

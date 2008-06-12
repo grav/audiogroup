@@ -31,13 +31,11 @@
 
 #include <cmath>
 
-#define FRAME_SIZE 512
-
 long double quant_sum = 0;
 
 void quantize(float thres, float max[], int b, int s, samples_t *band)
 {
-  unsigned int quant = 31 * config::quality;
+  unsigned int quant = (unsigned int)(31 * config::quality);
   if(max[b] > thres) {
     quant += (unsigned int)((32767-31) * (max[b]-thres)/max[b] * config::quality);
   }
@@ -49,6 +47,7 @@ void quantize(float thres, float max[], int b, int s, samples_t *band)
   //printf("Quant: %f\t%d\n",(float)quant,b);
 }
 
+/*
 void poolQuantize(float thres,float max[], int b, int s, samples_t *band){
   
   float bps = 64*1024;
@@ -57,3 +56,4 @@ void poolQuantize(float thres,float max[], int b, int s, samples_t *band){
   float bpf = bps/fps;
 
 }
+*/

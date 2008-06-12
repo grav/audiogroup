@@ -117,7 +117,7 @@ float biquadthreshold(float max[], int band)
   delete x;
 
   if(isinf(val)) val = 1.0 + config::curve_offset;
-  printf("%f ", val); fflush(stdout);
+  //  printf("%f ", val); fflush(stdout);
 
   return val;
 }

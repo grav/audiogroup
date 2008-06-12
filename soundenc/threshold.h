@@ -29,8 +29,4 @@
 
 float threshold(float max[], int band);
 
-float threshold2(float max[], int band);
-
-float threshold3(float max[], int band);
-
 #endif/*__DSPTOOLBOX_THRESHOLD_H__*/
