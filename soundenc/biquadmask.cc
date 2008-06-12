@@ -79,11 +79,14 @@ float biquadmask(float max[], int band)
   for(int i = 0; i < NUM_BANDS; i++) biquad_init(&f[i]);
   
   for(int i = 0; i < NUM_BANDS; i++) {
-    bq_t fc = FRQ(i);
-    bq_t gain = fabs(ath(i) - max[i]) * 10;
-    bq_t bw = 0.5;
-    bq_t fs = 44100;
-    eq_set_params(&f[i], fc, gain, bw, fs);
+    float c  = ath(i);
+    if(i != band && max[i] > ath(i)) {
+      bq_t fc = FRQ(i);
+      bq_t gain = fabs(ath(i) - max[i]) * 10;
+      bq_t bw = 0.5;
+      bq_t fs = 44100;
+      eq_set_params(&f[i], fc, gain, bw, fs);
+    }
   }
 
   for(int i = 0; i < STOP; i++) {
