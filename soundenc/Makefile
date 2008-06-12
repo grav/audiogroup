@@ -1,4 +1,4 @@
-LIBS = -lsamplerate -lsndfile -lfftw3f -lfftw3f_threads -lao -L/opt/local/lib -I/opt/local/include -lm
+LIBS = -lsndfile -lfftw3f -lfftw3f_threads -lao -L/opt/local/lib -I/opt/local/include -lm
 SRC = wavread.cc conv.cc samples.cc wavplay.cc soundenc.cc normalize.cc threshold.cc wavwrite.cc quantizer.cc config.cc biquadmask.cc dft.cc ath.cc
 
 all: ${SRC}

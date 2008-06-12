@@ -57,7 +57,6 @@ int main(int argc, char *argv[])
   }
 
   samples_t *filters[NUM_BANDS];
-  for(int i = 0; i < NUM_BANDS; i++) filters[i] = NULL;
   int f = 0;
 
   // Load filters
@@ -72,10 +71,7 @@ int main(int argc, char *argv[])
     break;
   }    
   while(strlen(*filter)) {
-    //    printf("Filter: %s\n", *filter);
-    int idx = (int)(((float)f / 32.0) * (float)NUM_BANDS) % NUM_BANDS;
-    if(filters[idx]) filters[idx] = conv(filters[idx], wavread(*filter));
-    else filters[idx] = wavread(*filter);
+    filters[f] = wavread(*filter);
     f++;
     filter++;
   }
