@@ -28,6 +28,8 @@
 #include "modulate.h"
 #include "wavread.h"
 #include "wavplay.h"
+#include "normalize.h"
+
 #include <cmath>
 #include <stdio.h>
 
@@ -45,17 +47,29 @@ int main(int argc, char *argv[])
   //  printf("Original\n");
   //  wavplay(x, xfs);
 
-  printf("Modulating 4000\n");
-  samples_t *y = modulate(x, 4000);
+  printf("Modulating\n");
+  x = modulate(x, 100);
   printf("Playing\n");
-  wavplay(y, xfs);
+  normalize(x);
+  wavplay(x, xfs);
 
-  printf("Modulating -4000\n");
-  samples_t *z = modulate(y, -4000);
+  printf("Modulating\n");
+  x = modulate(x, 200);
   printf("Playing\n");
-  wavplay(z, xfs);
+  normalize(x);
+  wavplay(x, xfs);
 
-  delete x;
-  delete y;
-  delete z;
+  printf("Modulating\n");
+  x = modulate(x, -400);
+  printf("Playing\n");
+  normalize(x);
+  wavplay(x, xfs);
+
+  printf("Modulating\n");
+  x = modulate(x, 100);
+  printf("Playing\n");
+  normalize(x);
+  wavplay(x, xfs);
+
+  return 0;
 }

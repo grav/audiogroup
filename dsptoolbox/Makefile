@@ -11,8 +11,8 @@ opg10: klt.cc dft.cc samples.cc opg10.cc
 filtertest: wavread.cc wavwrite.cc conv.cc samples.cc dft.cc filtertest.cc wavplay.cc
 	g++ ${LIBS} -g wavread.cc wavwrite.cc conv.cc samples.cc dft.cc filtertest.cc wavplay.cc -o filtertest normalize.cc
 
-modulatetest: modulatetest.cc wavread.cc wavplay.cc modulate.cc samples.cc
-	g++ ${LIBS} modulatetest.cc wavread.cc wavplay.cc modulate.cc samples.cc -o modulatetest
+modulatetest: modulatetest.cc wavread.cc wavplay.cc modulate.cc samples.cc normalize.cc
+	g++ ${LIBS} modulatetest.cc wavread.cc wavplay.cc modulate.cc samples.cc normalize.cc -o modulatetest
 
 clean:
 	rm -f dsptoolbox opg10 filtertest
