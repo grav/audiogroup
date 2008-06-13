@@ -29,6 +29,8 @@
 #include "wavread.h"
 #include "wavplay.h"
 #include <cmath>
+#include <stdio.h>
+
 /*
 sample_t mod_func(sample_t a)
 {
@@ -40,13 +42,19 @@ int main(int argc, char *argv[])
   samplerate_t xfs;
   samples_t *x = wavread(argv[1], &xfs);
 
-  samples_t *y = modulate(x, 40);
-  samples_t *z = modulate(y, -40);
+  //  printf("Original\n");
+  //  wavplay(x, xfs);
 
-  wavplay(x, xfs);
+  printf("Modulating 4000\n");
+  samples_t *y = modulate(x, 4000);
+  printf("Playing\n");
   wavplay(y, xfs);
+
+  printf("Modulating -4000\n");
+  samples_t *z = modulate(y, -4000);
+  printf("Playing\n");
   wavplay(z, xfs);
-  wavplay(x, xfs);
+
   delete x;
   delete y;
   delete z;

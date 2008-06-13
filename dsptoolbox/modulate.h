@@ -32,6 +32,6 @@
 typedef sample_t (*modulation_function) (sample_t);
 */
 //samples_t *modulate(samples_t *samples, modulation_function mod_func, float omega);
-samples_t *modulate(samples_t *samples, float omega);
+samples_t *modulate(samples_t *samples, int delta);
 
 #endif/*__DSPTOOLBOX_MODULATE_H__*/
