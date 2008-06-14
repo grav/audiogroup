@@ -1,13 +1,17 @@
 OCTAVELIB
 
-Some functions for Octave
+Some functions for Octave 3.
+Tested in Octave 3.0.1 on Mac OS X.
+
+To use the functions, either place them in the working directory or add the whole octavelib-directory to Octave's path by adding the following line to ~/.octaverc:
+
+addpath (genpath ("/path/to/octavelib"));
 
 WAVPLAY
 Usage: wavplay(x,fs)
-
 Play x at samplerate fs.
 
-Note: Wavplay uses wavwrite to write a wave-file to disk, after which it
+Note: wavplay uses the built-in wavwrite to write a wave-file to disk, after which it
 plays the file using mplayer and then deletes it. Just edit the file
 to use another player.
 
