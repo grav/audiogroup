@@ -1,0 +1,22 @@
+OCTAVELIB
+
+Some functions for Octave
+
+WAVPLAY
+Usage: wavplay(x,fs)
+
+Play x at samplerate fs.
+
+Note: Wavplay uses wavwrite to write a wave-file to disk, after which it
+plays the file using mplayer and then deletes it. Just edit the file
+to use another player.
+
+BANDPASS
+Usage: h = bandpass(n,fs,low,high)
+Creates an n-pole bandpass FIR-filter going from freq. low to high at samplerate fs and saves it in h.
+
+Note: Requires the FIR1	function which is available in the Signal-package.
+
+DBPLOT
+Usage: dbplot(y,fs)
+Plots the frequency spectrum of y on a log-lin graph, converting amplitude to dB.
