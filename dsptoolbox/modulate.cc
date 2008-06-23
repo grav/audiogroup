@@ -33,8 +33,8 @@ samples_t *modulate(samples_t *x, int delta)
 {
   fftwf_plan p;
 
-  size_t size = x->size;
-  samples_t *y = new samples_t(size);
+  size_t size = x->size * 2;
+  samples_t *y = new samples_t(x->size);
 
   fftwf_complex *out = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * size);
   fftwf_complex *inx = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * size);

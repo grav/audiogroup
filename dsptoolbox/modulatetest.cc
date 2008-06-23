@@ -48,25 +48,25 @@ int main(int argc, char *argv[])
   //  wavplay(x, xfs);
 
   printf("Modulating\n");
-  x = modulate(x, 100);
+  x = modulate(x, 300);
   printf("Playing\n");
   normalize(x);
   wavplay(x, xfs);
 
   printf("Modulating\n");
-  x = modulate(x, 200);
+  x = modulate(x, 600);
   printf("Playing\n");
   normalize(x);
   wavplay(x, xfs);
 
   printf("Modulating\n");
-  x = modulate(x, -400);
+  x = modulate(x, -1200);
   printf("Playing\n");
   normalize(x);
   wavplay(x, xfs);
 
   printf("Modulating\n");
-  x = modulate(x, 100);
+  x = modulate(x, 300);
   printf("Playing\n");
   normalize(x);
   wavplay(x, xfs);

@@ -26,13 +26,13 @@
 
 #include "config.h"
 
-float config::ath_weight = 1;
+float config::ath_weight = 0.5;
 
 float config::mask_weight = 1;
 
-float config::quality = 1;
+float config::quality = 0.04;
 
-mask_t config::mask = MASK_BIQUAD;
+mask_t config::mask = MASK_AVG;
 
 filter_t config::filter = FILTER_LIN;
 
