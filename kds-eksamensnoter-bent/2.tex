@@ -2,3 +2,22 @@
 \newpage
 \section{ØVELSE: JPEG encoding / decoding}
 \textit{}
+Pixel repræsenteres i YUV 422.
+
+Hver kanal behandles hver for sig.
+
+Opsplitning i makroblokke på 8x8 pixel.
+
+DC lagres i seperat stream.
+
+Blokken filtreres igennem en DCT, go alle frekvenser kvantiseres ved
+hjælp af en kvantiseringstabel (hvis værdien er under threshold,
+sættes dne til 0).
+
+Alle værdier smides igennem Huffman og specielt symbol reserveres til
+end-of-block.
+
+Blokken traverseres på skrå - zigzag, startende fra øverste venstre
+hjørne, så alle 0'er kommer fortrinsvis til sidst.
+
+Padding: farve, gentagelse, spejling

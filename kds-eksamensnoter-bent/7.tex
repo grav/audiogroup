@@ -2,3 +2,17 @@
 \newpage
 \section{MPEG-1 audio}
 \textit{(båndopdeling, psykoakustisk model, kvantisering ...)}
+
+Signalet opsplittes i blokke på 512 samples.
+
+Sampleblokken opslittes i 32 frekvens subbånd.
+
+Hvert bånd sammenlignes med den psykoakustiske threshold og tildeles
+derudfra et antal bits som bruges ved kvantisering.
+
+Den psykoakustiske model basrer sig på den mennekselige høretærskel
+ved de forskellige frekvensområder.
+
+Den kan yderligere nuanceres ved inførelse af maskering.
+
+De 32 blokke lagres til sidst vha. Huffman.

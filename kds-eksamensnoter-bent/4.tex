@@ -2,3 +2,14 @@
 \newpage
 \section{ØVELSE: Prediktiv tale-kodning via LPC}
 \textit{}
+
+Opsplitning af signalet i blokke.
+
+Hver blok analyseres for om den er stemt eller ustemt.
+
+Hvis den er stemt, findes endvidere den tonale indhold.
+
+Der laves LPC på blokken og resultatet lagres.
+
+Ved genskabelsen bruges informationen om stemt/ustemt til at vælge
+basis signal, støj eller sinus.
