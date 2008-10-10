@@ -10,10 +10,12 @@ addpath (genpath ("/path/to/octavelib"));
 WAVPLAY
 Usage: wavplay(x,fs)
 Play x at samplerate fs.
+Usage: wavplay(x)
+Play x at samplerate 44100.
 
 Note: wavplay uses the built-in wavwrite to write a wave-file to disk, after which it
 plays the file using mplayer and then deletes it. Just edit the file
-to use another player.
+to use another player. 
 
 BANDPASS
 Usage: h = bandpass(n,fs,low,high)
@@ -23,4 +25,4 @@ Note: Requires the FIR1	function which is available in the Signal-package.
 
 DBPLOT
 Usage: dbplot(y,fs)
-Plots the frequency spectrum of y on a log-lin graph, converting amplitude to dB.
+Plots the frequency spectrum of y on a log-lin graph, using a dB scale for the amplitude.
