@@ -439,7 +439,7 @@ public class ACCoder {
 	};
 
 	public ACCoder(Channel c){
-		assert(new Pair<Integer,Integer>(0,1).equals(new Pair<Integer,Integer>(0,1)));
+		// Choose either luminance or chrominance table for encoding
 		if (c == Channel.LUMINANCE) {
 			encode_table = lum_table;
 		} else {

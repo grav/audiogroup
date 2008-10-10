@@ -30,6 +30,8 @@ public class TestACCoder extends TestCase {
 	}
 	
 	
+	
+	
 	public void testZigzag(){
 		int[][] block = {
 				{ 48, 12,  0,  6},
@@ -51,6 +53,23 @@ public class TestACCoder extends TestCase {
 		assertTrue(Arrays.equals(
 						new int[] {48,12,-10,2,8,0,6,0,0,4,15,0,7,4,5,13,14,0,3,1,-6,-3,11,-16,-33}, 
 						lumCoder.zigzag(block2)));
+		
+		int[][] block3 = {
+				{1,2,3,4,5,6,7,8},
+				{9,10,11,12,13,14,15,16},
+				{17,18,19,20,21,22,23,24},
+				{25,26,27,28,29,30,31,32},
+				{33,34,35,36,37,38,39,40},
+				{41,42,43,44,45,46,47,48},
+				{49,50,51,52,53,54,55,56},
+				{57,58,59,60,61,62,63,64}
+		};
+		
+		// Test against hardcoded example
+		assertTrue(Arrays.equals(
+				new int[] {1, 2, 9, 17, 10, 3, 4, 11, 18, 25, 33, 26, 19, 12, 5, 6, 13, 20, 27, 34, 41, 49, 42, 35, 28, 21, 14, 7, 8, 15, 22, 29, 36, 43, 50, 57, 58, 51, 44, 37, 30, 23, 16, 24, 31, 38, 45, 52, 59, 60, 53, 46, 39, 32, 40, 47, 54, 61, 62, 55, 48, 56, 63, 64},
+				lumCoder.zigzag(block3)));
+		
 	}
 	
 	public void testAntiZigzag(){
@@ -107,6 +126,8 @@ public class TestACCoder extends TestCase {
 	
 	public void testJava(){
 		assertTrue(new Integer(5).equals(5));
+		assertTrue(new Pair<Integer,Integer>(0,1).equals(new Pair<Integer,Integer>(0,1)));
+
 	}
 	
 }
