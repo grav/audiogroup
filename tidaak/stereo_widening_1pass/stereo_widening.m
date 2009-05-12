@@ -1,27 +1,20 @@
 
   
 %% filter
-clear;
 x=wavread('vinduer_mono.wav');
-x = x';
 fs=44100;
-%x=zeros(1,1000);
-%x(1)=1;
-F = [357 741 1521 2761 4401 7389 9543 11021];
 
-y1 = x;
-for f = F
-    y1=allpass(y1,f,fs);
-end
+f = [357 741 1521 2761 4401 7389 9543 11021];
 
-F = [267 541 1624 2761 4531 7589 9843 12301];
+hd = allpass(f,fs);
+y1=hd.filter(x)/2;
 
-y2 = x;
-for f = F
-    y2=allpass(y2,f,fs);
-end
+f = [257 571 1721 2461 4801 7689 9343 12021];
 
-y = [y1/2 ;  y2/2]';
+hd = allpass(f,fs);
+y2=hd.filter(x)/2;
+
+y = [y1 y2];
 
 %% plot
 close;
