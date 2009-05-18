@@ -1,5 +1,3 @@
-
-  
 %% filter
 clear;
 x=wavread('vinduer_mono.wav');

@@ -7,7 +7,7 @@ fs=44100;
 f = [357 741 1521 2761 4401 7389 9543 11021];
 
 hd = allpass(f,fs);
-y1=hd.filter(x)/2;
+y1 = hd.filter(x)/2;
 
 f = [257 571 1721 2461 4801 7689 9343 12021];
 
@@ -30,7 +30,6 @@ cross = decimate(cross,r);
 hold on;
 plot(auto,'b');
 plot(cross,'r');
-
 
 %diffcross = abs(auto)-abs(cross);
 %subplot(3,1,1), plot(auto);
