@@ -57,10 +57,31 @@ COMPONENT_ENTRY(TremoloUnit)
 TremoloUnit::TremoloUnit(AudioUnit component)
 	: AUEffectBase(component)
 {
-	CreateElements();
-	Globals()->UseIndexedParameters(kNumberOfParameters);
-	SetParameter(kParam_One, kDefaultValue_ParamOne );
-        
+   // This method, defined in the AUBase superclass, ensures that the required audio unit
+   //  elements are created and initialized.
+   CreateElements ();
+   
+   // Invokes the use of an STL vector for parameter access.  
+   //  See AUBase/AUScopeElement.cpp
+   Globals () -> UseIndexedParameters (kNumberOfParameters);
+   
+   // During instantiation, sets up the parameters according to their defaults.
+   //  The parameter defaults should correspond to the settings for the default preset.
+   SetParameter (
+                 kParameter_Frequency, 
+                 kDefaultValue_Tremolo_Freq 
+                 );
+   
+   SetParameter (
+                 kParameter_Depth, 
+                 kDefaultValue_Tremolo_Depth 
+                 );
+   
+   SetParameter (
+                 kParameter_Waveform, 
+                 kDefaultValue_Tremolo_Waveform 
+                 );
+   
 #if AU_DEBUG_DISPATCHER
 	mDebugDispatcher = new AUDebugDispatcher (this);
 #endif
@@ -76,8 +97,30 @@ OSStatus			TremoloUnit::GetParameterValueStrings(AudioUnitScope		inScope,
                                                                 CFArrayRef *		outStrings)
 {
         
-    return kAudioUnitErr_InvalidProperty;
-}
+   if ((inScope == kAudioUnitScope_Global) && (inParameterID == kParameter_Waveform)) {
+      // This method applies only to the waveform parameter, which is in the global scope.
+      
+      // When this method gets called by the AUBase::DispatchGetPropertyInfo method, which 
+      // provides a null value for the outStrings parameter, just return without error.
+      if (outStrings == NULL) return noErr;
+      
+      // Defines an array that contains the pop-up menu item names.
+      CFStringRef  strings [] = {
+         kMenuItem_Tremolo_Sine,
+         kMenuItem_Tremolo_Square
+      };
+      
+      // Creates a new immutable array containing the menu item names, and places the array 
+      // in the outStrings output parameter.
+      *outStrings = CFArrayCreate (
+                                   NULL,
+                                   (const void **) strings,
+                                   (sizeof (strings) / sizeof (strings [0])),
+                                   NULL
+                                   );
+      return noErr;
+   }
+return kAudioUnitErr_InvalidParameter;}
 
 
 
@@ -88,32 +131,78 @@ OSStatus			TremoloUnit::GetParameterInfo(AudioUnitScope		inScope,
                                                         AudioUnitParameterID	inParameterID,
                                                         AudioUnitParameterInfo	&outParameterInfo )
 {
-	OSStatus result = noErr;
 
-	outParameterInfo.flags = 	kAudioUnitParameterFlag_IsWritable
-						|		kAudioUnitParameterFlag_IsReadable;
-    
-    if (inScope == kAudioUnitScope_Global) {
-        switch(inParameterID)
-        {
-            case kParam_One:
-                AUBase::FillInParameterName (outParameterInfo, kParameterOneName, false);
-                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
-                outParameterInfo.minValue = 0.0;
-                outParameterInfo.maxValue = 1;
-                outParameterInfo.defaultValue = kDefaultValue_ParamOne;
-                break;
-            default:
-                result = kAudioUnitErr_InvalidParameter;
-                break;
-            }
-	} else {
-        result = kAudioUnitErr_InvalidParameter;
-    }
-    
+   ComponentResult result = noErr;
+   
+   // Adds two flags to all parameters for the audio unit, indicating to the host application 
+   // that it should consider all the audio unit's parameters to be readable and writable.
+   outParameterInfo.flags =     
+   kAudioUnitParameterFlag_IsWritable | kAudioUnitParameterFlag_IsReadable;
+   
+   // All three parameters for this audio unit are in the "global" scope.
+   if (inScope == kAudioUnitScope_Global) {
+      switch (inParameterID) {
+            
+         case kParameter_Frequency:
+            // Invoked when the view needs information for the kTremoloParam_Frequency 
+            // parameter; defines how to represent this parameter in the user interface.
+            AUBase::FillInParameterName (
+                                         outParameterInfo,
+                                         kParamName_Tremolo_Freq,
+                                         false
+                                         );
+            outParameterInfo.unit      = kAudioUnitParameterUnit_Hertz;
+            // Sets the unit of measurement for the Frequency parameter to Hertz.
+            outParameterInfo.minValue    = kMinimumValue_Tremolo_Freq;
+            // Sets the minimum value for the Frequency parameter.
+            outParameterInfo.maxValue    = kMaximumValue_Tremolo_Freq;
+            // Sets the maximum value for the Frequency parameter.
+            outParameterInfo.defaultValue  = kDefaultValue_Tremolo_Freq;
+            // Sets the default value for the Frequency parameter.
+            outParameterInfo.flags      |= kAudioUnitParameterFlag_DisplayLogarithmic;
+            // Adds a flag to indicate to the host that it should use a logarithmic 
+            // control for the Frequency parameter.
+            break;
+            
+         case kParameter_Depth:
+            // Invoked when the view needs information for the kTremoloParam_Depth parameter.
+            AUBase::FillInParameterName (
+                                         outParameterInfo,
+                                         kParamName_Tremolo_Depth,
+                                         false
+                                         );
+            outParameterInfo.unit      = kAudioUnitParameterUnit_Percent;
+            outParameterInfo.minValue    = kMinimumValue_Tremolo_Depth;
+            outParameterInfo.maxValue    = kMaximumValue_Tremolo_Depth;
+            outParameterInfo.defaultValue  = kDefaultValue_Tremolo_Depth;
+            break;
+            
+         case kParameter_Waveform:
+            // Invoked when the view needs information for the kTremoloParam_Waveform parameter.
+            AUBase::FillInParameterName (
+                                         outParameterInfo,
+                                         kParamName_Tremolo_Waveform,
+                                         false
+                                         );
+            outParameterInfo.unit      = kAudioUnitParameterUnit_Indexed;
+            // Sets the unit of measurement for the Waveform parameter to "indexed," allowing 
+            // it to be displayed as a pop-up menu in the generic view. The following three 
+            // statements set the minimum, maximum, and default values for the depth parameter. 
+            // All three are required for proper functioning of the parameter's user interface.
+            outParameterInfo.minValue    = kSineWave_Tremolo_Waveform;
+            outParameterInfo.maxValue    = kSquareWave_Tremolo_Waveform;
+            outParameterInfo.defaultValue  = kDefaultValue_Tremolo_Waveform;
+            break;
+            
+         default:
+            result = kAudioUnitErr_InvalidParameter;
+            break;
+      }
+   } else {
+      result = kAudioUnitErr_InvalidParameter;
+   }
+   return result;
 
-
-	return result;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,7 +256,7 @@ void		TremoloUnit::TremoloUnitKernel::Process(	const Float32 	*inSourceP,
 	UInt32 nSampleFrames = inFramesToProcess;
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
-	Float32 gain = GetParameter( kParam_One );
+	Float32 gain = 0;//GetParameter( kParam_One );
 	
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;

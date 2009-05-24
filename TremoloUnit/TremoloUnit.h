@@ -51,17 +51,42 @@
 #define __TremoloUnit_h__
 
 
-#pragma mark ____TremoloUnit Parameters
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Constants for parameters and  factory presets
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#pragma mark ____TremoloUnit Parameter Constants
 
-// parameters
-static const float kDefaultValue_ParamOne = 0.5;
+// Provides the user interface name for the Frequency parameter.
+static CFStringRef kParamName_Tremolo_Freq    = CFSTR ("Frequency");
+// Defines a constant for the default value for the Frequency parameter, anticipating a 
+//  unit of Hertz to be defined in the implementation file.
+static const float kDefaultValue_Tremolo_Freq  = 2.0;
+// Defines a constant for the minimum value for the Frequency parameter.
+static const float kMinimumValue_Tremolo_Freq  = 0.5;
+// Defines a constant for the maximum value for the Frequency parameter.
+static const float kMaximumValue_Tremolo_Freq  = 20.0;
 
-static CFStringRef kParameterOneName = CFSTR("Parameter One");
+static CFStringRef kParamName_Tremolo_Depth    = CFSTR ("Depth");
+static const float kDefaultValue_Tremolo_Depth  = 50.0;
+static const float kMinimumValue_Tremolo_Depth  = 0.0;
+static const float kMaximumValue_Tremolo_Depth  = 100.0;
 
+static CFStringRef kParamName_Tremolo_Waveform  = CFSTR ("Waveform");
+static const int kSineWave_Tremolo_Waveform    = 1;
+static const int kSquareWave_Tremolo_Waveform  = 2;
+static const int kDefaultValue_Tremolo_Waveform  = kSineWave_Tremolo_Waveform;
+
+// Defines menu item names for the waveform parameter
+static CFStringRef kMenuItem_Tremolo_Sine    = CFSTR ("Sine");
+static CFStringRef kMenuItem_Tremolo_Square    = CFSTR ("Square");
+
+// Defines constants for identifying the parameters; defines the total number 
+//  of parameters.
 enum {
-	kParam_One =0,
-	//Add your parameters here...
-	kNumberOfParameters=1
+   kParameter_Frequency  = 0,
+   kParameter_Depth    = 1,
+   kParameter_Waveform    = 2,
+   kNumberOfParameters    = 3
 };
 
 #pragma mark ____TremoloUnit

@@ -50,8 +50,8 @@
 #endif
 
 //~~~~~~~~~~~~~~  Change!!! ~~~~~~~~~~~~~~~~~~~~~//
-#define TremoloUnit_COMP_SUBTYPE		'Pass'
-#define TremoloUnit_COMP_MANF			'Demo'
+#define TremoloUnit_COMP_SUBTYPE		'tmlo'
+#define TremoloUnit_COMP_MANF			'bfnk'
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 #endif
