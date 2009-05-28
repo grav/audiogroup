@@ -26,7 +26,7 @@ notchFreqs=[300    1200 3000 6000 10000  12000 14000 18000];
 notchAmps =[.0015 .025  .17   .65   1.5  1.6     1.0  .1];
 
 for i=1:length(notchFreqs)
-    y=notch(y,notchFreqs(i),notchAmps(i));
+    y=movingnotch(y,notchFreqs(i),notchAmps(i));
    % imp = notch(imp,notchFreqs(i),notchAmps(i));
 end
 

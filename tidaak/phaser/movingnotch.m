@@ -11,6 +11,7 @@ y = zeros(1,N);
 BW     = 1200;  % Bandwidth
 Apass  = 1;     % Bandwidth Attenuation
 [b, a] = iirnotch(notchFreq/(fs/2), BW/(fs/2), Apass);
+%[b, a] = mynotch(notchFreq,0.98);
 
 % just copy two first samples since we're using 3 coeffs.
 y(1)=x(1);
