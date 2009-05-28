@@ -2,7 +2,7 @@
 clear
 
 % define lfo frequency
-lfo = 2; % Hz
+lfo = 10; % Hz
 
 % define filter frequencies
 % todo: calculate these?
@@ -15,6 +15,10 @@ assert(length(fcs)==length(amps));
 
 [x,fs] = wavread('../sound/rhodes2.wav');
 x = [x' 0 0];
+
+x = [1 zeros(1,10000)];
+
+x = sin(2*pi*440/fs * linspace(1,20000,20000));
 
 N = length(x);
 
