@@ -10,7 +10,7 @@ close all
 
 %% load sound
 fs=44100; % must also be changed in notch.m since I have no clue about global variables
-x=wavread('strings1.wav');
+x=wavread('../sound/rhodes2.wav');
 x=x';
 
 %% impulse response
@@ -30,5 +30,5 @@ for i=1:length(notchFreqs)
    % imp = notch(imp,notchFreqs(i),notchAmps(i));
 end
 
-
+play(x);
 
