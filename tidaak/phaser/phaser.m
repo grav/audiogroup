@@ -30,5 +30,5 @@ for i=1:length(notchFreqs)
    % imp = notch(imp,notchFreqs(i),notchAmps(i));
 end
 
-play(x);
+play(y);
 
