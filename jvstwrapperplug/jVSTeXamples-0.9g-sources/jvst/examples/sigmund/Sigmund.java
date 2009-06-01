@@ -80,7 +80,7 @@ public class Sigmund extends VSTPluginAdapter {
 
 	public float getParameter(int index) {
 		switch(index){
-		case Sigmund.PARAM_ID_DISTORT: return this.fDist;
+		case Sigmund.PARAM_ID_DISTORT: return this.fTargetDist;
 		}
 		return 0;
 	}
@@ -94,7 +94,7 @@ public class Sigmund extends VSTPluginAdapter {
 
 	public String getParameterLabel(int index) {
 		switch(index){
-		case Sigmund.PARAM_ID_DISTORT: return ""+this.fDist;
+		case Sigmund.PARAM_ID_DISTORT: return ""+this.fTargetDist;
 		}
 		return "";
 	}
@@ -112,16 +112,31 @@ public class Sigmund extends VSTPluginAdapter {
 		// TODO Auto-generated method stub
 		return "";
 	}
+	
+	private float sigmoid(float in, int c){
+		return (float)((1-Math.exp(-c*in))/(1+Math.exp(-c*in)));
+	}
+	
+	private float fuzz(float in, int gain){
+		  float s = gain * Math.signum(in);
+		  return (float) (s*(1-Math.exp(-s * in))/gain);
+	}
+	
+	private float tube(float in, float q, float dist){
+		// TODO
+		return 0;
+	}
 
 	public void processReplacing(float[][] ins, float[][] outs, int sampleFrames) {
 		float[] in1 = ins[0];
 		float[] out1 = outs[0];
 		for(int i=0; i<sampleFrames;i++){
 			int c = (int)Math.pow(10, fDist*2);
-			out1[i]=(float)((1-Math.exp(-c*in1[i]))/(1+Math.exp(-c*in1[i])));
+			out1[i]=sigmoid(in1[i],c);
+			
+			
+			// Scaling
 			float delta = fTargetDist-fDist;
-
-			// TODO Scaling
 			if(Math.abs(delta)<0.05	) {
 				fDist = fTargetDist;
 			} else {
