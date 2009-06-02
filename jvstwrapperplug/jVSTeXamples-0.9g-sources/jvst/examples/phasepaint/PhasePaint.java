@@ -18,7 +18,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		String label;
 		float targetValue;
 		float value;
-		static float inc;
+		static float inc = 0.05f;
 		
 		void slope(){
 			float delta = targetValue-value;
