@@ -7,7 +7,8 @@ import java.lang.Math;
 public class Sigmund extends VSTPluginAdapter {
 	public final static int PARAM_ID_TYPE = 0;
 	public final static int PARAM_ID_DISTORT = 1;
-	public final static int NUM_PARAMS = 2;
+	public final static int PARAM_ID_Q = 2;
+	public final static int NUM_PARAMS = 3;
 
 	private enum Dist {
 		SIGMOID {
@@ -24,9 +25,9 @@ public class Sigmund extends VSTPluginAdapter {
 		},
 
 		TUBE {
-			float eval(float in, float fDist,float q){
+			float eval(float in, float fDist,float fQ){
 				float dist  = 99 * fDist + 1; 
-				// TODO what if q==0 or q==in
+				float q = fQ-1;
 				double out = (in - q) / (1 - Math.exp(-dist * (in - q)));
 				if(out==Double.NaN){
 					out=0;
@@ -37,14 +38,14 @@ public class Sigmund extends VSTPluginAdapter {
 				}
 				return (float)out;
 			}
-			
+
 			@Override
 			public String toString(){
 				return "Tube";
 			}
 
 		},
-		
+
 		FUZZ {
 			float eval(float in, float fDist, float none){
 				float dist = (float)Math.pow(10, fDist*2);
@@ -56,7 +57,33 @@ public class Sigmund extends VSTPluginAdapter {
 				return "FuzzExp";
 			}
 
+		},
+
+		SYMCLIP {
+
+			@Override
+			float eval(float in, float b, float c) {
+				// TODO Auto-generated method stub
+				float out;
+				if (Math.abs(in) >= 0 && Math.abs(in) < 1/3){
+					out = 2 * in;
+				} else if (Math.abs(in) >= 1/3 && Math.abs(in) < 2/3){
+					out = (float) (Math.signum(in) * (3-Math.pow((2-3 * Math.abs(in)),2) / 3));
+				} else {
+					out = 1 * Math.signum(in);
+				}
+				return out;
+			}
+			@Override
+			public String toString(){
+				return "SymClip";
+			}
+
+
+
 		};
+
+
 
 
 		abstract float eval(float a, float b, float c);
@@ -79,6 +106,8 @@ public class Sigmund extends VSTPluginAdapter {
 	float fDist = 0;
 	float fTargetDist = 0;
 
+	float fQ = 0;
+
 	Dist distortion = Dist.SIGMOID;
 
 	public Sigmund(long Wrapper) {
@@ -87,7 +116,7 @@ public class Sigmund extends VSTPluginAdapter {
 		this.setNumOutputs(1);// mono output
 		//this.hasVu(false); //deprecated as of vst2.4
 		this.canProcessReplacing(true);//mandatory for vst 2.4!
-		this.setUniqueID('j'<<24 | 'D'<<16 | 'l'<<8 | 'y');//random unique number registered at steinberg (4 byte)
+		this.setUniqueID('s'<<24 | 'g'<<16 | 'm'<<8 | 'd');//random unique number registered at steinberg (4 byte)
 
 		this.canMono(true); 
 		log("constructor for sigmund invoked");
@@ -165,6 +194,7 @@ public class Sigmund extends VSTPluginAdapter {
 		case Sigmund.PARAM_ID_TYPE: 
 			return distortion.toString();
 		case Sigmund.PARAM_ID_DISTORT: return ""+this.fTargetDist;
+		case Sigmund.PARAM_ID_Q: return "";
 		}
 		return "";
 	}
@@ -173,6 +203,7 @@ public class Sigmund extends VSTPluginAdapter {
 		switch(index){
 		case Sigmund.PARAM_ID_TYPE: return "Type";
 		case Sigmund.PARAM_ID_DISTORT: return "Distortion";
+		case Sigmund.PARAM_ID_Q: return "Q";
 		}
 		return "";
 	}
@@ -200,10 +231,7 @@ public class Sigmund extends VSTPluginAdapter {
 				fDist += Math.signum(delta) * 0.05;
 			}
 
-			// TODO: set via parameter
-			float q = -0.2f;
-
-			out1[i] = distortion.eval(in1[i], fDist, q);
+			out1[i] = distortion.eval(in1[i], fDist, fQ);
 		}
 	}
 
@@ -213,7 +241,11 @@ public class Sigmund extends VSTPluginAdapter {
 			distortion = Dist.get(value);
 			break;
 		case Sigmund.PARAM_ID_DISTORT: 
-			this.fTargetDist=value; break;
+			this.fTargetDist=value; 
+			break;
+		case Sigmund.PARAM_ID_Q:
+			this.fQ = value;
+			break;
 		}
 	}
 
@@ -228,7 +260,7 @@ public class Sigmund extends VSTPluginAdapter {
 	}
 
 	public static void main(String[] args){
-		int n = 3;
+		int n = 4;
 		float r = 1f/n;
 		System.out.println(r);
 		float i = 0;
@@ -237,5 +269,5 @@ public class Sigmund extends VSTPluginAdapter {
 			System.out.println(i+" -> " + Math.floor(i / r));
 		}
 	}
-	
+
 }
