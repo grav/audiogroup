@@ -37,11 +37,7 @@ public class MyQueue<T> {
 		return list.equals(l);
 	}
 	
-	public <E extends T> void testEquals(T[] a){
-		assert(this.equals(Arrays.asList(a))) : 
-			Arrays.deepToString(a) + " != "+ this.toString();
-	}
-	
+	// test implementation
 	public static void main(String[] args){
 		System.out.print("testing...");
 		MyQueue<Float> q = new MyQueue<Float>(3,0f);
@@ -52,7 +48,21 @@ public class MyQueue<T> {
 		Float[] b = {2f,0f,0f};
 		q.testEquals(b);
 		
+		q.push(3f);
+		Float[] c = {3f,2f,0f};
+		q.testEquals(c);
+		
+		assert(q.get(1)==2f);
+		
 		System.out.println("done");
 	}
+	
+	// helper test method
+	public <E extends T> void testEquals(T[] a){
+		assert(this.equals(Arrays.asList(a))) : 
+			Arrays.deepToString(a) + " != "+ this.toString();
+	}
+	
+
 	
 }
