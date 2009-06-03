@@ -10,7 +10,7 @@ close all
 
 %% load sound
 fs=44100; % must also be changed in notch.m since I have no clue about global variables
-x=wavread('../sound/rhodes2.wav');
+x=wavread('../sound/guitar1.wav');
 x=x';
 
 %% impulse response
