@@ -9,13 +9,17 @@ import java.util.Arrays;
 public class PhasePaint extends VSTPluginAdapter {
 
 	int bufferSize = 3; 
-	int zeroCrossings = 0;
 
+	int lfoCounter = 0;
+	
+	static float fs = 44100;
+	
 	Parameter filterFreq = new FilterFreq();
+	Parameter sweepFreq = new SweepFreq();
 	
 	// Define the parameters we'd like to slope
-	private Parameter[] allParameters = {filterFreq};
-	private Parameter[] slopeParameters = {filterFreq};
+	private Parameter[] allParameters = {sweepFreq,filterFreq};
+	private Parameter[] slopeParameters = {sweepFreq,filterFreq};
 
 	public MyQueue<Float> inBuffer,outBuffer;
 
@@ -61,6 +65,17 @@ public class PhasePaint extends VSTPluginAdapter {
 			computedValue=value*9700+300;
 		}
 		
+	}
+	
+	public class SweepFreq extends Parameter{
+		SweepFreq(){
+			super("Sweep Frequency");
+		}
+		
+		@Override
+		void compute(){
+			computedValue=value*9.9f+0.1f;
+		}
 	}
 	
 
@@ -163,7 +178,6 @@ public class PhasePaint extends VSTPluginAdapter {
 
 	private static void allpass2ndorder(float fc, float fb,float[] b, float[] a){
 		// TODO: dont hardwire 
-		float fs = 44100;
 
 		//	DAFX eq. 2.19 - 2.20
 		float c = (float) ((Math.tan(Math.PI*fb/fs) - 1)  / (Math.tan(Math.PI*fb/fs) + 1));
@@ -179,7 +193,8 @@ public class PhasePaint extends VSTPluginAdapter {
 		float[] in = ins[0];
 		float[] out = outs[0];
 		for(int i=0; i<sampleFrames;i++){
-
+			lfoCounter+=1;
+			
 			// Move towards target values (slope)
 			for (Parameter p : slopeParameters){
 				p.slope(this);
@@ -189,10 +204,10 @@ public class PhasePaint extends VSTPluginAdapter {
 
 //			for (float fc:fcs){
 				// calculate filter parameters
-				//fc = fc + fc * sin(2 * pi * n * lfo/fs);
+			float fc = filterFreq.computedValue;
+			float fb = fc/70;
 
-				float fc = filterFreq.computedValue;
-				float fb = fc/70;
+				fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
 
 				// calculate filter coefficients
 				float[] b = {0,0,0};
@@ -247,6 +262,11 @@ public class PhasePaint extends VSTPluginAdapter {
 		allpass2ndorder(3000f,3000f/70f,a,b);
 		System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
+		
+		int k = Integer.MAX_VALUE-2;
+		System.out.println(k);
+		k+=1;
+		System.out.println(k);
 	}
 
 }
