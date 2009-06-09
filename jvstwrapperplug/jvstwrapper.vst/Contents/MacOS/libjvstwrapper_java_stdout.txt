@@ -1,0 +1,2409 @@
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+getPlugCategory
+getPlugCategory
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+resuming...
+canDo: receiveVstMidiEvent = -1
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame0,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+resuming...
+canDo: receiveVstMidiEvent = -1
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame1,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+about to run method=0 on AWT event thread
+GUI open
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+resuming...
+canDo: receiveVstMidiEvent = -1
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame2,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+about to run method=0 on AWT event thread
+GUI open
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+resuming...
+canDo: receiveVstMidiEvent = -1
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame3,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+resuming...
+canDo: receiveVstMidiEvent = -1
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame0,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+resuming...
+canDo: receiveVstMidiEvent = -1
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame0,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+resuming...
+canDo: receiveVstMidiEvent = -1
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame0,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+resuming...
+canDo: receiveVstMidiEvent = -1
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame1,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+Construktor JayDLay() START!
+Construktor JayDLay() INVOKED!
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+resuming...
+canDo: receiveVstMidiEvent = -1
+Initializing CLASSLOAD Plugin GUI=jvst.examples.jaydlay.JayDLayGUI
+resuming...
+canDo: receiveVstMidiEvent = -1
+BEFORE Initializing Plugin GUI on AWT-Event Thread CLAZZ=class jvst.examples.jaydlay.JayDLayGUI constructor=public jvst.examples.jaydlay.JayDLayGUI(jvst.wrapper.gui.VSTPluginGUIRunner,jvst.wrapper.VSTPluginAdapter) throws java.lang.Exception
+
+JAVA GUI Plugin intitialised properly!
+JayDLayGUI <init>
+Plugin GUI was initialized on Event Thread! GUI=jvst.examples.jaydlay.JayDLayGUI[frame0,0,0,200x200,layout=java.awt.BorderLayout,title=JayDLay v0.8,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,22,200x178,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=449,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+about to run method=1 on AWT event thread
+GUI close
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:109)
+java.lang.ArrayIndexOutOfBoundsException: 1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at jvst.examples.sigmund.Sigmund.processReplacing(Sigmund.java:117)
+java.lang.ArrayIndexOutOfBoundsException: 1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Library/Audio/Plug-Ins/VST/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Library/Audio/Plug-Ins/VST/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:68)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:211)
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at jvst.examples.sigmund.Sigmund$Dist.get(Sigmund.java:69)
+	at jvst.examples.sigmund.Sigmund.setParameter(Sigmund.java:212)
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for sigmund invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+0.0
+-2.4660432E-4
+1.3828313E-4
+9.912625E-4
+0.0069659874
+3.1632045E-4
+0.0025151754
+-4.351912E-4
+0.0015225913
+-0.015082963
+canDo: receiveVstMidiEvent = -1
+0.0057249963
+canDo: receiveVstMidiEvent = -1
+-0.01105053
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+registering native Library '/Users/grav/repositories/audiogroup/jvstwrapperplug/jvstwrapper.vst/Contents/MacOS/libjvstwrapper.jnilib'
+constructor for phasepaint invoked
+getNumPrograms
+getNumParams
+canDo: sendVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: midiProgramNames = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
+canDo: receiveVstMidiEvent = -1
