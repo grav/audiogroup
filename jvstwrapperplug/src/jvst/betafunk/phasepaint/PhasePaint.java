@@ -28,7 +28,7 @@ public class PhasePaint extends VSTPluginAdapter {
 	int n=2;  // last index in x & y
 
 	//	private float[] fcs = {300, 1200, 3000, 6000, 10000, 12000};
-//	private float[] fcs = {3000f};
+	private float[] fcs = {3000f};
 
 	public abstract class Parameter{
 		String label;
@@ -47,7 +47,7 @@ public class PhasePaint extends VSTPluginAdapter {
 			if (delta==0) return;
 			if(Math.abs(delta)<inc ){
 				value = targetValue;
-			} else {
+			} else { 
 				value += Math.signum(delta) * inc;
 			}
 			compute();
@@ -200,45 +200,47 @@ public class PhasePaint extends VSTPluginAdapter {
 		float[] in = ins[0];
 		float[] out = outs[0];
 
-		//		for (float fc:fcs ){
-		for(int i=0; i<sampleFrames;i++){
-			lfoCounter+=1;
+		float[] xInit = x.clone(); float[] yInit = y.clone(); 
+		
+		for (float fc:fcs ){
+			x=xInit.clone(); y=yInit.clone();
+			for(int i=0; i<sampleFrames;i++){
+				lfoCounter+=1;
 
-			// Move towards target values (slope)
-			for (Parameter p : slopeParameters){
-				p.slope(this);
+				// Move towards target values (slope)
+				for (Parameter p : slopeParameters){
+					p.slope(this);
+				}
+
+
+				x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
+				y[0]=y[1]; y[1]=y[2]; y[2]=0;
+
+				// calculate filter parameters
+				float fb = fc/70;
+
+				float fcLFO = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
+
+				// calculate filter coefficients
+				float[] b = {0,0,0};
+				float[] a = {0,0,0};
+				allpass2ndorder(fcLFO,fb,b,a);
+
+				float bsum = 0;
+				for (int j=0; j < b.length; j++){
+					bsum += b[j] * x[n-j];
+				}
+
+				float asum = 0;
+				for (int j=1; j < a.length; j++){
+					asum += a[j] * y[n-j];
+				}
+				out[i] += 1/a[0] * (bsum - asum);
+				y[2]=out[i];
+
 			}
-
-
-			x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
-			y[0]=y[1]; y[1]=y[2]; y[2]=0;
-
-			// calculate filter parameters
-			float fc = 3000;//filterFreq.computedValue;
-			float fb = fc/70;
-
-			fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
-
-			// calculate filter coefficients
-			float[] b = {0,0,0};
-			float[] a = {0,0,0};
-			allpass2ndorder(fc,fb,b,a);
-
-			float bsum = 0;
-			for (int j=0; j < b.length; j++){
-				bsum += b[j] * x[n-j];
-			}
-
-			float asum = 0;
-			for (int j=1; j < a.length; j++){
-				asum += a[j] * y[n-j];
-			}
-			out[i] += 1/a[0] * (bsum - asum);
-			y[2]=out[i];
 
 		}
-
-		//		}
 	}
 
 	public void setParameter(int index, float value) {
