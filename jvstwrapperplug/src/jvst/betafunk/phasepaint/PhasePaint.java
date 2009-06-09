@@ -214,7 +214,7 @@ public class PhasePaint extends VSTPluginAdapter {
 			y[0]=y[1]; y[1]=y[2]; y[2]=0;
 
 			// calculate filter parameters
-			float fc = filterFreq.computedValue;
+			float fc = 3000;//filterFreq.computedValue;
 			float fb = fc/70;
 
 			fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
