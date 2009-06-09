@@ -1,6 +1,5 @@
 package jvst.betafunk.phasepaint;
 
-import jvst.betafunk.MyQueue;
 import jvst.wrapper.VSTPluginAdapter;
 import jvst.wrapper.communication.VSTV20ToHost;
 
@@ -28,9 +27,9 @@ public class PhasePaint extends VSTPluginAdapter {
 	float[] y = new float[3];
 	int n=2;  // last index in x & y
 
-//	private float[] fcs = {300, 1200, 3000, 6000, 10000, 12000};
-	private float[] fcs = {3000f};
-	
+	//	private float[] fcs = {300, 1200, 3000, 6000, 10000, 12000};
+//	private float[] fcs = {3000f};
+
 	public abstract class Parameter{
 		String label;
 		float targetValue=0;
@@ -201,47 +200,45 @@ public class PhasePaint extends VSTPluginAdapter {
 		float[] in = ins[0];
 		float[] out = outs[0];
 
-		for (float fc:fcs ){
-			for(int i=0; i<sampleFrames;i++){
-				lfoCounter+=1;
+		//		for (float fc:fcs ){
+		for(int i=0; i<sampleFrames;i++){
+			lfoCounter+=1;
 
-				// Move towards target values (slope)
-				for (Parameter p : slopeParameters){
-					p.slope(this);
-				}
-
-
-				x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
-				y[0]=y[1]; y[1]=y[2]; y[2]=0;
-
-				//			inBuffer.push(in[i]);
-
-				// calculate filter parameters
-//							float fc = 3000f;// filterFreq.computedValue;
-				float fb = fc/70;
-
-				fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
-
-				// calculate filter coefficients
-				float[] b = {0,0,0};
-				float[] a = {0,0,0};
-				allpass2ndorder(fc,fb,b,a);
-
-				float bsum = 0;
-				for (int j=0; j < b.length; j++){
-					bsum += b[j] * x[n-j];
-				}
-
-				float asum = 0;
-				for (int j=1; j < a.length; j++){
-					asum += a[j] * y[n-j];
-				}
-				out[i] += 1/a[0] * (bsum - asum);
-				y[2]=out[i];
-
+			// Move towards target values (slope)
+			for (Parameter p : slopeParameters){
+				p.slope(this);
 			}
 
+
+			x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
+			y[0]=y[1]; y[1]=y[2]; y[2]=0;
+
+			// calculate filter parameters
+			float fc = filterFreq.computedValue;
+			float fb = fc/70;
+
+			fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
+
+			// calculate filter coefficients
+			float[] b = {0,0,0};
+			float[] a = {0,0,0};
+			allpass2ndorder(fc,fb,b,a);
+
+			float bsum = 0;
+			for (int j=0; j < b.length; j++){
+				bsum += b[j] * x[n-j];
+			}
+
+			float asum = 0;
+			for (int j=1; j < a.length; j++){
+				asum += a[j] * y[n-j];
+			}
+			out[i] += 1/a[0] * (bsum - asum);
+			y[2]=out[i];
+
 		}
+
+		//		}
 	}
 
 	public void setParameter(int index, float value) {
