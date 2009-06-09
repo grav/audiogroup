@@ -84,9 +84,6 @@ public class Sigmund extends VSTPluginAdapter {
 
 		};
 
-
-
-
 		abstract double eval(double a, double b, double c);
 
 		// range per type
