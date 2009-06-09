@@ -12,30 +12,37 @@ public class PhasePaint extends VSTPluginAdapter {
 	int bufferSize = 3; 
 
 	int lfoCounter = 0;
-	
+
 	static float fs = 44100;
-	
+
 	Parameter filterFreq = new FilterFreq();
 	Parameter sweepFreq = new SweepFreq();
-	
+
 	// Define the parameters we'd like to slope
 	private Parameter[] allParameters = {sweepFreq,filterFreq};
 	private Parameter[] slopeParameters = {sweepFreq,filterFreq};
 
-	public MyQueue<Float> inBuffer,outBuffer;
+	//	public MyQueue<Float> inBuffer,outBuffer;
 
+	float[] x = new float[3];
+	float[] y = new float[3];
+	int n=2;  // last index in x & y
+
+//	private float[] fcs = {300, 1200, 3000, 6000, 10000, 12000};
+	private float[] fcs = {3000f};
+	
 	public abstract class Parameter{
 		String label;
 		float targetValue=0;
 		float value=0;
 		float inc=0.05f;
 		float computedValue;
-		
+
 		Parameter(String label){
 			this.label=label;
 			this.compute();
 		}
-				
+
 		void slope(PhasePaint pp){
 			float delta = targetValue-value;
 			if (delta==0) return;
@@ -50,7 +57,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		float getCompValue(){
 			return this.computedValue;
 		}
-		
+
 		abstract void compute();
 
 	}
@@ -65,20 +72,20 @@ public class PhasePaint extends VSTPluginAdapter {
 		void compute() {
 			computedValue=value*9700+300;
 		}
-		
+
 	}
-	
+
 	public class SweepFreq extends Parameter{
 		SweepFreq(){
 			super("Sweep Frequency");
 		}
-		
+
 		@Override
 		void compute(){
 			computedValue=value*9.9f+0.1f;
 		}
 	}
-	
+
 
 	public PhasePaint(long Wrapper) {
 		super(Wrapper);
@@ -90,8 +97,8 @@ public class PhasePaint extends VSTPluginAdapter {
 
 		this.canMono(true);
 
-		inBuffer = new MyQueue<Float>(bufferSize,0f);
-		outBuffer = new MyQueue<Float>(bufferSize,0f);
+		//		inBuffer = new MyQueue<Float>(bufferSize,0f);
+		//		outBuffer = new MyQueue<Float>(bufferSize,0f);
 
 		log("constructor for phasepaint invoked");
 
@@ -193,20 +200,25 @@ public class PhasePaint extends VSTPluginAdapter {
 	public void processReplacing(float[][] ins, float[][] outs, int sampleFrames) {
 		float[] in = ins[0];
 		float[] out = outs[0];
-		for(int i=0; i<sampleFrames;i++){
-			lfoCounter+=1;
-			
-			// Move towards target values (slope)
-			for (Parameter p : slopeParameters){
-				p.slope(this);
-			}
 
-			inBuffer.push(in[i]);
+		for (float fc:fcs ){
+			for(int i=0; i<sampleFrames;i++){
+				lfoCounter+=1;
 
-//			for (float fc:fcs){
+				// Move towards target values (slope)
+				for (Parameter p : slopeParameters){
+					p.slope(this);
+				}
+
+
+				x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
+				y[0]=y[1]; y[1]=y[2]; y[2]=0;
+
+				//			inBuffer.push(in[i]);
+
 				// calculate filter parameters
-			float fc = filterFreq.computedValue;
-			float fb = fc/70;
+//							float fc = 3000f;// filterFreq.computedValue;
+				float fb = fc/70;
 
 				fc = (float) (fc + fc/2 * Math.sin(2 * Math.PI * lfoCounter* sweepFreq.computedValue/fs));
 
@@ -217,19 +229,17 @@ public class PhasePaint extends VSTPluginAdapter {
 
 				float bsum = 0;
 				for (int j=0; j < b.length; j++){
-					bsum += b[j] * inBuffer.get(j);
+					bsum += b[j] * x[n-j];
 				}
 
 				float asum = 0;
 				for (int j=1; j < a.length; j++){
-					asum += a[j] * outBuffer.get(j-1);
+					asum += a[j] * y[n-j];
 				}
 				out[i] += 1/a[0] * (bsum - asum);
-				//				out[i]=in[i];
+				y[2]=out[i];
 
-//			}
-			//			out[i]=(out[i]+in[i])/2;
-			outBuffer.push(out[i]);
+			}
 
 		}
 	}
@@ -263,7 +273,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		allpass2ndorder(3000f,3000f/70f,a,b);
 		System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
-		
+
 		int k = Integer.MAX_VALUE-2;
 		System.out.println(k);
 		k+=1;
