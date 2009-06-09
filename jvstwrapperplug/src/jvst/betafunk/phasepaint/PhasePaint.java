@@ -1,8 +1,9 @@
 package jvst.betafunk.phasepaint;
 
 import jvst.betafunk.MyQueue;
-import jvst.examples.jaydlay.JayDLay;
 import jvst.wrapper.VSTPluginAdapter;
+import jvst.wrapper.communication.VSTV20ToHost;
+
 import java.lang.Math;
 import java.util.Arrays;
 
@@ -98,12 +99,12 @@ public class PhasePaint extends VSTPluginAdapter {
 
 	public int canDo(String feature) {
 		//the host asks us here what we are able to do
-		int ret = JayDLay.CANDO_NO;
+		int ret = VSTV20ToHost.CANDO_NO;
 
 		//if (feature.equals(JayDLay.CANDO_PLUG_1_IN_2_OUT)) ret = JayDLay.CANDO_YES;
-		if (feature.equals(JayDLay.CANDO_PLUG_1_IN_1_OUT)) ret = JayDLay.CANDO_YES;
-		if (feature.equals(JayDLay.CANDO_PLUG_PLUG_AS_CHANNEL_INSERT)) ret = JayDLay.CANDO_YES;
-		if (feature.equals(JayDLay.CANDO_PLUG_PLUG_AS_SEND)) ret = JayDLay.CANDO_YES;
+		if (feature.equals(VSTV20ToHost.CANDO_PLUG_1_IN_1_OUT)) ret = VSTV20ToHost.CANDO_YES;
+		if (feature.equals(VSTV20ToHost.CANDO_PLUG_PLUG_AS_CHANNEL_INSERT)) ret = VSTV20ToHost.CANDO_YES;
+		if (feature.equals(VSTV20ToHost.CANDO_PLUG_PLUG_AS_SEND)) ret = VSTV20ToHost.CANDO_YES;
 
 		log("canDo: " + feature + " = " + ret);
 		return ret;
