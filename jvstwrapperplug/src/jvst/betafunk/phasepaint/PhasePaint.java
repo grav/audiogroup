@@ -1,12 +1,12 @@
 package jvst.betafunk.phasepaint;
 
-import jvst.wrapper.VSTPluginAdapter;
-import jvst.wrapper.communication.VSTV20ToHost;
 
 import java.lang.Math;
 import java.util.Arrays;
 
-public class PhasePaint extends VSTPluginAdapter {
+import jvst.betafunk.Parameter;
+
+public class PhasePaint extends EasyAdapter {
 
 	int bufferSize = 3; 
 
@@ -18,17 +18,16 @@ public class PhasePaint extends VSTPluginAdapter {
 	Parameter sweepFreq = new SweepFreq();
 	Parameter wetness = new Parameter("Wetness"){
 		@Override
-		void compute() {
+		protected void compute() {
 			computedValue=value;
 		}
 
 	};
+	
+	Parameter[] allParameters = {sweepFreq,filterFreq,wetness};
+	Parameter[] slopeParameters = allParameters;
 
-	// Define the parameters we'd like to slope
-	private Parameter[] allParameters = {sweepFreq,filterFreq,wetness};
-	private Parameter[] slopeParameters = allParameters;
 
-	//	public MyQueue<Float> inBuffer,outBuffer;
 
 	float[] x = new float[3];
 	float[] y = new float[3];
@@ -37,36 +36,6 @@ public class PhasePaint extends VSTPluginAdapter {
 	//	private float[] fcs = {300, 1200, 3000, 6000, 10000, 12000};
 //	private float[] fcs = {3000f};
 
-	public abstract class Parameter{
-		String label;
-		float targetValue=0;
-		float value=0;
-		float inc=0.05f;
-		float computedValue;
-
-		Parameter(String label){
-			this.label=label;
-			this.compute();
-		}
-
-		void slope(PhasePaint pp){
-			float delta = targetValue-value;
-			if (delta==0) return;
-			if(Math.abs(delta)<inc ){
-				value = targetValue;
-			} else { 
-				value += Math.signum(delta) * inc;
-			}
-			compute();
-		}
-
-		float getCompValue(){
-			return this.computedValue;
-		}
-
-		abstract void compute();
-
-	}
 
 	public class FilterFreq extends Parameter{
 
@@ -75,7 +44,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		}
 
 		@Override
-		void compute() {
+		protected void compute() {
 			computedValue=value*9700+300;
 		}
 
@@ -87,7 +56,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		}
 
 		@Override
-		void compute(){
+		protected void compute(){
 			computedValue=value*9.9f+0.1f;
 		}
 	}
@@ -108,86 +77,6 @@ public class PhasePaint extends VSTPluginAdapter {
 
 		log("constructor for phasepaint invoked");
 
-	}
-
-	public int canDo(String feature) {
-		//the host asks us here what we are able to do
-		int ret = VSTV20ToHost.CANDO_NO;
-
-		//if (feature.equals(JayDLay.CANDO_PLUG_1_IN_2_OUT)) ret = JayDLay.CANDO_YES;
-		if (feature.equals(VSTV20ToHost.CANDO_PLUG_1_IN_1_OUT)) ret = VSTV20ToHost.CANDO_YES;
-		if (feature.equals(VSTV20ToHost.CANDO_PLUG_PLUG_AS_CHANNEL_INSERT)) ret = VSTV20ToHost.CANDO_YES;
-		if (feature.equals(VSTV20ToHost.CANDO_PLUG_PLUG_AS_SEND)) ret = VSTV20ToHost.CANDO_YES;
-
-		log("canDo: " + feature + " = " + ret);
-		return ret;
-	}
-
-	public int getPlugCategory() {
-		log("getPlugCategory");
-		return VSTPluginAdapter.PLUG_CATEG_EFFECT;
-	}
-
-	public String getProductString() {
-		return "PhasePaint 1.0";
-	}
-
-	public String getProgramNameIndexed(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return "";
-	}
-
-	public String getVendorString() {
-		// TODO Auto-generated method stub
-		return "Betafunk";
-	}
-
-	public boolean setBypass(boolean arg0) {
-		log("setBypass");
-		//do not support soft bypass!
-		return false;
-	}
-
-	public boolean string2Parameter(int arg0, String arg1) {
-		log("string2parameter");
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public int getNumParams() {
-		log("getNumParams");
-		return allParameters.length;
-	}
-
-	public int getNumPrograms() {
-		log("getNumPrograms");
-		return 0;
-	}
-
-	public float getParameter(int index) {
-		return allParameters[index].targetValue;
-	}
-
-	public String getParameterDisplay(int index) {
-		return "";
-	}
-
-	public String getParameterLabel(int index) {
-		return "";
-	}
-
-	public String getParameterName(int index) {
-		return allParameters[index].label;
-	}
-
-	public int getProgram() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public String getProgramName() {
-		// TODO Auto-generated method stub
-		return "";
 	}
 
 	private static void allpass2ndorder(float fc, float fb,float[] b, float[] a){
@@ -214,10 +103,7 @@ public class PhasePaint extends VSTPluginAdapter {
 		for(int i=0; i<sampleFrames;i++){
 			lfoCounter+=1;
 
-			// Move towards target values (slope)
-			for (Parameter p : slopeParameters){
-				p.slope(this);
-			}
+			slope();
 
 
 			x[0]=x[1]; x[1]=x[2]; x[2]=in[i];
@@ -253,21 +139,12 @@ public class PhasePaint extends VSTPluginAdapter {
 		//		}
 	}
 
-	public void setParameter(int index, float value) {
-		allParameters[index].targetValue=value;
-	}
-
-	public void setProgram(int arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void setProgramName(String arg0) {
-		// TODO Auto-generated method stub
-
+	public String getProductString() {
+		return "PhasePaint 1.0";
 	}
 
 	public static void main(String[] args){
+		
 		int n = 4;
 		float r = 1f/n;
 		System.out.println(r);
