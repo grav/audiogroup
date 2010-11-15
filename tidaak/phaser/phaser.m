@@ -1,28 +1,26 @@
 %% load sound
-[x,fs]=wavread('../sound/guitar1.wav');
+x=wavread('../sound/guitar1.wav');
 x=x';
 
 %% impulse 
-% x = [1 zeros(1,1000)];
+x = [1 zeros(1,10000)];
 
 %% filter while changing 2nd coefficient of a and b
 N = length(x);
 
-% can't get global vars to work :-(
 fs = 44100;
 
 % frequences to notch
 notchFreqs=[300 1200 3000 6000 10000 12000];
-% notchFreqs=[6000];
 
 % lfo amplifications
 notchAmps =[.0015 .025  .17   .65   1.5  1.6];
-% notchAmps = [.65];
 
 BW     = 1200;  % Bandwidth
 Apass  = 1;     % Bandwidth Attenuation
 
 % filter banks
+% only contains second coefficient
 bs = zeros(1,length(notchFreqs));
 as = zeros(1,length(notchFreqs));
 
@@ -69,6 +67,3 @@ for m=1:length(notchFreqs)
   x = y;
 
 end
-
-play(y);
-
