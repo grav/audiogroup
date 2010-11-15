@@ -12,7 +12,7 @@
 					20,
 					833,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -35,7 +35,7 @@
 					793,
 					60,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 				);
@@ -53,17 +53,9 @@
 			PBXWorkspaceStateSaveDate = 264861260;
 		};
 		perUserProjectItems = {
-			AE6545F50FC9784500C446E8 /* PBXTextBookmark */ = AE6545F50FC9784500C446E8 /* PBXTextBookmark */;
-			AE6545F60FC9784500C446E8 /* PBXTextBookmark */ = AE6545F60FC9784500C446E8 /* PBXTextBookmark */;
-			AE6546000FC978C200C446E8 /* PBXTextBookmark */ = AE6546000FC978C200C446E8 /* PBXTextBookmark */;
-			AE6546010FC978C200C446E8 /* PBXTextBookmark */ = AE6546010FC978C200C446E8 /* PBXTextBookmark */;
 			AE6546030FC978D200C446E8 /* PBXTextBookmark */ = AE6546030FC978D200C446E8 /* PBXTextBookmark */;
 			AE6546050FC978D200C446E8 /* PBXTextBookmark */ = AE6546050FC978D200C446E8 /* PBXTextBookmark */;
 			AE6546070FC978D200C446E8 /* PBXTextBookmark */ = AE6546070FC978D200C446E8 /* PBXTextBookmark */;
-			AE6546090FC978D200C446E8 /* PBXTextBookmark */ = AE6546090FC978D200C446E8 /* PBXTextBookmark */;
-			AE65460A0FC978D200C446E8 /* PBXTextBookmark */ = AE65460A0FC978D200C446E8 /* PBXTextBookmark */;
-			AE65460B0FC978D200C446E8 /* PBXTextBookmark */ = AE65460B0FC978D200C446E8 /* PBXTextBookmark */;
-			AE65460C0FC978D200C446E8 /* PBXTextBookmark */ = AE65460C0FC978D200C446E8 /* PBXTextBookmark */;
 			AE65460D0FC978D200C446E8 /* PBXTextBookmark */ = AE65460D0FC978D200C446E8 /* PBXTextBookmark */;
 			AE65460F0FC978D200C446E8 /* PBXTextBookmark */ = AE65460F0FC978D200C446E8 /* PBXTextBookmark */;
 			AE6546110FC978D200C446E8 /* PBXTextBookmark */ = AE6546110FC978D200C446E8 /* PBXTextBookmark */;
@@ -71,12 +63,40 @@
 			AE6546140FC978D200C446E8 /* PBXTextBookmark */ = AE6546140FC978D200C446E8 /* PBXTextBookmark */;
 			AE6546150FC978D200C446E8 /* PBXTextBookmark */ = AE6546150FC978D200C446E8 /* PBXTextBookmark */;
 			AE6546160FC978D200C446E8 /* PBXTextBookmark */ = AE6546160FC978D200C446E8 /* PBXTextBookmark */;
-			AE6546170FC978D200C446E8 /* PBXTextBookmark */ = AE6546170FC978D200C446E8 /* PBXTextBookmark */;
-			AE6546180FC9791B00C446E8 /* PBXTextBookmark */ = AE6546180FC9791B00C446E8 /* PBXTextBookmark */;
-			AE6546190FC9791B00C446E8 /* PBXTextBookmark */ = AE6546190FC9791B00C446E8 /* PBXTextBookmark */;
-			AE65461B0FC9793E00C446E8 /* PBXTextBookmark */ = AE65461B0FC9793E00C446E8 /* PBXTextBookmark */;
-			AE65461C0FC9793E00C446E8 /* PBXTextBookmark */ = AE65461C0FC9793E00C446E8 /* PBXTextBookmark */;
-			AE65461E0FC9795900C446E8 /* PBXTextBookmark */ = AE65461E0FC9795900C446E8 /* PBXTextBookmark */;
+			AE65462C0FC97B5900C446E8 /* PBXTextBookmark */ = AE65462C0FC97B5900C446E8 /* PBXTextBookmark */;
+			AE65462D0FC97B5900C446E8 /* PBXTextBookmark */ = AE65462D0FC97B5900C446E8 /* PBXTextBookmark */;
+			AE65463C0FC97E6100C446E8 /* PBXTextBookmark */ = AE65463C0FC97E6100C446E8 /* PBXTextBookmark */;
+			AE65463D0FC97E6100C446E8 /* PlistBookmark */ = AE65463D0FC97E6100C446E8 /* PlistBookmark */;
+			AE65463E0FC97E6100C446E8 /* PBXTextBookmark */ = AE65463E0FC97E6100C446E8 /* PBXTextBookmark */;
+			AE65463F0FC97E6100C446E8 /* PBXTextBookmark */ = AE65463F0FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546410FC97E6100C446E8 /* PBXTextBookmark */ = AE6546410FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546420FC97E6100C446E8 /* PlistBookmark */ = AE6546420FC97E6100C446E8 /* PlistBookmark */;
+			AE6546430FC97E6100C446E8 /* PBXTextBookmark */ = AE6546430FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546440FC97E6100C446E8 /* PlistBookmark */ = AE6546440FC97E6100C446E8 /* PlistBookmark */;
+			AE6546450FC97E6100C446E8 /* PBXTextBookmark */ = AE6546450FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546460FC97E6100C446E8 /* PBXTextBookmark */ = AE6546460FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546470FC97E6100C446E8 /* PBXTextBookmark */ = AE6546470FC97E6100C446E8 /* PBXTextBookmark */;
+			AE6546480FC97E6100C446E8 /* PBXTextBookmark */ = AE6546480FC97E6100C446E8 /* PBXTextBookmark */;
+			AE65464B0FC980DC00C446E8 /* PBXTextBookmark */ = AE65464B0FC980DC00C446E8 /* PBXTextBookmark */;
+			AE65464D0FC9819E00C446E8 /* PBXTextBookmark */ = AE65464D0FC9819E00C446E8 /* PBXTextBookmark */;
+			AE6546500FC9819E00C446E8 /* PBXTextBookmark */ = AE6546500FC9819E00C446E8 /* PBXTextBookmark */;
+			AE6546510FC9819E00C446E8 /* PBXTextBookmark */ = AE6546510FC9819E00C446E8 /* PBXTextBookmark */;
+			AE65466F0FC987D800C446E8 /* PBXTextBookmark */ = AE65466F0FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546700FC987D800C446E8 /* PBXTextBookmark */ = AE6546700FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546740FC987D800C446E8 /* PBXTextBookmark */ = AE6546740FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546750FC987D800C446E8 /* PBXTextBookmark */ = AE6546750FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546760FC987D800C446E8 /* PBXTextBookmark */ = AE6546760FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546770FC987D800C446E8 /* PBXTextBookmark */ = AE6546770FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546780FC987D800C446E8 /* PBXTextBookmark */ = AE6546780FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546790FC987D800C446E8 /* PBXTextBookmark */ = AE6546790FC987D800C446E8 /* PBXTextBookmark */;
+			AE65467A0FC987D800C446E8 /* PBXTextBookmark */ = AE65467A0FC987D800C446E8 /* PBXTextBookmark */;
+			AE65467B0FC987D800C446E8 /* PBXTextBookmark */ = AE65467B0FC987D800C446E8 /* PBXTextBookmark */;
+			AE65467D0FC987D800C446E8 /* PBXTextBookmark */ = AE65467D0FC987D800C446E8 /* PBXTextBookmark */;
+			AE65467E0FC987D800C446E8 /* PBXTextBookmark */ = AE65467E0FC987D800C446E8 /* PBXTextBookmark */;
+			AE6546830FCA867B00C446E8 /* PBXTextBookmark */ = AE6546830FCA867B00C446E8 /* PBXTextBookmark */;
+			AE6546840FCA867B00C446E8 /* PBXTextBookmark */ = AE6546840FCA867B00C446E8 /* PBXTextBookmark */;
+			AE6546850FCA867B00C446E8 /* PBXTextBookmark */ = AE6546850FCA867B00C446E8 /* PBXTextBookmark */;
+			AE6546860FCA867B00C446E8 /* PBXTextBookmark */ = AE6546860FCA867B00C446E8 /* PBXTextBookmark */;
 		};
 		sourceControlManager = AE6545D80FC9764E00C446E8 /* Source Control */;
 		userBuildSettings = {
@@ -91,9 +111,18 @@
 	};
 	8BA05A660720730100365D66 /* TremoloUnit.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 3878}}";
-			sepNavSelRange = "{5776, 0}";
-			sepNavVisRange = "{4178, 1603}";
+			sepNavFolds = "{\n    c =     (\n                {\n            l = \"AudioUnitParameterID inID\";\n            r = \"{20747, 29}\";\n            s = 1;\n        },\n                {\n            l = \"AudioUnitScope inScope\";\n            r = \"{20778, 26}\";\n            s = 1;\n        },\n                {\n            l = \"AudioUnitElement inElement\";\n            r = \"{20806, 30}\";\n            s = 1;\n        },\n                {\n            l = \"AudioUnitParameterValue outValue\";\n            r = \"{20838, 36}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 23579}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1006, 6692}}";
+			sepNavSelRange = "{19101, 49}";
+			sepNavVisRange = "{18601, 781}";
+			sepNavWindowFrame = "{{15, 4}, {1230, 774}}";
+		};
+	};
+	8BA05A670720730100365D66 /* TremoloUnit.exp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 468}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 17}";
 		};
 	};
 	8BA05A680720730100365D66 /* TremoloUnit.r */ = {
@@ -107,14 +136,14 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1011, 826}}";
 			sepNavSelRange = "{2907, 0}";
-			sepNavVisRange = "{1546, 1424}";
+			sepNavVisRange = "{0, 2141}";
 		};
 	};
 	8BC6025B073B072D006C4272 /* TremoloUnit.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 2128}}";
-			sepNavSelRange = "{4550, 0}";
-			sepNavVisRange = "{3056, 1496}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 2702}}";
+			sepNavSelRange = "{4554, 0}";
+			sepNavVisRange = "{4429, 1371}";
 		};
 	};
 	8D01CCC60486CAD60068D4B7 /* TremoloUnit */ = {
@@ -135,42 +164,6 @@
 	AE6545D90FC9764E00C446E8 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	AE6545F50FC9784500C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: 'kParam_One' was not declared in this scope";
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		rLen = 0;
-		rLoc = 59;
-		rType = 1;
-	};
-	AE6545F60FC9784500C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 62";
-		rLen = 0;
-		rLoc = 3216;
-		rType = 0;
-		vrLen = 509;
-		vrLoc = 2927;
-	};
-	AE6546000FC978C200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: 'kParam_One' was not declared in this scope";
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		rLen = 0;
-		rLoc = 134;
-		rType = 1;
-	};
-	AE6546010FC978C200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 120";
-		rLen = 0;
-		rLoc = 6260;
-		rType = 0;
-		vrLen = 444;
-		vrLoc = 5104;
 	};
 	AE6546030FC978D200C446E8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -219,46 +212,6 @@
 		name = AUComponent.h;
 		path = /System/Library/Frameworks/AudioUnit.framework/Headers/AUComponent.h;
 		sourceTree = "<absolute>";
-	};
-	AE6546090FC978D200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A690720730100365D66 /* TremoloUnitVersion.h */;
-		name = "TremoloUnitVersion.h: 54";
-		rLen = 0;
-		rLoc = 2907;
-		rType = 0;
-		vrLen = 1424;
-		vrLoc = 1546;
-	};
-	AE65460A0FC978D200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A680720730100365D66 /* TremoloUnit.r */;
-		name = "TremoloUnit.r: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1566;
-		vrLoc = 1678;
-	};
-	AE65460B0FC978D200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C167EFE841241C02AAC07 /* English */;
-		name = "InfoPlist.strings: 5";
-		rLen = 0;
-		rLoc = 159;
-		rType = 0;
-		vrLen = 159;
-		vrLoc = 0;
-	};
-	AE65460C0FC978D200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
-		name = "TremoloUnit.h: 90";
-		rLen = 0;
-		rLoc = 4550;
-		rType = 0;
-		vrLen = 1496;
-		vrLoc = 3056;
 	};
 	AE65460D0FC978D200C446E8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -343,67 +296,376 @@
 		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
 		name = "TremoloUnit.h: 90";
 		rLen = 0;
-		rLoc = 4550;
+		rLoc = 4841;
 		rType = 0;
 		vrLen = 1496;
 		vrLoc = 3056;
 	};
-	AE6546170FC978D200C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 84";
-		rLen = 0;
-		rLoc = 4090;
-		rType = 0;
-		vrLen = 1205;
-		vrLoc = 4725;
-	};
-	AE6546180FC9791B00C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 85";
-		rLen = 0;
-		rLoc = 4091;
-		rType = 0;
-		vrLen = 1186;
-		vrLoc = 3538;
-	};
-	AE6546190FC9791B00C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 110";
-		rLen = 0;
-		rLoc = 6165;
-		rType = 0;
-		vrLen = 1482;
-		vrLoc = 4946;
-	};
-	AE65461B0FC9793E00C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: 'kParam_One' was not declared in this scope";
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		rLen = 1;
-		rLoc = 258;
-		rType = 1;
-	};
-	AE65461C0FC9793E00C446E8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
-		name = "TremoloUnit.cpp: 239";
-		rLen = 0;
-		rLoc = 12637;
-		rType = 0;
-		vrLen = 1384;
-		vrLoc = 10618;
-	};
-	AE65461E0FC9795900C446E8 /* PBXTextBookmark */ = {
+	AE65462C0FC97B5900C446E8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
 		name = "TremoloUnit.cpp: 123";
 		rLen = 0;
-		rLoc = 5776;
+		rLoc = 5793;
 		rType = 0;
-		vrLen = 1603;
-		vrLoc = 4178;
+		vrLen = 1527;
+		vrLoc = 11533;
+	};
+	AE65462D0FC97B5900C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1838;
+		vrLoc = 6749;
+	};
+	AE65463C0FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "InfoPlist.strings: 5";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 159;
+		vrLoc = 0;
+	};
+	AE65463D0FC97E6100C446E8 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D01CCD10486CAD60068D4B7 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/grav/repositories/audiogroup/TremoloUnit/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	AE65463E0FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A690720730100365D66 /* TremoloUnitVersion.h */;
+		name = "TremoloUnitVersion.h: 54";
+		rLen = 0;
+		rLoc = 2907;
+		rType = 0;
+		vrLen = 2141;
+		vrLoc = 0;
+	};
+	AE65463F0FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A680720730100365D66 /* TremoloUnit.r */;
+		name = "TremoloUnit.r: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 1678;
+	};
+	AE6546410FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 442";
+		rLen = 0;
+		rLoc = 23579;
+		rType = 0;
+		vrLen = 2229;
+		vrLoc = 14099;
+	};
+	AE6546420FC97E6100C446E8 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D01CCD10486CAD60068D4B7 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/grav/repositories/audiogroup/TremoloUnit/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	AE6546430FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "InfoPlist.strings: 5";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 159;
+		vrLoc = 0;
+	};
+	AE6546440FC97E6100C446E8 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D01CCD10486CAD60068D4B7 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/grav/repositories/audiogroup/TremoloUnit/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	AE6546450FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A680720730100365D66 /* TremoloUnit.r */;
+		name = "TremoloUnit.r: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 1678;
+	};
+	AE6546460FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A690720730100365D66 /* TremoloUnitVersion.h */;
+		name = "TremoloUnitVersion.h: 54";
+		rLen = 0;
+		rLoc = 2907;
+		rType = 0;
+		vrLen = 2141;
+		vrLoc = 0;
+	};
+	AE6546470FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A680720730100365D66 /* TremoloUnit.r */;
+		name = "TremoloUnit.r: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 1678;
+	};
+	AE6546480FC97E6100C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 442";
+		rLen = 0;
+		rLoc = 23579;
+		rType = 0;
+		vrLen = 2136;
+		vrLoc = 0;
+	};
+	AE65464B0FC980DC00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1838;
+		vrLoc = 6749;
+	};
+	AE65464D0FC9819E00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AE65464E0FC9819E00C446E8 /* MacTypes.h */;
+		name = "MacTypes.h: 190";
+		rLen = 37;
+		rLoc = 6318;
+		rType = 0;
+		vrLen = 1370;
+		vrLoc = 5547;
+	};
+	AE65464E0FC9819E00C446E8 /* MacTypes.h */ = {
+		isa = PBXFileReference;
+		name = MacTypes.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/Headers/MacTypes.h;
+		sourceTree = "<absolute>";
+	};
+	AE6546500FC9819E00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 300";
+		rLen = 7;
+		rLoc = 15467;
+		rType = 0;
+		vrLen = 2383;
+		vrLoc = 14374;
+	};
+	AE6546510FC9819E00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AE6546520FC9819E00C446E8 /* MacTypes.h */;
+		name = "MacTypes.h: 190";
+		rLen = 37;
+		rLoc = 6318;
+		rType = 0;
+		vrLen = 1370;
+		vrLoc = 5547;
+	};
+	AE6546520FC9819E00C446E8 /* MacTypes.h */ = {
+		isa = PBXFileReference;
+		name = MacTypes.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/Headers/MacTypes.h;
+		sourceTree = "<absolute>";
+	};
+	AE65466F0FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A670720730100365D66 /* TremoloUnit.exp */;
+		name = "TremoloUnit.exp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 17;
+		vrLoc = 0;
+	};
+	AE6546700FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AE6546710FC987D800C446E8 /* AudioUnitProperties.h */;
+		name = "AudioUnitProperties.h: 899";
+		rLen = 41;
+		rLoc = 37136;
+		rType = 0;
+		vrLen = 1299;
+		vrLoc = 37000;
+	};
+	AE6546710FC987D800C446E8 /* AudioUnitProperties.h */ = {
+		isa = PBXFileReference;
+		name = AudioUnitProperties.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Versions/A/Headers/AudioUnitProperties.h;
+		sourceTree = "<absolute>";
+	};
+	AE6546740FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 435";
+		rLen = 0;
+		rLoc = 23194;
+		rType = 0;
+		vrLen = 1911;
+		vrLoc = 19173;
+	};
+	AE6546750FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 84";
+		rLen = 0;
+		rLoc = 4364;
+		rType = 0;
+		vrLen = 1838;
+		vrLoc = 7007;
+	};
+	AE6546760FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 435";
+		rLen = 0;
+		rLoc = 23194;
+		rType = 0;
+		vrLen = 1623;
+		vrLoc = 17457;
+	};
+	AE6546770FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A670720730100365D66 /* TremoloUnit.exp */;
+		name = "TremoloUnit.exp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 17;
+		vrLoc = 0;
+	};
+	AE6546780FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 66";
+		rLen = 7;
+		rLoc = 3563;
+		rType = 0;
+		vrLen = 1343;
+		vrLoc = 3506;
+	};
+	AE6546790FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A670720730100365D66 /* TremoloUnit.exp */;
+		name = "TremoloUnit.exp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 17;
+		vrLoc = 0;
+	};
+	AE65467A0FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 203";
+		rLen = 31;
+		rLoc = 10214;
+		rType = 0;
+		vrLen = 1962;
+		vrLoc = 8368;
+	};
+	AE65467B0FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AE65467C0FC987D800C446E8 /* AudioUnitProperties.h */;
+		name = "AudioUnitProperties.h: 899";
+		rLen = 41;
+		rLoc = 37136;
+		rType = 0;
+		vrLen = 1299;
+		vrLoc = 37000;
+	};
+	AE65467C0FC987D800C446E8 /* AudioUnitProperties.h */ = {
+		isa = PBXFileReference;
+		name = AudioUnitProperties.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Versions/A/Headers/AudioUnitProperties.h;
+		sourceTree = "<absolute>";
+	};
+	AE65467D0FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 207";
+		rLen = 0;
+		rLoc = 10467;
+		rType = 0;
+		vrLen = 1438;
+		vrLoc = 10571;
+	};
+	AE65467E0FC987D800C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 88";
+		rLen = 0;
+		rLoc = 4554;
+		rType = 0;
+		vrLen = 1128;
+		vrLoc = 3923;
+	};
+	AE6546830FCA867B00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 377";
+		rLen = 0;
+		rLoc = 19015;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 18304;
+	};
+	AE6546840FCA867B00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 88";
+		rLen = 0;
+		rLoc = 4554;
+		rType = 0;
+		vrLen = 1128;
+		vrLoc = 3923;
+	};
+	AE6546850FCA867B00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* TremoloUnit.cpp */;
+		name = "TremoloUnit.cpp: 377";
+		rLen = 0;
+		rLoc = 19015;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 18304;
+	};
+	AE6546860FCA867B00C446E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* TremoloUnit.h */;
+		name = "TremoloUnit.h: 88";
+		rLen = 0;
+		rLoc = 4554;
+		rType = 0;
+		vrLen = 1371;
+		vrLoc = 4429;
 	};
 }

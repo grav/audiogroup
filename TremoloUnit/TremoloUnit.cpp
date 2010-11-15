@@ -44,7 +44,7 @@
 	
 =============================================================================*/
 #include "TremoloUnit.h"
-
+#include <math.h>
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -194,6 +194,18 @@ OSStatus			TremoloUnit::GetParameterInfo(AudioUnitScope		inScope,
             outParameterInfo.defaultValue  = kDefaultValue_Tremolo_Waveform;
             break;
             
+         case kParameter_Distortion:
+            AUBase::FillInParameterName (
+                                         outParameterInfo,
+                                         kParamName_Distortion,
+                                         false
+                                         );
+            outParameterInfo.unit = kAudioUnitParameterUnit_Percent;
+            outParameterInfo.minValue = kMinimumValue_Distortion;
+            outParameterInfo.maxValue = kMaximumValue_Distortion;
+            outParameterInfo.defaultValue = kDefaultValue_Distortion;
+            break;
+            
          default:
             result = kAudioUnitErr_InvalidParameter;
             break;
@@ -231,6 +243,58 @@ OSStatus			TremoloUnit::GetProperty(	AudioUnitPropertyID inID,
 
 #pragma mark ____TremoloUnitEffectKernel
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  TremoloUnit::TremoloUnitKernel::TremoloUnitKernel()
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// This is the constructor for the TremoloUnitKernel helper class, which holds the DSP code 
+//  for the audio unit. TremoloUnit is an n-to-n audio unit; one kernel object gets built for 
+//  each channel in the audio unit.
+//
+// The first line of the method consists of the constructor method declarator and constructor-
+//  initializer. In addition to calling the appropriate superclasses, this code initializes two 
+//  member variables:
+//
+// mCurrentScale:    a factor for correlating points in the current wave table to
+//            the audio signal sampling frequency. to produce the desired
+//            tremolo frequency
+// mSamplesProcessed:  a global count of samples processed. it allows the tremolo effect
+//            to be continuous over data input buffer boundaries
+//
+// (In the Xcode template, the header file contains the call to the superclass constructor.)
+TremoloUnit::TremoloUnitKernel::TremoloUnitKernel (AUEffectBase *inAudioUnit ) : AUKernelBase (inAudioUnit),
+mSamplesProcessed (0), mCurrentScale (0)
+{  
+   // Generates a wave table that represents one cycle of a sine wave, normalized so that
+   //  it never goes negative and so it ranges between 0 and 1; this sine wave specifies 
+   //  how to vary the volume during one cycle of tremolo.
+   for (int i = 0; i < kWaveArraySize; ++i) {
+      double radians = i * 2.0 * pi / kWaveArraySize;
+      mSine [i] = (sin (radians) + 1.0) * 0.5;
+   }
+   
+   // Does the same for a pseudo square wave, with nice rounded corners to avoid pops.
+   for (int i = 0; i < kWaveArraySize; ++i) {
+      double radians = i * 2.0 * pi / kWaveArraySize;
+      radians = radians + 0.32; // shift the wave over for a smoother start
+      mSquare [i] =
+      (
+       sin (radians) +  // Sums the odd harmonics, scaled for a nice final waveform
+       0.3 * sin (3 * radians) +
+       0.15 * sin (5 * radians) +
+       0.075 * sin (7 * radians) +
+       0.0375 * sin (9 * radians) +
+       0.01875 * sin (11 * radians) +
+       0.009375 * sin (13 * radians) +
+       0.8      // Shifts the value so it doesn't go negative.
+       ) * 0.63;    // Scales the waveform so the peak value is close 
+      //  to unity gain.
+   }
+   
+   // Gets the samples per second of the audio stream provided to the audio unit. 
+   // Obtaining this value here in the constructor assumes that the sample rate
+   // will not change during one instantiation of the audio unit.
+   mSampleFrequency = GetSampleRate ();
+}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	TremoloUnit::TremoloUnitKernel::Reset()
@@ -240,38 +304,165 @@ void		TremoloUnit::TremoloUnitKernel::Reset()
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	TremoloUnit::TremoloUnitKernel::Process
+//  TremoloUnit::TremoloUnitKernel::Process
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void		TremoloUnit::TremoloUnitKernel::Process(	const Float32 	*inSourceP,
-                                                    Float32		 	*inDestP,
-                                                    UInt32 			inFramesToProcess,
-                                                    UInt32			inNumChannels, // for version 2 AudioUnits inNumChannels is always 1
-                                                    bool			&ioSilence )
-{
+// This method contains the DSP code. 
+void TremoloUnit::TremoloUnitKernel::Process (
+                                              const Float32   *inSourceP,      // The audio sample input buffer.
+                                              Float32       *inDestP,      // The audio sample output buffer.
+                                              UInt32       inSamplesToProcess,  // The number of samples in the input buffer.
+                                              UInt32      inNumChannels,    // The number of input channels. This is always equal to 1 
+                                              //   because there is always one kernel object instantiated
+                                              //   per channel of audio.
+                                              bool      &ioSilence      // A Boolean flag indicating whether the input to the audio 
+                                              //   unit consists of silence, with a TRUE value indicating 
+                                              //   silence.
+) {
+   // Ignores the request to perform the Process method if the input to the audio unit is silence.
+   if (!ioSilence) {
+      
+      // Assigns a pointer variable to the start of the audio sample input buffer.
+      const Float32 *sourceP = inSourceP;
+      
+      // Assigns a pointer variable to the start of the audio sample output buffer.
+      Float32  *destP = inDestP,
+      inputSample,      // The current audio sample to process.
+      outputSample,      // The current audio output sample resulting from one iteration of the
+      //   processing loop.
+      tremoloFrequency,    // The tremolo frequency requested by the user via the audio unit's view.
+      tremoloDepth,      // The tremolo depth requested by the user via the audio unit's view.
+      samplesPerTremoloCycle,  // The number of audio samples in one cycle of the tremolo waveform.
+      rawTremoloGain,      // The tremolo gain for the current audio sample, as stored in the wave table.
+      tremoloGain;      // The adjusted tremolo gain for the current audio sample, considering the 
+      //   Depth parameter.
+      
+      int    tremoloWaveform;    // The tremolo waveform type requested by the user via the audio unit's view.
+      
+      
+      // Once per input buffer, gets the tremolo frequency (in Hz) from the user 
+      //  via the audio unit view.
+      tremoloFrequency = GetParameter (kParameter_Frequency);
+      
+      // Once per input buffer, gets the depth (in percent) from the user via 
+      //  the audio unit view.
+      tremoloDepth = GetParameter (kParameter_Depth);
+      
+      // Once per input buffer, gets the tremolo waveform type from the user via 
+      //  the audio unit view.
+      tremoloWaveform =  (int) GetParameter (kParameter_Waveform);
+      
+      
+      // Assigns a pointer to the wave table for the user-selected tremolo wave form.
+      if (tremoloWaveform == kSineWave_Tremolo_Waveform)  {
+         waveArrayPointer = &mSine [0];
+      } else {
+         waveArrayPointer = &mSquare [0];
+      }
+      
+      // Performs bounds checking on the parameters.
+      if (tremoloFrequency  < kMinimumValue_Tremolo_Freq)
+         tremoloFrequency  = kMinimumValue_Tremolo_Freq;
+      if (tremoloFrequency  > kMaximumValue_Tremolo_Freq)
+         tremoloFrequency  = kMaximumValue_Tremolo_Freq;
+      
+      if (tremoloDepth    < kMinimumValue_Tremolo_Depth)
+         tremoloDepth    = kMinimumValue_Tremolo_Depth;
+      if (tremoloDepth    > kMaximumValue_Tremolo_Depth)
+         tremoloDepth    = kMaximumValue_Tremolo_Depth;
+      
+      if (tremoloWaveform != kSineWave_Tremolo_Waveform 
+          && tremoloWaveform != kSquareWave_Tremolo_Waveform)
+         tremoloWaveform = kSineWave_Tremolo_Waveform;
 
-	//This code will pass-thru the audio data.
-	//This is where you want to process data to produce an effect.
+      Float32 distortion;
 
-	
-	UInt32 nSampleFrames = inFramesToProcess;
-	const Float32 *sourceP = inSourceP;
-	Float32 *destP = inDestP;
-	Float32 gain = 0;//GetParameter( kParam_One );
-	
-	while (nSampleFrames-- > 0) {
-		Float32 inputSample = *sourceP;
-		
-		//The current (version 2) AudioUnit specification *requires* 
-	    //non-interleaved format for all inputs and outputs. Therefore inNumChannels is always 1
-		
-		sourceP += inNumChannels;	// advance to next frame (e.g. if stereo, we're advancing 2 samples);
-									// we're only processing one of an arbitrary number of interleaved channels
+      distortion =  (int) GetParameter (kParameter_Distortion);
 
-			// here's where you do your DSP work
-                Float32 outputSample = inputSample * gain;
-		
-		*destP = outputSample;
-		destP += inNumChannels;
-	}
+      if (distortion < kMinimumValue_Distortion)
+         distortion = kMinimumValue_Distortion;
+      if (distortion > kMaximumValue_Distortion)
+         distortion = kMaximumValue_Distortion;
+      
+      // Calculates the number of audio samples per cycle of tremolo frequency.
+      samplesPerTremoloCycle  = mSampleFrequency / tremoloFrequency;
+      
+      // Calculates the scaling factor to use for applying the wave table to the current sampling 
+      //  frequency and tremolo frequency.
+      mNextScale        = kWaveArraySize / samplesPerTremoloCycle;
+      /*
+       An explanation of the scaling factor (mNextScale)
+       -------------------------------------------------
+       Say that the audio sample frequency is 10 kHz and that the tremolo frequency is 
+       10.0 Hz. the number of audio samples per tremolo cycle is then 1,000.
+       
+       For a wave table of length 1,000, the scaling factor is then unity (1.0). This means 
+       that the wave table happens to be the exact size needed for each point in the table 
+       to correspond to exactly one sample.
+       
+       If the tremolo frequency slows to 1.0 Hz, then the number of samples per tremolo 
+       cycle rises to 10,000. The scaling factor is then 0.1. This means that every 10th 
+       element of the wave table array corresponds to a sample.
+       
+       If the tremolo frequency increases to 20 Hz, the samples per tremolo cycle lowers to
+       500. The scaling factor is then 1,000/500 = 2.0. In this case, two samples in a row 
+       need to make use of the same point in the wave table.
+       */
+      
+//      distortion = GetParameter(<#AudioUnitParameterID inID#>, <#AudioUnitScope inScope#>, <#AudioUnitElement inElement#>, <#AudioUnitParameterValue outValue#>)
+      
+      // The sample processing loop: processes the current batch of samples, one sample at a time.
+      for (int i = inSamplesToProcess; i > 0; --i) {
+         
+         // The following statement calculates the position in the wave table ("index") to 
+         // use for the current sample. This position, along with the calculation of 
+         // mNextScale, is the only subtle math for this audio unit.
+         //
+         // "index" is the position marker in the wave table. The wave table is an array; 
+         //    index varies from 0 to kWaveArraySize.
+         //
+         //  "index" is also the number of samples processed since the last 
+         //  counter reset, divided by the number of samples that play during one pass 
+         //  through the wave table, modulo the size of the wave table (see "An explanation...",
+         //  above).
+         int index = static_cast<long>(mSamplesProcessed * mCurrentScale) % kWaveArraySize;
+         
+         // If the user has moved the tremolo frequency slider, changes the scale factor
+         // at the next positive zero crossing of the tremolo sine wave and resets the 
+         // mSamplesProcessed value so it stays in sync with the index position.
+         if ((mNextScale != mCurrentScale) && (index == 0)) {
+            mCurrentScale = mNextScale;
+            mSamplesProcessed = 0;
+         }
+         
+         // If the audio unit runs for a long time without the user moving the
+         // tremolo frequency slider, resets the mSamplesProcessed value at the 
+         // next positive zero crossing of the tremolo sine wave.
+         if ((mSamplesProcessed >= sampleLimit) && (index == 0))
+            mSamplesProcessed = 0;
+         
+         // Gets the raw tremolo gain from the appropriate wave table.
+         rawTremoloGain = waveArrayPointer [index];
+         
+         // Calculates the final tremolo gain according to the depth setting.
+         tremoloGain      = (rawTremoloGain * tremoloDepth - tremoloDepth + 100.0) * 0.01;
+         
+         // Gets the next input sample.
+         inputSample      = *sourceP;
+         
+         // Calculates the next output sample.
+         outputSample    = (inputSample * tremoloGain);
+         
+         outputSample = (1 - exp(-distortion * inputSample)) / (1 + exp(-distortion * inputSample));
+         
+         // Stores the output sample in the output buffer.
+         *destP        = outputSample;
+         
+         // Advances to the next sample location in the input and output buffers.
+         sourceP        += 1;
+         destP        += 1;
+         
+         // Increments the global samples counter.
+         mSamplesProcessed  += 1;
+      }
+   }
 }
-
